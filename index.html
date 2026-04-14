@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ralskies | Artist Portfolio</title>
+  <meta
+    name="description"
+    content="Independent artist portfolio with latest releases, music videos, and collaboration requests."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="site-nav">
+        <a class="wordmark" href="#top">Ralskies</a>
+        <div class="nav-links">
+          <a href="#latest">Latest</a>
+          <a href="#catalog">Catalog</a>
+          <a href="#collab">Collaborate</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid" id="top">
+        <section class="hero-copy">
+          <p class="eyebrow">Artist Collaboration & Content Agent</p>
+          <h1>New releases stay live. Collaboration requests stay organized.</h1>
+          <p class="hero-text">
+            A static portfolio wired for hands-off updates. Latest YouTube releases can be synced into
+            the site automatically, while collaboration inquiries funnel through a structured form.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#latest">View Latest Release</a>
+            <a class="button button-secondary" href="#collab">Send A Pitch</a>
+          </div>
+        </section>
+
+        <aside class="hero-panel">
+          <p class="panel-label">Current Focus</p>
+          <h2>Independent releases, visual drops, and selective collaborations.</h2>
+          <ul class="hero-points">
+            <li>Automatic media-ready content slots</li>
+            <li>Formspree-backed collaboration intake</li>
+            <li>GitHub Actions nightly refresh pipeline</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="latest">
+        <div class="section-heading">
+          <p class="eyebrow">Latest Release</p>
+          <h2>Featured drop, updated from `data/content.json`.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="release-card">
+            <p class="card-label">Music Video</p>
+            <h3 id="latest-video-title">Loading latest upload...</h3>
+            <p id="latest-video-description" class="muted">
+              The homepage reads release metadata from a local JSON file that can be updated by automation.
+            </p>
+            <div class="link-row">
+              <a id="latest-video-link" class="button button-primary" href="#" target="_blank" rel="noreferrer">
+                Watch on YouTube
+              </a>
+              <a id="latest-video-embed-link" class="button button-secondary" href="#" target="_blank" rel="noreferrer">
+                Open Embed
+              </a>
+            </div>
+          </article>
+
+          <article class="embed-card">
+            <div class="video-frame">
+              <iframe
+                id="latest-video-embed"
+                src=""
+                title="Latest YouTube release"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="catalog">
+        <div class="section-heading">
+          <p class="eyebrow">Media Slots</p>
+          <h2>Prepared for both YouTube and Spotify content.</h2>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-card">
+            <p class="card-label">YouTube Sync</p>
+            <h3 id="youtube-channel-name">Channel placeholder</h3>
+            <p id="youtube-sync-status" class="muted">Awaiting first automated sync.</p>
+            <a id="youtube-channel-link" class="text-link" href="#" target="_blank" rel="noreferrer">Visit channel</a>
+          </article>
+
+          <article class="catalog-card">
+            <p class="card-label">Spotify Placeholder</p>
+            <h3 id="spotify-artist-name">Spotify integration ready</h3>
+            <p id="spotify-status" class="muted">
+              Add Spotify API support later without changing the front-end structure.
+            </p>
+            <a id="spotify-link" class="text-link" href="#" target="_blank" rel="noreferrer">Open artist page</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-accent" id="collab">
+        <div class="section-heading">
+          <p class="eyebrow">Collaborations</p>
+          <h2>Structured pitches only.</h2>
+          <p class="muted">
+            Replace the Formspree endpoint with your own form ID to route submissions to your inbox.
+          </p>
+        </div>
+
+        <form
+          class="collab-form"
+          action="https://formspree.io/f/your-form-id"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New collaboration request from ralskies site">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your full name" required>
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+
+          <label>
+            Company / Artist Name
+            <input type="text" name="company" placeholder="Label, collective, or artist name">
+          </label>
+
+          <label>
+            Project Type
+            <select name="project_type" required>
+              <option value="">Select project type</option>
+              <option value="feature">Song Feature</option>
+              <option value="production">Production</option>
+              <option value="live">Live Performance</option>
+              <option value="brand">Brand Partnership</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            Budget
+            <input type="text" name="budget" placeholder="Estimated budget or rate range">
+          </label>
+
+          <label>
+            Timeline
+            <input type="text" name="timeline" placeholder="Release date or response deadline">
+          </label>
+
+          <label class="full-width">
+            Project Summary
+            <textarea
+              name="summary"
+              rows="6"
+              placeholder="Describe the collaboration, goals, audience, and key links."
+              required
+            ></textarea>
+          </label>
+
+          <label class="full-width">
+            Reference Links
+            <textarea
+              name="links"
+              rows="3"
+              placeholder="Paste links to demos, decks, playlists, or briefs."
+            ></textarea>
+          </label>
+
+          <button class="button button-primary" type="submit">Send Collaboration Request</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

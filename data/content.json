@@ -1,0 +1,22 @@
+{
+  "latestYoutube": {
+    "title": "Latest upload will appear here",
+    "description": "Run the sync script after configuring your YouTube API key and channel ID.",
+    "videoId": "",
+    "videoUrl": "https://www.youtube.com/",
+    "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnailUrl": "",
+    "publishedAt": null
+  },
+  "youtubeChannel": {
+    "name": "Your YouTube Channel",
+    "channelId": "YOUR_CHANNEL_ID",
+    "channelUrl": "https://www.youtube.com/",
+    "lastSyncedAt": null
+  },
+  "spotify": {
+    "artistName": "Your Spotify Artist Profile",
+    "artistUrl": "https://open.spotify.com/",
+    "status": "Spotify sync can be added in a later phase."
+  }
+}
