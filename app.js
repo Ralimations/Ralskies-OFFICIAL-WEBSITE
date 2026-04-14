@@ -59,7 +59,7 @@ function sanitizeEmbedUrl(value) {
 
 function formatSyncDate(value) {
   if (!value) {
-    return "Awaiting first automated sync.";
+    return null;
   }
 
   const date = new Date(value);
@@ -68,6 +68,22 @@ function formatSyncDate(value) {
   }
 
   return `Last synced ${date.toLocaleString()}`;
+}
+
+function setupPointerMotion() {
+  const root = document.documentElement;
+
+  window.addEventListener("pointermove", (event) => {
+    const xRatio = event.clientX / window.innerWidth;
+    const yRatio = event.clientY / window.innerHeight;
+    const motionX = ((xRatio - 0.5) * 36).toFixed(2);
+    const motionY = ((yRatio - 0.5) * 28).toFixed(2);
+
+    root.style.setProperty("--pointer-x", `${(xRatio * 100).toFixed(2)}%`);
+    root.style.setProperty("--pointer-y", `${(yRatio * 100).toFixed(2)}%`);
+    root.style.setProperty("--motion-x", `${motionX}px`);
+    root.style.setProperty("--motion-y", `${motionY}px`);
+  }, { passive: true });
 }
 
 function renderContent(content) {
@@ -103,10 +119,10 @@ function renderContent(content) {
     "youtube-channel-link-hero",
     youtubeChannel.channelUrl || fallbackContent.youtubeChannel.channelUrl
   );
-  setText(
-    "youtube-sync-status",
-    formatSyncDate(youtubeChannel.lastSyncedAt)
-  );
+  const syncStatus = formatSyncDate(youtubeChannel.lastSyncedAt);
+  if (syncStatus) {
+    setText("youtube-sync-status", syncStatus);
+  }
 
   setText("spotify-artist-name", spotify.artistName || fallbackContent.spotify.artistName);
   setText("spotify-status", spotify.status || fallbackContent.spotify.status);
@@ -124,3 +140,5 @@ fetch("./data/content.json")
   })
   .then((content) => renderContent(content))
   .catch(() => renderContent(fallbackContent));
+
+setupPointerMotion();
