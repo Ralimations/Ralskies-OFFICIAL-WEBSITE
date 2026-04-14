@@ -8,6 +8,9 @@
     name="description"
     content="Independent artist portfolio with latest releases, music videos, and collaboration requests."
   >
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com https://yt3.ggpht.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="color-scheme" content="dark">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -84,6 +87,7 @@
                 src=""
                 title="Latest YouTube release"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
               ></iframe>
             </div>
@@ -136,17 +140,17 @@
 
           <label>
             Name
-            <input type="text" name="name" placeholder="Your full name" required>
+            <input type="text" name="name" placeholder="Your full name" maxlength="80" required>
           </label>
 
           <label>
             Email
-            <input type="email" name="email" placeholder="you@example.com" required>
+            <input type="email" name="email" placeholder="you@example.com" maxlength="120" required>
           </label>
 
           <label>
             Company / Artist Name
-            <input type="text" name="company" placeholder="Label, collective, or artist name">
+            <input type="text" name="company" placeholder="Label, collective, or artist name" maxlength="120">
           </label>
 
           <label>
@@ -163,12 +167,12 @@
 
           <label>
             Budget
-            <input type="text" name="budget" placeholder="Estimated budget or rate range">
+            <input type="text" name="budget" placeholder="Estimated budget or rate range" maxlength="60">
           </label>
 
           <label>
             Timeline
-            <input type="text" name="timeline" placeholder="Release date or response deadline">
+            <input type="text" name="timeline" placeholder="Release date or response deadline" maxlength="80">
           </label>
 
           <label class="full-width">
@@ -177,6 +181,7 @@
               name="summary"
               rows="6"
               placeholder="Describe the collaboration, goals, audience, and key links."
+              maxlength="2000"
               required
             ></textarea>
           </label>
@@ -187,9 +192,13 @@
               name="links"
               rows="3"
               placeholder="Paste links to demos, decks, playlists, or briefs."
+              maxlength="1000"
             ></textarea>
           </label>
 
+          <p class="form-note full-width">
+            Use business email only. Submissions are filtered and logged for review. Unsolicited attachments or unrelated promotions are ignored.
+          </p>
           <button class="button button-primary" type="submit">Send Collaboration Request</button>
         </form>
       </section>

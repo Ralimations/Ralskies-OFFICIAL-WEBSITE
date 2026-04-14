@@ -53,7 +53,7 @@ def fetch_latest_video(api_key: str, channel_id: str) -> dict:
     "description": snippet.get("description", "").strip() or "Latest upload synced from YouTube.",
     "videoId": video_id,
     "videoUrl": f"https://www.youtube.com/watch?v={video_id}",
-    "embedUrl": f"https://www.youtube.com/embed/{video_id}",
+    "embedUrl": f"https://www.youtube-nocookie.com/embed/{video_id}",
     "thumbnailUrl": snippet.get("thumbnails", {}).get("high", {}).get("url", ""),
     "publishedAt": snippet.get("publishedAt")
   }

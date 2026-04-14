@@ -3,7 +3,7 @@ const fallbackContent = {
     title: "Latest upload will appear here",
     description: "Run the sync script after configuring your API key and channel ID.",
     videoUrl: "https://www.youtube.com/",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embedUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
     publishedAt: null
   },
   youtubeChannel: {
@@ -35,8 +35,26 @@ function setHref(id, value) {
 function setIframeSrc(id, value) {
   const node = document.getElementById(id);
   if (node) {
-    node.src = value;
+    node.src = sanitizeEmbedUrl(value);
   }
+}
+
+function sanitizeEmbedUrl(value) {
+  if (typeof value !== "string") {
+    return fallbackContent.latestYoutube.embedUrl;
+  }
+
+  try {
+    const url = new URL(value, window.location.href);
+    const allowedHosts = new Set(["www.youtube-nocookie.com"]);
+    if (url.protocol === "https:" && allowedHosts.has(url.hostname)) {
+      return url.toString();
+    }
+  } catch {
+    return fallbackContent.latestYoutube.embedUrl;
+  }
+
+  return fallbackContent.latestYoutube.embedUrl;
 }
 
 function formatSyncDate(value) {
@@ -65,7 +83,7 @@ function renderContent(content) {
   setHref("latest-video-link", latestYoutube.videoUrl || fallbackContent.latestYoutube.videoUrl);
   setHref(
     "latest-video-embed-link",
-    latestYoutube.embedUrl || fallbackContent.latestYoutube.embedUrl
+    sanitizeEmbedUrl(latestYoutube.embedUrl || fallbackContent.latestYoutube.embedUrl)
   );
   setIframeSrc(
     "latest-video-embed",
