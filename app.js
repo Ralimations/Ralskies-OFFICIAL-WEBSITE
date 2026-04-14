@@ -15,8 +15,49 @@ const fallbackContent = {
     artistName: "Your Spotify Artist Profile",
     artistUrl: "https://open.spotify.com/",
     status: "Spotify sync can be added in a later phase."
-  }
+  },
+  testimonials: [
+    {
+      quote: "Curated testimonials and collaborator references can be added here over time.",
+      name: "Future Reference",
+      role: "Approved manually"
+    }
+  ]
 };
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderTestimonials(testimonials) {
+  const list = document.getElementById("testimonial-list");
+  if (!list) {
+    return;
+  }
+
+  const safeTestimonials = Array.isArray(testimonials) && testimonials.length
+    ? testimonials
+    : fallbackContent.testimonials;
+
+  list.innerHTML = safeTestimonials.map((item) => {
+    const quote = escapeHtml(item.quote || "");
+    const name = escapeHtml(item.name || "Anonymous");
+    const role = escapeHtml(item.role || "");
+
+    return `
+      <article class="catalog-card testimonial-card">
+        <p class="card-label">Reference</p>
+        <p class="testimonial-quote">"${quote}"</p>
+        <p class="testimonial-meta">${name}${role ? ` • ${role}` : ""}</p>
+      </article>
+    `;
+  }).join("");
+}
 
 function setText(id, value) {
   const node = document.getElementById(id);
@@ -90,6 +131,7 @@ function renderContent(content) {
   const latestYoutube = content.latestYoutube || fallbackContent.latestYoutube;
   const youtubeChannel = content.youtubeChannel || fallbackContent.youtubeChannel;
   const spotify = content.spotify || fallbackContent.spotify;
+  const testimonials = content.testimonials || fallbackContent.testimonials;
 
   setText("latest-video-title", latestYoutube.title || fallbackContent.latestYoutube.title);
   setText(
@@ -129,6 +171,8 @@ function renderContent(content) {
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-alt", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
+
+  renderTestimonials(testimonials);
 }
 
 fetch("./data/content.json")

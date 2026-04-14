@@ -18,5 +18,12 @@
     "artistName": "Ralskies on Spotify",
     "artistUrl": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b",
     "status": "Listen to official releases and artist updates on Spotify."
-  }
+  },
+  "testimonials": [
+    {
+      "quote": "Curated testimonials and collaborator references can be added here over time.",
+      "name": "Future Reference",
+      "role": "Approved manually"
+    }
+  ]
 }

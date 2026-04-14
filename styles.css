@@ -381,6 +381,10 @@ body::after {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.testimonial-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .release-card,
 .embed-card,
 .catalog-card,
@@ -481,6 +485,25 @@ body::after {
 .credit-card .muted {
   font-size: 0.98rem;
   line-height: 1.78;
+}
+
+.testimonial-card {
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.testimonial-quote {
+  margin: 6px 0 18px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+.testimonial-meta {
+  margin: 0;
+  color: rgba(208, 205, 230, 0.78);
+  font-size: 0.94rem;
+  letter-spacing: 0.01em;
 }
 
 .catalog-card .link-row,
@@ -651,6 +674,48 @@ body::after {
   line-height: 1.5;
 }
 
+.site-footer {
+  margin-top: 88px;
+  padding: 30px 0 8px;
+  border-top: 1px solid rgba(246, 207, 135, 0.12);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.7fr 0.7fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.footer-brand h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.12;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.footer-column a:hover {
+  color: var(--accent-strong);
+  transform: translateX(2px);
+}
+
+.footer-note {
+  margin: 28px 0 0;
+  color: rgba(208, 205, 230, 0.7);
+  font-size: 0.9rem;
+}
+
 .honeypot {
   position: absolute;
   left: -9999px;
@@ -686,6 +751,14 @@ body::after {
   }
 
   .credits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
     grid-template-columns: 1fr;
   }
 
@@ -819,6 +892,11 @@ body::after {
 
   .section-heading {
     margin-bottom: 22px;
+  }
+
+  .site-footer {
+    margin-top: 64px;
+    padding-top: 22px;
   }
 
   .video-frame,
