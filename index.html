@@ -18,6 +18,8 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet"
   >
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -44,7 +46,10 @@
   <div class="page-shell">
     <header class="hero">
       <nav class="site-nav">
-        <a class="wordmark" href="#top">Ralskies</a>
+        <a class="wordmark" href="#top" aria-label="Ralskies home">
+          <img class="site-logo" src="assets/logo.png" alt="Ralskies logo">
+          <span>Ralskies</span>
+        </a>
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#offers">Genres</a>
