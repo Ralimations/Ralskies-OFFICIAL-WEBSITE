@@ -3,6 +3,15 @@ const validationNote = document.getElementById("validation-note");
 const originPageField = document.getElementById("origin-page");
 const loadedAtField = document.getElementById("loaded-at");
 const FORM_MIN_SUBMIT_MS = 4000;
+const MAX_LINK_COUNT = 5;
+const ALLOWED_PROJECT_TYPES = new Set([
+  "promotion",
+  "product-collaboration",
+  "singing-collaboration",
+  "voice-acting",
+  "thumbnail-art",
+  "other"
+]);
 
 function normalizeWhitespace(value) {
   return value.replace(/\s+/g, " ").trim();
@@ -38,6 +47,10 @@ function validateLinksField(field) {
 
   const links = value.split(/\s+/);
   const allValid = links.every((link) => /^https?:\/\/\S+$/i.test(link));
+  if (links.length > MAX_LINK_COUNT) {
+    field.setCustomValidity(`Please keep reference links to ${MAX_LINK_COUNT} or fewer.`);
+    return;
+  }
   field.setCustomValidity(
     allValid ? "" : "Reference links must be full URLs starting with http:// or https://"
   );
@@ -84,21 +97,36 @@ function validateNameLikeField(field, minLength, message) {
   field.setCustomValidity("");
 }
 
+function validateProjectTypeField(field) {
+  if (!field) {
+    return;
+  }
+
+  const value = normalizeWhitespace(field.value);
+  field.setCustomValidity(
+    !value || ALLOWED_PROJECT_TYPES.has(value)
+      ? ""
+      : "Please choose a valid project type from the list."
+  );
+}
+
 if (collabForm) {
   const formLoadedAt = Date.now();
   const summaryField = collabForm.querySelector('textarea[name="summary"]');
   const linksField = collabForm.querySelector('textarea[name="links"]');
+  const projectTypeField = collabForm.querySelector('select[name="project_type"]');
   const nameField = collabForm.querySelector('input[name="name"]');
   const companyField = collabForm.querySelector('input[name="company"]');
   const budgetField = collabForm.querySelector('input[name="budget"]');
   const timelineField = collabForm.querySelector('input[name="timeline"]');
+  const submitButton = collabForm.querySelector('button[type="submit"]');
   const honeypotFields = [
     collabForm.querySelector('input[name="_gotcha"]'),
     collabForm.querySelector('input[name="website"]')
   ];
 
   if (originPageField) {
-    originPageField.value = window.location.href;
+    originPageField.value = window.location.pathname;
   }
 
   if (loadedAtField) {
@@ -109,7 +137,7 @@ if (collabForm) {
     validateNameLikeField(
       nameField,
       2,
-      "Please enter a real full name."
+      "Please enter your name or artist name."
     );
     setValidationMessage("");
   });
@@ -120,6 +148,11 @@ if (collabForm) {
       2,
       "Please enter a real artist, company, or collective name."
     );
+    setValidationMessage("");
+  });
+
+  projectTypeField?.addEventListener("change", () => {
+    validateProjectTypeField(projectTypeField);
     setValidationMessage("");
   });
 
@@ -160,7 +193,7 @@ if (collabForm) {
 
   collabForm.addEventListener("submit", (event) => {
     if (nameField) {
-      validateNameLikeField(nameField, 2, "Please enter a real full name.");
+      validateNameLikeField(nameField, 2, "Please enter your name or artist name.");
     }
     if (companyField) {
       validateNameLikeField(
@@ -171,6 +204,9 @@ if (collabForm) {
     }
     if (summaryField) {
       validateSummaryField(summaryField);
+    }
+    if (projectTypeField) {
+      validateProjectTypeField(projectTypeField);
     }
     if (linksField) {
       validateLinksField(linksField);
@@ -200,6 +236,10 @@ if (collabForm) {
       return;
     }
 
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
     setValidationMessage("");
   });
 }

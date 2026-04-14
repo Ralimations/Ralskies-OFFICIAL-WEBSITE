@@ -66,10 +66,31 @@ function setText(id, value) {
   }
 }
 
+function sanitizeExternalUrl(value, fallback) {
+  if (typeof value !== "string") {
+    return fallback;
+  }
+
+  try {
+    const url = new URL(value, window.location.href);
+    const isSameOrigin = url.origin === window.location.origin;
+    const isSafeExternal = url.protocol === "https:";
+
+    if (isSameOrigin || isSafeExternal) {
+      return url.toString();
+    }
+  } catch {
+    return fallback;
+  }
+
+  return fallback;
+}
+
 function setHref(id, value) {
   const node = document.getElementById(id);
   if (node) {
-    node.href = value;
+    const fallback = node.getAttribute("data-fallback-href") || fallbackContent.latestYoutube.videoUrl;
+    node.href = sanitizeExternalUrl(value, fallback);
   }
 }
 
