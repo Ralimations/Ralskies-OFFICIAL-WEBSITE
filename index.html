@@ -6,8 +6,9 @@
   <title>Ralskies | Artist Portfolio</title>
   <meta
     name="description"
-    content="Independent artist portfolio with latest releases, music videos, and collaboration requests."
+    content="Ralskies artist portfolio for music, visuals, promotions, and collaboration inquiries."
   >
+  <meta name="robots" content="noindex, nofollow, noarchive">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com https://yt3.ggpht.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="color-scheme" content="dark">
@@ -34,10 +35,11 @@
       <div class="hero-grid" id="top">
         <section class="hero-copy">
           <p class="eyebrow">Artist Collaboration & Content Agent</p>
-          <h1>New releases stay live. Collaboration requests stay organized.</h1>
+          <h1>Ralskies. Music, visuals, promotions, and selective collaborations.</h1>
           <p class="hero-text">
-            A static portfolio wired for hands-off updates. Latest YouTube releases can be synced into
-            the site automatically, while collaboration inquiries funnel through a structured form.
+            This space is built as a direct point of contact for releases, promotional opportunities,
+            features, and project-based collaborations. If you are reaching out, make it specific,
+            professional, and easy to review.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#latest">View Latest Release</a>
@@ -47,11 +49,11 @@
 
         <aside class="hero-panel">
           <p class="panel-label">Current Focus</p>
-          <h2>Independent releases, visual drops, and selective collaborations.</h2>
+          <h2>Independent drops, visual identity, and collaboration opportunities worth the time.</h2>
           <ul class="hero-points">
-            <li>Automatic media-ready content slots</li>
-            <li>Formspree-backed collaboration intake</li>
-            <li>GitHub Actions nightly refresh pipeline</li>
+            <li>Latest releases surfaced in one place</li>
+            <li>Structured inquiry form for serious pitches</li>
+            <li>Direct portfolio link for collaborators and promoters</li>
           </ul>
         </aside>
       </div>
@@ -61,14 +63,15 @@
       <section class="section" id="latest">
         <div class="section-heading">
           <p class="eyebrow">Latest Release</p>
-          <h2>Featured drop, updated from `data/content.json`.</h2>
+          <h2>Featured release and latest visual update.</h2>
         </div>
         <div class="feature-grid">
           <article class="release-card">
             <p class="card-label">Music Video</p>
             <h3 id="latest-video-title">Loading latest upload...</h3>
             <p id="latest-video-description" class="muted">
-              The homepage reads release metadata from a local JSON file that can be updated by automation.
+              The newest release appears here so collaborators, curators, and potential partners can
+              immediately see the latest active work.
             </p>
             <div class="link-row">
               <a id="latest-video-link" class="button button-primary" href="#" target="_blank" rel="noreferrer">
@@ -98,7 +101,7 @@
       <section class="section" id="catalog">
         <div class="section-heading">
           <p class="eyebrow">Media Slots</p>
-          <h2>Prepared for both YouTube and Spotify content.</h2>
+          <h2>Current channels and release touchpoints.</h2>
         </div>
 
         <div class="catalog-grid">
@@ -113,7 +116,7 @@
             <p class="card-label">Spotify Placeholder</p>
             <h3 id="spotify-artist-name">Spotify integration ready</h3>
             <p id="spotify-status" class="muted">
-              Add Spotify API support later without changing the front-end structure.
+              Spotify support can be added next for official release tracking and listening links.
             </p>
             <a id="spotify-link" class="text-link" href="#" target="_blank" rel="noreferrer">Open artist page</a>
           </article>
@@ -123,9 +126,10 @@
       <section class="section section-accent" id="collab">
         <div class="section-heading">
           <p class="eyebrow">Collaborations</p>
-          <h2>Structured pitches only.</h2>
+          <h2>Send a clear pitch.</h2>
           <p class="muted">
-            Replace the Formspree endpoint with your own form ID to route submissions to your inbox.
+            Use this for music features, production inquiries, promotional opportunities, partnerships,
+            booking, or other serious proposals.
           </p>
         </div>
 
@@ -145,7 +149,7 @@
 
           <label>
             Email
-            <input type="email" name="email" placeholder="you@example.com" maxlength="120" required>
+            <input type="email" name="_replyto" placeholder="you@example.com" maxlength="120" required>
           </label>
 
           <label>
@@ -197,7 +201,8 @@
           </label>
 
           <p class="form-note full-width">
-            Use business email only. Submissions are filtered and logged for review. Unsolicited attachments or unrelated promotions are ignored.
+            Contact details are used only for review and reply. Irrelevant mass outreach, vague offers,
+            and unsolicited promotional spam are ignored.
           </p>
           <button class="button button-primary" type="submit">Send Collaboration Request</button>
         </form>
