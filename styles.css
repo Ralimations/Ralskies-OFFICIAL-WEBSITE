@@ -162,6 +162,10 @@ body::after {
   margin-top: 34px;
 }
 
+.compact-links {
+  margin-top: 18px;
+}
+
 .button {
   display: inline-flex;
   align-items: center;

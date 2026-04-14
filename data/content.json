@@ -1,22 +1,22 @@
 {
   "latestYoutube": {
-    "title": "Latest upload will appear here",
-    "description": "Run the sync script after configuring your YouTube API key and channel ID.",
-    "videoId": "",
-    "videoUrl": "https://www.youtube.com/",
-    "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+    "title": "Pretty Little Baby Male Version (cover by Ralskies)",
+    "description": "A confirmed public Ralskies cover currently featured on the site while the automatic latest-video sync is still being finalized.",
+    "videoId": "4UrYweLD5uU",
+    "videoUrl": "https://www.youtube.com/watch?v=4UrYweLD5uU",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/4UrYweLD5uU",
     "thumbnailUrl": "",
-    "publishedAt": null
+    "publishedAt": "2025-05-12T00:00:00Z"
   },
   "youtubeChannel": {
-    "name": "Your YouTube Channel",
-    "channelId": "YOUR_CHANNEL_ID",
-    "channelUrl": "https://www.youtube.com/",
+    "name": "Ralskies on YouTube",
+    "channelId": "UCIt8eA8uvrDVbpta0pgIc5Q",
+    "channelUrl": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q",
     "lastSyncedAt": null
   },
   "spotify": {
-    "artistName": "Your Spotify Artist Profile",
-    "artistUrl": "https://open.spotify.com/",
-    "status": "Spotify sync can be added in a later phase."
+    "artistName": "Ralskies on Spotify",
+    "artistUrl": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b",
+    "status": "Listen to official releases and artist updates on Spotify."
   }
 }
