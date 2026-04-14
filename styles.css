@@ -46,9 +46,9 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 1px, transparent 1.6px) 0 0 / 28px 28px,
-    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(53, 104, 255, 0.18), transparent 18%),
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(53, 104, 255, 0.08), transparent 14%),
     linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 22%, transparent 78%, rgba(255, 255, 255, 0.03));
-  opacity: 0.18;
+  opacity: 0.1;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
 }
 
@@ -88,9 +88,9 @@ body::after {
   border-radius: 50%;
   background:
     radial-gradient(circle at center, rgba(39, 102, 255, 0.56), rgba(27, 73, 204, 0.34) 36%, transparent 72%);
-  filter: blur(24px);
-  opacity: 0.92;
-  transform: translate(calc(var(--motion-x) * 0.08), calc(var(--motion-y) * 0.08));
+  filter: blur(34px);
+  opacity: 0.74;
+  transform: translate(calc(var(--motion-x) * 0.03), calc(var(--motion-y) * 0.03));
 }
 
 .contour {
@@ -99,24 +99,24 @@ body::after {
   width: 100%;
   height: 100%;
   fill: none;
-  stroke: rgba(244, 193, 98, 0.42);
+  stroke: rgba(244, 193, 98, 0.2);
   stroke-linecap: round;
-  stroke-width: 2.1;
-  filter: drop-shadow(0 0 10px rgba(244, 184, 75, 0.15));
+  stroke-width: 1.35;
+  filter: drop-shadow(0 0 5px rgba(244, 184, 75, 0.06));
 }
 
 .contour path {
-  animation: wave-drift 15s ease-in-out infinite;
+  animation: wave-drift 30s ease-in-out infinite;
 }
 
 .contour-left {
-  transform: translate3d(calc(var(--motion-x) * -0.16), calc(var(--motion-y) * -0.09), 0);
-  opacity: 0.94;
+  transform: translate3d(calc(var(--motion-x) * -0.035), calc(var(--motion-y) * -0.02), 0);
+  opacity: 0.4;
 }
 
 .contour-right {
-  transform: translate3d(calc(var(--motion-x) * 0.18), calc(var(--motion-y) * 0.08), 0);
-  opacity: 0.92;
+  transform: translate3d(calc(var(--motion-x) * 0.04), calc(var(--motion-y) * 0.025), 0);
+  opacity: 0.38;
 }
 
 .contour-right path:nth-child(2n),
@@ -209,37 +209,6 @@ body::after {
   font-size: clamp(3rem, 7vw, 5.9rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-}
-
-.hero-mark {
-  width: 72px;
-  height: 72px;
-  margin-bottom: 18px;
-  border-radius: 50%;
-  border: 1px solid rgba(244, 184, 75, 0.24);
-  background:
-    radial-gradient(circle at center, rgba(255, 210, 122, 0.14), transparent 62%),
-    linear-gradient(145deg, rgba(244, 184, 75, 0.08), rgba(78, 86, 255, 0.1));
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 0 24px rgba(244, 184, 75, 0.12);
-  position: relative;
-}
-
-.hero-mark::before,
-.hero-mark::after {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border-radius: 50%;
-  border: 1px solid rgba(244, 184, 75, 0.36);
-}
-
-.hero-mark::after {
-  inset: 24px 18px 18px;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  transform: rotate(45deg);
 }
 
 .hero-text {
@@ -527,12 +496,12 @@ body::after {
   0%,
   100% {
     transform: translateY(0) scaleX(1);
-    opacity: 0.9;
+    opacity: 0.62;
   }
 
   50% {
-    transform: translateY(12px) scaleX(1.015);
-    opacity: 1;
+    transform: translateY(4px) scaleX(1.005);
+    opacity: 0.72;
   }
 }
 
