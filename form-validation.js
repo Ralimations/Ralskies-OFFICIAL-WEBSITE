@@ -1,5 +1,8 @@
 const collabForm = document.querySelector(".collab-form");
 const validationNote = document.getElementById("validation-note");
+const originPageField = document.getElementById("origin-page");
+const loadedAtField = document.getElementById("loaded-at");
+const FORM_MIN_SUBMIT_MS = 4000;
 
 function normalizeWhitespace(value) {
   return value.replace(/\s+/g, " ").trim();
@@ -19,6 +22,11 @@ function looksGeneric(value) {
   ];
 
   return blockedPhrases.some((phrase) => lowered === phrase || lowered.includes(`${phrase}${phrase}`));
+}
+
+function hasSuspiciousUrlCount(value) {
+  const matches = value.match(/https?:\/\//gi);
+  return matches ? matches.length > 5 : false;
 }
 
 function validateLinksField(field) {
@@ -53,6 +61,11 @@ function validateSummaryField(field) {
     return;
   }
 
+  if (hasSuspiciousUrlCount(value)) {
+    field.setCustomValidity("Please keep the summary focused and move links to the reference links field.");
+    return;
+  }
+
   field.setCustomValidity("");
 }
 
@@ -72,12 +85,25 @@ function validateNameLikeField(field, minLength, message) {
 }
 
 if (collabForm) {
+  const formLoadedAt = Date.now();
   const summaryField = collabForm.querySelector('textarea[name="summary"]');
   const linksField = collabForm.querySelector('textarea[name="links"]');
   const nameField = collabForm.querySelector('input[name="name"]');
   const companyField = collabForm.querySelector('input[name="company"]');
   const budgetField = collabForm.querySelector('input[name="budget"]');
   const timelineField = collabForm.querySelector('input[name="timeline"]');
+  const honeypotFields = [
+    collabForm.querySelector('input[name="_gotcha"]'),
+    collabForm.querySelector('input[name="website"]')
+  ];
+
+  if (originPageField) {
+    originPageField.value = window.location.href;
+  }
+
+  if (loadedAtField) {
+    loadedAtField.value = String(formLoadedAt);
+  }
 
   nameField?.addEventListener("input", () => {
     validateNameLikeField(
@@ -148,6 +174,19 @@ if (collabForm) {
     }
     if (linksField) {
       validateLinksField(linksField);
+    }
+
+    const filledTrap = honeypotFields.some((field) => field && normalizeWhitespace(field.value));
+    if (filledTrap) {
+      event.preventDefault();
+      setValidationMessage("Submission blocked.");
+      return;
+    }
+
+    if (Date.now() - formLoadedAt < FORM_MIN_SUBMIT_MS) {
+      event.preventDefault();
+      setValidationMessage("Please take a moment to complete the form before submitting.");
+      return;
     }
 
     if (!collabForm.checkValidity()) {

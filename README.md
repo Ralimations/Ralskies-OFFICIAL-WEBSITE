@@ -92,9 +92,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\register_youtube_sync_task.ps
 
 - Add only repository secrets in GitHub Actions. Do not hardcode API keys in source files.
 - Replace the placeholder Formspree endpoint before publishing.
-- Keep Formspree spam protection enabled.
+- Keep Formspree spam protection enabled. Do not disable captcha/spam checks in the form markup.
 - Review workflow runs after the first manual sync to confirm only `data/content.json` is changing.
 - If you later add Google Sheets or auto-response logic, isolate those credentials in GitHub Actions secrets or Google Apps Script properties.
+- Turn on Formspree's built-in spam filtering and any reCAPTCHA/Turnstile option available in your Formspree dashboard.
 
 ## Automation fallback options
 

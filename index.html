@@ -246,10 +246,13 @@
           class="collab-form"
           action="https://formspree.io/f/xbdqlryk"
           method="POST"
+          novalidate
         >
           <input type="hidden" name="_subject" value="New collaboration request from ralskies site">
-          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_origin_page" id="origin-page" value="">
+          <input type="hidden" name="_loaded_at" id="loaded-at" value="">
           <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+          <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <label>
             Name
