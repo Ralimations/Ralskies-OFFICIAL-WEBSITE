@@ -253,22 +253,50 @@
 
           <label>
             Name
-            <input type="text" name="name" placeholder="Your full name" maxlength="80" required>
+            <input
+              class="form-input"
+              type="text"
+              name="name"
+              placeholder="Your full name"
+              maxlength="80"
+              minlength="2"
+              pattern="^[A-Za-z][A-Za-z\s'.-]{1,79}$"
+              title="Enter a real name using letters, spaces, apostrophes, periods, or hyphens."
+              required
+            >
           </label>
 
           <label>
             Email
-            <input type="email" name="_replyto" placeholder="you@example.com" maxlength="120" required>
+            <input
+              class="form-input"
+              type="email"
+              name="_replyto"
+              placeholder="you@example.com"
+              maxlength="120"
+              autocomplete="email"
+              title="Enter a valid business or personal email address."
+              required
+            >
           </label>
 
           <label>
             Company / Artist Name
-            <input type="text" name="company" placeholder="Label, collective, or artist name" maxlength="120">
+            <input
+              class="form-input"
+              type="text"
+              name="company"
+              placeholder="Label, collective, or artist name"
+              maxlength="120"
+              minlength="2"
+              pattern="^[A-Za-z0-9][A-Za-z0-9\s&()'.,-]{1,119}$"
+              title="Use a real artist, company, or collective name."
+            >
           </label>
 
           <label>
             Project Type
-            <select name="project_type" required>
+            <select class="form-input" name="project_type" required>
               <option value="">Select project type</option>
               <option value="feature">Song Feature</option>
               <option value="production">Production</option>
@@ -280,21 +308,41 @@
 
           <label>
             Budget
-            <input type="text" name="budget" placeholder="Estimated budget or rate range" maxlength="60">
+            <input
+              class="form-input"
+              type="text"
+              name="budget"
+              placeholder="Example: $150 USD, $300-$500, unpaid passion project"
+              maxlength="60"
+              minlength="2"
+              pattern="^(?:\$?\d[\d,]*(?:\s?-\s?\$?\d[\d,]*)?(?:\s?(?:USD|PHP|EUR))?|[A-Za-z][A-Za-z0-9\s,.-]{1,59})$"
+              title="Enter a budget, rate range, or a clear budget note."
+            >
           </label>
 
           <label>
             Timeline
-            <input type="text" name="timeline" placeholder="Release date or response deadline" maxlength="80">
+            <input
+              class="form-input"
+              type="text"
+              name="timeline"
+              placeholder="Example: Needed by May 30 or flexible for June"
+              maxlength="80"
+              minlength="4"
+              pattern="^(?=.*[A-Za-z0-9])[A-Za-z0-9\s,./-]{4,80}$"
+              title="Enter a real date, month, or deadline note."
+            >
           </label>
 
           <label class="full-width">
             Project Summary
             <textarea
+              class="form-input"
               name="summary"
               rows="6"
-              placeholder="Describe the collaboration, goals, audience, and key links."
+              placeholder="Describe the project, what you need vocally, the vibe, audience, and why Ralskies is a good fit."
               maxlength="2000"
+              minlength="40"
               required
             ></textarea>
           </label>
@@ -302,10 +350,12 @@
           <label class="full-width">
             Reference Links
             <textarea
+              class="form-input"
               name="links"
               rows="3"
-              placeholder="Paste links to demos, decks, playlists, or briefs."
+              placeholder="Paste links to demos, docs, decks, playlists, or references. Separate multiple links with spaces."
               maxlength="1000"
+              title="Enter one or more full links starting with http:// or https://"
             ></textarea>
           </label>
 
@@ -313,6 +363,7 @@
             Contact details are used only for review and reply. Irrelevant mass outreach, vague offers,
             and unsolicited promotional spam are ignored.
           </p>
+          <p class="validation-note full-width" id="validation-note" aria-live="polite"></p>
           <button class="button button-primary" type="submit">Send Collaboration Request</button>
         </form>
       </section>
@@ -320,5 +371,6 @@
   </div>
 
   <script src="app.js"></script>
+  <script src="form-validation.js"></script>
 </body>
 </html>
