@@ -1,12 +1,12 @@
 {
   "latestYoutube": {
-    "title": "Pretty Little Baby Male Version (cover by Ralskies)",
-    "description": "A confirmed public Ralskies cover currently featured on the site while the automatic latest-video sync is still being finalized.",
-    "videoId": "4UrYweLD5uU",
-    "videoUrl": "https://www.youtube.com/watch?v=4UrYweLD5uU",
-    "embedUrl": "https://www.youtube-nocookie.com/embed/4UrYweLD5uU",
+    "title": "Featured Release",
+    "description": "This is the current featured showcase on the site and the piece chosen to represent Ralskies' strongest work right now.",
+    "videoId": "TteKHjCsF-0",
+    "videoUrl": "https://www.youtube.com/watch?v=TteKHjCsF-0",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
     "thumbnailUrl": "",
-    "publishedAt": "2025-05-12T00:00:00Z"
+    "publishedAt": null
   },
   "youtubeChannel": {
     "name": "Ralskies on YouTube",
