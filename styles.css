@@ -196,6 +196,12 @@ body::after {
   border-color: rgba(126, 133, 255, 0.26);
 }
 
+.button-tertiary {
+  background: transparent;
+  color: var(--accent-strong);
+  border-color: rgba(244, 184, 75, 0.32);
+}
+
 .hero-panel,
 .release-card,
 .embed-card,

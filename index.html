@@ -29,6 +29,7 @@
           <a href="#about">About</a>
           <a href="#offers">Genres</a>
           <a href="#latest">Latest</a>
+          <a href="#support">Support</a>
           <a href="#collab">Collaborate</a>
         </div>
       </nav>
@@ -46,6 +47,7 @@
           <div class="hero-actions">
             <a class="button button-primary" href="#latest">Hear Latest Work</a>
             <a class="button button-secondary" href="#collab">Collaborate</a>
+            <a class="button button-tertiary" href="#support">Request A Song</a>
           </div>
         </section>
 
@@ -211,6 +213,14 @@
               <a id="youtube-channel-link-alt" class="button button-secondary" href="#" target="_blank" rel="noreferrer">
                 Open On YouTube
               </a>
+              <a
+                class="button button-tertiary"
+                href="https://www.youtube.com/playlist?list=PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Best Of Playlist
+              </a>
             </div>
           </article>
 
@@ -227,7 +237,101 @@
               <a id="spotify-link-alt" class="button button-secondary" href="#" target="_blank" rel="noreferrer">
                 Artist Page
               </a>
+              <a
+                class="button button-tertiary"
+                href="https://discord.com/invite/dvdPA7mdcQ"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join Discord
+              </a>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="support">
+        <div class="section-heading">
+          <p class="eyebrow">Support</p>
+          <h2>Request a song or support future covers.</h2>
+          <p class="muted">
+            If you want to hear a specific song from Ralskies or support future music, use the options
+            below. Requests with a clear idea or emotional angle are easier to prioritize.
+          </p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-card">
+            <p class="card-label">Request A Song</p>
+            <h3>Send a song idea, theme, or concept worth reimagining.</h3>
+            <p class="muted">
+              Best for covers, male-key versions, theatrical reworks, Disney-style reinterpretations, or
+              songs that would fit the voice and style well.
+            </p>
+            <div class="link-row compact-links">
+              <a class="button button-primary" href="https://ko-fi.com/ralskies" target="_blank" rel="noreferrer">
+                Request On Ko-fi
+              </a>
+              <a class="button button-secondary" href="#collab">Use Contact Form</a>
+            </div>
+          </article>
+
+          <article class="catalog-card">
+            <p class="card-label">Support / Donate</p>
+            <h3>Help fund future covers, collaborations, and recording work.</h3>
+            <p class="muted">
+              Support helps fund future releases, covers, and better production. If you want to back the
+              music directly, Ko-fi is the easiest way to do it.
+            </p>
+            <div class="link-row compact-links">
+              <a
+                id="donation-link"
+                class="button button-primary"
+                href="https://ko-fi.com/ralskies"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Support On Ko-fi
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://discord.com/invite/dvdPA7mdcQ"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join Discord
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="gear">
+        <div class="section-heading">
+          <p class="eyebrow">Gear</p>
+          <h2>Budget setup, real results.</h2>
+          <p class="muted">
+            The work is recorded from a home setup built around accessible gear and a performance-first
+            approach.
+          </p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-card">
+            <p class="card-label">Microphone</p>
+            <h3>Sennheiser XS-1</h3>
+            <p class="muted">
+              A simple, budget-friendly mic setup used to capture the vocal takes behind the channel.
+            </p>
+          </article>
+
+          <article class="catalog-card">
+            <p class="card-label">Interface</p>
+            <h3>M-Track DUO</h3>
+            <p class="muted">
+              Clean home-recording workflow built around accessible gear instead of expensive studio-only
+              hardware.
+            </p>
           </article>
         </div>
       </section>
@@ -289,7 +393,7 @@
               class="form-input"
               type="text"
               name="company"
-              placeholder="Label, collective, or artist name"
+              placeholder="Label, collective, artist name, or fan/supporter name"
               maxlength="120"
               minlength="2"
               pattern="^[A-Za-z0-9][A-Za-z0-9\s&()'.,-]{1,119}$"
@@ -301,10 +405,10 @@
             Project Type
             <select class="form-input" name="project_type" required>
               <option value="">Select project type</option>
-              <option value="feature">Song Feature</option>
-              <option value="production">Production</option>
-              <option value="live">Live Performance</option>
-              <option value="brand">Brand Partnership</option>
+              <option value="promotion">Promotion</option>
+              <option value="product-collaboration">Product Collaboration</option>
+              <option value="singing-collaboration">Singing Collaboration</option>
+              <option value="voice-acting">Voice Acting</option>
               <option value="other">Other</option>
             </select>
           </label>
