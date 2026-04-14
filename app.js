@@ -95,6 +95,10 @@ function renderContent(content) {
     "youtube-channel-link",
     youtubeChannel.channelUrl || fallbackContent.youtubeChannel.channelUrl
   );
+  setHref(
+    "youtube-channel-link-hero",
+    youtubeChannel.channelUrl || fallbackContent.youtubeChannel.channelUrl
+  );
   setText(
     "youtube-sync-status",
     formatSyncDate(youtubeChannel.lastSyncedAt)
@@ -103,6 +107,7 @@ function renderContent(content) {
   setText("spotify-artist-name", spotify.artistName || fallbackContent.spotify.artistName);
   setText("spotify-status", spotify.status || fallbackContent.spotify.status);
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
+  setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 }
 
 fetch("./data/content.json")
