@@ -19,6 +19,43 @@
     "artistUrl": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b",
     "status": "Listen to official releases and artist updates on Spotify."
   },
+  "genreSection": {
+    "eyebrow": "Genres & Niches",
+    "title": "The styles and specialties that define the sound.",
+    "items": [
+      {
+        "label": "Theatrical",
+        "title": "Musical theatre, show tunes, Broadway-inspired writing, and character-led songs.",
+        "description": "Best for material that needs acting-through-song, dramatic pacing, and vocals that feel like they belong to a character or a scene instead of a neutral take."
+      },
+      {
+        "label": "Reimagined Covers",
+        "title": "Genderbent arrangements, Disney-fied renditions, and story-driven reinterpretations.",
+        "description": "Strong for songs that deserve a new perspective, especially female-led tracks adapted into male-key arrangements or contemporary songs transformed into bigger, cinematic performances."
+      },
+      {
+        "label": "Pop, Indie, K-pop & J-pop",
+        "title": "Polished melodic vocals for internet-native, emotionally bright, or collaboration-heavy tracks.",
+        "description": "A good fit for hooks, duet parts, harmony-heavy covers, and songs influenced by idol-pop, indie-pop, acoustic rearrangements, or animation-adjacent music culture."
+      }
+    ]
+  },
+  "fitSection": {
+    "eyebrow": "Those Who Wish To Collaborate",
+    "title": "Bring a real concept and a part worth performing.",
+    "items": [
+      {
+        "label": "Open To",
+        "title": "Duets, featured vocals, covers, originals, themed projects, and selective promotions.",
+        "description": "Ralskies is open to projects from producers, mixers, animators, vocalists, VTubers, and online creators who want a vocal performance with identity. The strongest projects usually have a demo, references, deadline, and a clear idea of the role."
+      },
+      {
+        "label": "Vocal Profile",
+        "title": "Warm, expressive, studio-ready vocals for both contemporary and theatrical styles.",
+        "description": "Best suited for theatrical expression, harmonization, emotional leads, and collaborative arrangements. If you know the exact voice type or target range you need, include it in your pitch so the part can be evaluated properly."
+      }
+    ]
+  },
   "featuredWorks": [
     {
       "label": "Current Showcase",
@@ -51,6 +88,92 @@
       "thumbnailAlt": "Thumbnail for Gabriel role in Wolfywhite's Archangels"
     }
   ],
+  "gearSection": {
+    "eyebrow": "Gear",
+    "title": "Budget setup, real results.",
+    "description": "The work is recorded from a home setup built around accessible gear and a performance-first approach.",
+    "items": [
+      {
+        "label": "Microphone",
+        "title": "Sennheiser XS-1",
+        "description": "A simple, budget-friendly mic setup used to capture the vocal takes behind the channel."
+      },
+      {
+        "label": "Microphone",
+        "title": "Maono AU-A04",
+        "description": "Another accessible mic in the recording setup, used as part of the channel's budget-friendly home studio workflow."
+      },
+      {
+        "label": "Interface",
+        "title": "M-Track DUO",
+        "description": "Clean home-recording workflow built around accessible gear instead of expensive studio-only hardware."
+      }
+    ]
+  },
+  "supportSection": {
+    "eyebrow": "Support",
+    "title": "Request a song or support future covers.",
+    "description": "If you want to hear a specific song from Ralskies or support future music, use the options below. Requests with a clear idea or emotional angle are easier to prioritize.",
+    "items": [
+      {
+        "label": "Request A Song",
+        "title": "Send a song idea, theme, or concept worth reimagining.",
+        "description": "Best for covers, male-key versions, theatrical reworks, Disney-style reinterpretations, or songs that would fit the voice and style well.",
+        "links": [
+          {
+            "label": "Request On Ko-fi",
+            "href": "https://ko-fi.com/ralskies"
+          },
+          {
+            "label": "Use Contact Form",
+            "href": "#collab"
+          }
+        ]
+      },
+      {
+        "label": "Support / Donate",
+        "title": "Help fund future covers, collaborations, and recording work.",
+        "description": "Support helps fund future releases, covers, and better production. If you want to back the music directly, Ko-fi is the easiest way to do it.",
+        "links": [
+          {
+            "label": "Support On Ko-fi",
+            "href": "https://ko-fi.com/ralskies"
+          },
+          {
+            "label": "Join Discord",
+            "href": "https://discord.gg/5yyhHJxfS2"
+          }
+        ]
+      }
+    ]
+  },
+  "fanArtSection": {
+    "eyebrow": "Want To Make Art For Ralskies?",
+    "title": "Fan art, illustrations, edits, and visual tributes are always appreciated.",
+    "description": "If you create art inspired by Ralskies, there is a place for it here too. Whether it is stylized fan art, thumbnails, edits, or other visual work, the support and creativity are genuinely valued.",
+    "items": [
+      {
+        "label": "What To Send",
+        "title": "Fan art, edits, concepts, posters, or tribute visuals.",
+        "description": "Finished pieces, work-in-progress previews, and stylized concepts are all welcome as long as they are respectful and clearly inspired by the music, persona, or content."
+      },
+      {
+        "label": "Where To Share",
+        "title": "Use Discord or the contact form to send your work.",
+        "description": "If you want the best chance of the art being seen, share it through the Discord community or send it directly through the form with links to the artwork.",
+        "links": [
+          {
+            "label": "Share On Discord",
+            "href": "https://discord.gg/5yyhHJxfS2"
+          },
+          {
+            "label": "Use Contact Form",
+            "href": "#collab"
+          }
+        ]
+      }
+    ]
+  },
   "testimonials": [
     {
       "quote": "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",

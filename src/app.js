@@ -1,4 +1,87 @@
 const fallbackContent = {
+  genreSection: {
+    eyebrow: "Genres & Niches",
+    title: "The styles and specialties that define the sound.",
+    items: [
+      {
+        label: "Theatrical",
+        title: "Musical theatre, show tunes, Broadway-inspired writing, and character-led songs.",
+        description: "Best for material that needs acting-through-song, dramatic pacing, and vocals that feel like they belong to a character or a scene instead of a neutral take."
+      },
+      {
+        label: "Reimagined Covers",
+        title: "Genderbent arrangements, Disney-fied renditions, and story-driven reinterpretations.",
+        description: "Strong for songs that deserve a new perspective, especially female-led tracks adapted into male-key arrangements or contemporary songs transformed into bigger, cinematic performances."
+      },
+      {
+        label: "Pop, Indie, K-pop & J-pop",
+        title: "Polished melodic vocals for internet-native, emotionally bright, or collaboration-heavy tracks.",
+        description: "A good fit for hooks, duet parts, harmony-heavy covers, and songs influenced by idol-pop, indie-pop, acoustic rearrangements, or animation-adjacent music culture."
+      }
+    ]
+  },
+  fitSection: {
+    eyebrow: "Those Who Wish To Collaborate",
+    title: "Bring a real concept and a part worth performing.",
+    items: [
+      {
+        label: "Open To",
+        title: "Duets, featured vocals, covers, originals, themed projects, and selective promotions.",
+        description: "Ralskies is open to projects from producers, mixers, animators, vocalists, VTubers, and online creators who want a vocal performance with identity. The strongest projects usually have a demo, references, deadline, and a clear idea of the role."
+      },
+      {
+        label: "Vocal Profile",
+        title: "Warm, expressive, studio-ready vocals for both contemporary and theatrical styles.",
+        description: "Best suited for theatrical expression, harmonization, emotional leads, and collaborative arrangements. If you know the exact voice type or target range you need, include it in your pitch so the part can be evaluated properly."
+      }
+    ]
+  },
+  fanArtSection: {
+    eyebrow: "Want To Make Art For Ralskies?",
+    title: "Fan art, illustrations, edits, and visual tributes are always appreciated.",
+    description: "If you create art inspired by Ralskies, there is a place for it here too. Whether it is stylized fan art, thumbnails, edits, or other visual work, the support and creativity are genuinely valued.",
+    items: [
+      {
+        label: "What To Send",
+        title: "Fan art, edits, concepts, posters, or tribute visuals.",
+        description: "Finished pieces, work-in-progress previews, and stylized concepts are all welcome as long as they are respectful and clearly inspired by the music, persona, or content."
+      },
+      {
+        label: "Where To Share",
+        title: "Use Discord or the contact form to send your work.",
+        description: "If you want the best chance of the art being seen, share it through the Discord community or send it directly through the form with links to the artwork.",
+        links: [
+          { label: "Share On Discord", href: "https://discord.gg/5yyhHJxfS2" },
+          { label: "Use Contact Form", href: "#collab" }
+        ]
+      }
+    ]
+  },
+  supportSection: {
+    eyebrow: "Support",
+    title: "Request a song or support future covers.",
+    description: "If you want to hear a specific song from Ralskies or support future music, use the options below. Requests with a clear idea or emotional angle are easier to prioritize.",
+    items: [
+      {
+        label: "Request A Song",
+        title: "Send a song idea, theme, or concept worth reimagining.",
+        description: "Best for covers, male-key versions, theatrical reworks, Disney-style reinterpretations, or songs that would fit the voice and style well.",
+        links: [
+          { label: "Request On Ko-fi", href: "https://ko-fi.com/ralskies" },
+          { label: "Use Contact Form", href: "#collab" }
+        ]
+      },
+      {
+        label: "Support / Donate",
+        title: "Help fund future covers, collaborations, and recording work.",
+        description: "Support helps fund future releases, covers, and better production. If you want to back the music directly, Ko-fi is the easiest way to do it.",
+        links: [
+          { label: "Support On Ko-fi", href: "https://ko-fi.com/ralskies" },
+          { label: "Join Discord", href: "https://discord.gg/5yyhHJxfS2" }
+        ]
+      }
+    ]
+  },
   youtubeChannel: {
     name: "Your YouTube Channel",
     channelUrl: "https://www.youtube.com/",
@@ -21,6 +104,28 @@ const fallbackContent = {
       thumbnailAlt: "Thumbnail for the current featured release"
     }
   ],
+  gearSection: {
+    eyebrow: "Gear",
+    title: "Budget setup, real results.",
+    description: "The work is recorded from a home setup built around accessible gear and a performance-first approach.",
+    items: [
+      {
+        label: "Microphone",
+        title: "Sennheiser XS-1",
+        description: "A simple, budget-friendly mic setup used to capture the vocal takes behind the channel."
+      },
+      {
+        label: "Microphone",
+        title: "Maono AU-A04",
+        description: "Another accessible mic in the recording setup, used as part of the channel's budget-friendly home studio workflow."
+      },
+      {
+        label: "Interface",
+        title: "M-Track DUO",
+        description: "Clean home-recording workflow built around accessible gear instead of expensive studio-only hardware."
+      }
+    ]
+  },
   testimonials: [
     {
       quote: "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",
@@ -159,6 +264,199 @@ function renderFeaturedWorks(featuredWorks) {
       </article>
     `;
   }).join("");
+}
+
+function renderGearSection(gearSection) {
+  const safeSection = gearSection && Array.isArray(gearSection.items) && gearSection.items.length
+    ? gearSection
+    : fallbackContent.gearSection;
+
+  setText("gear-eyebrow", safeSection.eyebrow || fallbackContent.gearSection.eyebrow);
+  setText("gear-title", safeSection.title || fallbackContent.gearSection.title);
+  setText("gear-description", safeSection.description || fallbackContent.gearSection.description);
+
+  safeSection.items.slice(0, 3).forEach((item, index) => {
+    const card = document.getElementById(`gear-card-${index + 1}`);
+    if (!card) {
+      return;
+    }
+
+    const label = card.querySelector(".card-label");
+    const title = card.querySelector("h3");
+    const description = card.querySelector(".muted");
+
+    if (label) {
+      label.textContent = item.label || "";
+    }
+    if (title) {
+      title.textContent = item.title || "";
+    }
+    if (description) {
+      description.textContent = item.description || "";
+    }
+  });
+}
+
+function renderSupportSection(supportSection) {
+  const safeSection = supportSection && Array.isArray(supportSection.items) && supportSection.items.length
+    ? supportSection
+    : fallbackContent.supportSection;
+
+  setText("support-eyebrow", safeSection.eyebrow || fallbackContent.supportSection.eyebrow);
+  setText("support-title", safeSection.title || fallbackContent.supportSection.title);
+  setText("support-description", safeSection.description || fallbackContent.supportSection.description);
+
+  safeSection.items.slice(0, 2).forEach((item, index) => {
+    const card = document.getElementById(`support-card-${index + 1}`);
+    if (!card) {
+      return;
+    }
+
+    const label = card.querySelector(".card-label");
+    const title = card.querySelector("h3");
+    const description = card.querySelector(".muted");
+
+    if (label) {
+      label.textContent = item.label || "";
+    }
+    if (title) {
+      title.textContent = item.title || "";
+    }
+    if (description) {
+      description.textContent = item.description || "";
+    }
+
+    const links = Array.isArray(item.links) ? item.links : [];
+    links.slice(0, 2).forEach((link, linkIndex) => {
+      const anchor = document.getElementById(`support-card-${index + 1}-link-${linkIndex + 1}`);
+      if (!anchor) {
+        return;
+      }
+
+      anchor.textContent = link.label || anchor.textContent;
+      const href = sanitizeExternalUrl(link.href, anchor.getAttribute("href") || "#");
+      anchor.href = href;
+
+      if (href.startsWith("#")) {
+        anchor.removeAttribute("target");
+        anchor.removeAttribute("rel");
+      } else {
+        anchor.setAttribute("target", "_blank");
+        anchor.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
+}
+
+function renderFanArtSection(fanArtSection) {
+  const safeSection = fanArtSection && Array.isArray(fanArtSection.items) && fanArtSection.items.length
+    ? fanArtSection
+    : fallbackContent.fanArtSection;
+
+  setText("fan-art-eyebrow", safeSection.eyebrow || fallbackContent.fanArtSection.eyebrow);
+  setText("fan-art-title", safeSection.title || fallbackContent.fanArtSection.title);
+  setText("fan-art-description", safeSection.description || fallbackContent.fanArtSection.description);
+
+  safeSection.items.slice(0, 2).forEach((item, index) => {
+    const card = document.getElementById(`fan-art-card-${index + 1}`);
+    if (!card) {
+      return;
+    }
+
+    const label = card.querySelector(".card-label");
+    const title = card.querySelector("h3");
+    const description = card.querySelector(".muted");
+
+    if (label) {
+      label.textContent = item.label || "";
+    }
+    if (title) {
+      title.textContent = item.title || "";
+    }
+    if (description) {
+      description.textContent = item.description || "";
+    }
+
+    const links = Array.isArray(item.links) ? item.links : [];
+    links.slice(0, 2).forEach((link, linkIndex) => {
+      const anchor = document.getElementById(`fan-art-card-${index + 1}-link-${linkIndex + 1}`);
+      if (!anchor) {
+        return;
+      }
+
+      anchor.textContent = link.label || anchor.textContent;
+      const href = sanitizeExternalUrl(link.href, anchor.getAttribute("href") || "#");
+      anchor.href = href;
+
+      if (href.startsWith("#")) {
+        anchor.removeAttribute("target");
+        anchor.removeAttribute("rel");
+      } else {
+        anchor.setAttribute("target", "_blank");
+        anchor.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
+}
+
+function renderGenreSection(genreSection) {
+  const safeSection = genreSection && Array.isArray(genreSection.items) && genreSection.items.length
+    ? genreSection
+    : fallbackContent.genreSection;
+
+  setText("genre-eyebrow", safeSection.eyebrow || fallbackContent.genreSection.eyebrow);
+  setText("genre-title", safeSection.title || fallbackContent.genreSection.title);
+
+  safeSection.items.slice(0, 3).forEach((item, index) => {
+    const card = document.getElementById(`genre-card-${index + 1}`);
+    if (!card) {
+      return;
+    }
+
+    const label = card.querySelector(".card-label");
+    const title = card.querySelector("h3");
+    const description = card.querySelector(".muted");
+
+    if (label) {
+      label.textContent = item.label || "";
+    }
+    if (title) {
+      title.textContent = item.title || "";
+    }
+    if (description) {
+      description.textContent = item.description || "";
+    }
+  });
+}
+
+function renderFitSection(fitSection) {
+  const safeSection = fitSection && Array.isArray(fitSection.items) && fitSection.items.length
+    ? fitSection
+    : fallbackContent.fitSection;
+
+  setText("fit-eyebrow", safeSection.eyebrow || fallbackContent.fitSection.eyebrow);
+  setText("fit-title", safeSection.title || fallbackContent.fitSection.title);
+
+  safeSection.items.slice(0, 2).forEach((item, index) => {
+    const card = document.getElementById(`fit-card-${index + 1}`);
+    if (!card) {
+      return;
+    }
+
+    const label = card.querySelector(".card-label");
+    const title = card.querySelector("h3");
+    const description = card.querySelector(".muted");
+
+    if (label) {
+      label.textContent = item.label || "";
+    }
+    if (title) {
+      title.textContent = item.title || "";
+    }
+    if (description) {
+      description.textContent = item.description || "";
+    }
+  });
 }
 
 function sanitizeExternalUrl(value, fallback) {
@@ -328,8 +626,13 @@ function setupActiveNav() {
 
 function renderContent(content) {
   const youtubeChannel = content.youtubeChannel || fallbackContent.youtubeChannel;
+  const genreSection = content.genreSection || fallbackContent.genreSection;
+  const fitSection = content.fitSection || fallbackContent.fitSection;
   const spotify = content.spotify || fallbackContent.spotify;
   const featuredWorks = content.featuredWorks || fallbackContent.featuredWorks;
+  const supportSection = content.supportSection || fallbackContent.supportSection;
+  const gearSection = content.gearSection || fallbackContent.gearSection;
+  const fanArtSection = content.fanArtSection || fallbackContent.fanArtSection;
   const testimonials = content.testimonials || fallbackContent.testimonials;
 
   setText("youtube-channel-name", youtubeChannel.name || fallbackContent.youtubeChannel.name);
@@ -351,7 +654,12 @@ function renderContent(content) {
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 
+  renderGenreSection(genreSection);
+  renderFitSection(fitSection);
   renderFeaturedWorks(featuredWorks);
+  renderSupportSection(supportSection);
+  renderGearSection(gearSection);
+  renderFanArtSection(fanArtSection);
   renderTestimonials(testimonials);
 }
 
