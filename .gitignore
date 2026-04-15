@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 node_modules/
 dist/
+*.csv
+*.xlsx
+*.xls

@@ -47,10 +47,11 @@ npm run preview
 
 ## Content editing
 
-- Open `/content-studio.html` in local dev or production to manage featured videos, testimonials, and fan art through a form-based editor
-- Use `Open Local content.json` plus `Save Back To File` in Chromium-based browsers if you want to update `public/data/content.json` directly without hand-editing JSON
-- Use `Download JSON` if direct file saving is unavailable, then replace `public/data/content.json` with the exported file
-- Update other visible site copy, links, platforms, support options, and section content in `public/data/content.json`
+- Update visible site copy, links, platforms, support options, and section content in `public/data/content.json`
+- Put fan art images in `public/fanart/`
+- Edit fan art metadata in `public/data/fanart.json`
+- Update testimonials from either `public/data/testimonials.json` or a local spreadsheet export placed in the repo root
+- Run `powershell -ExecutionPolicy Bypass -File .\scripts\update_fanarts_and_testimonials.ps1` to sync fan art and testimonials into `public/data/content.json`
 - Rebuild locally with `npm run build` after content edits
 - Push changes to the branch that your host uses for deployment
 
