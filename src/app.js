@@ -1,11 +1,4 @@
 const fallbackContent = {
-  latestYoutube: {
-    title: "Latest upload will appear here",
-    description: "Run the sync script after configuring your API key and channel ID.",
-    videoUrl: "https://www.youtube.com/",
-    embedUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
-    publishedAt: null
-  },
   youtubeChannel: {
     name: "Your YouTube Channel",
     channelUrl: "https://www.youtube.com/",
@@ -16,6 +9,18 @@ const fallbackContent = {
     artistUrl: "https://open.spotify.com/",
     status: "Spotify sync can be added in a later phase."
   },
+  featuredWorks: [
+    {
+      label: "Current Showcase",
+      title: "Featured Release",
+      description: "The clearest snapshot of the current standard, style, and vocal direction.",
+      tags: ["Cover", "Current Era", "Theatrical"],
+      href: "https://www.youtube.com/watch?v=TteKHjCsF-0",
+      ctaLabel: "Watch Showcase",
+      thumbnailUrl: "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
+      thumbnailAlt: "Thumbnail for the current featured release"
+    }
+  ],
   testimonials: [
     {
       quote: "Curated testimonials and collaborator references can be added here over time.",
@@ -66,6 +71,83 @@ function setText(id, value) {
   }
 }
 
+function sanitizeImageUrl(value, fallback) {
+  if (typeof value !== "string") {
+    return fallback;
+  }
+
+  try {
+    const url = new URL(value, window.location.href);
+    const isSameOrigin = url.origin === window.location.origin;
+    const isSafeExternal = url.protocol === "https:";
+
+    if (isSameOrigin || isSafeExternal) {
+      return url.toString();
+    }
+  } catch {
+    return fallback;
+  }
+
+  return fallback;
+}
+
+function renderFeaturedWorks(featuredWorks) {
+  const list = document.getElementById("featured-works-list");
+  if (!list) {
+    return;
+  }
+
+  const safeWorks = Array.isArray(featuredWorks) && featuredWorks.length
+    ? featuredWorks
+    : fallbackContent.featuredWorks;
+
+  list.innerHTML = safeWorks.map((item, index) => {
+    const label = escapeHtml(item.label || "Featured Work");
+    const title = escapeHtml(item.title || "Untitled Feature");
+    const description = escapeHtml(item.description || "");
+    const href = sanitizeExternalUrl(item.href, "https://www.youtube.com/");
+    const ctaLabel = escapeHtml(item.ctaLabel || "Open Feature");
+    const thumbFallback = fallbackContent.featuredWorks[0]?.thumbnailUrl || "";
+    const thumbnailUrl = sanitizeImageUrl(item.thumbnailUrl, thumbFallback);
+    const thumbnailAlt = escapeHtml(item.thumbnailAlt || item.title || "Featured work thumbnail");
+    const tags = Array.isArray(item.tags) ? item.tags.slice(0, 4) : [];
+    const rank = String(index + 1).padStart(2, "0");
+
+    return `
+      <article class="catalog-card featured-work-card">
+        <a
+          class="featured-work-thumb"
+          href="${href}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="${ctaLabel}: ${title}"
+        >
+          <img src="${thumbnailUrl}" alt="${thumbnailAlt}" loading="lazy">
+          <span class="featured-work-index">${rank}</span>
+        </a>
+        <div class="featured-work-body">
+          <p class="card-label">${label}</p>
+          <h3>${title}</h3>
+          <div class="tag-row">
+            ${tags.map((tag) => `<span class="work-tag">${escapeHtml(tag)}</span>`).join("")}
+          </div>
+          <p class="muted">${description}</p>
+          <div class="link-row compact-links">
+            <a
+              class="button button-primary"
+              href="${href}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ${ctaLabel}
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
 function sanitizeExternalUrl(value, fallback) {
   if (typeof value !== "string") {
     return fallback;
@@ -89,34 +171,9 @@ function sanitizeExternalUrl(value, fallback) {
 function setHref(id, value) {
   const node = document.getElementById(id);
   if (node) {
-    const fallback = node.getAttribute("data-fallback-href") || fallbackContent.latestYoutube.videoUrl;
+    const fallback = node.getAttribute("data-fallback-href") || "https://www.youtube.com/";
     node.href = sanitizeExternalUrl(value, fallback);
   }
-}
-
-function setIframeSrc(id, value) {
-  const node = document.getElementById(id);
-  if (node) {
-    node.src = sanitizeEmbedUrl(value);
-  }
-}
-
-function sanitizeEmbedUrl(value) {
-  if (typeof value !== "string") {
-    return fallbackContent.latestYoutube.embedUrl;
-  }
-
-  try {
-    const url = new URL(value, window.location.href);
-    const allowedHosts = new Set(["www.youtube-nocookie.com"]);
-    if (url.protocol === "https:" && allowedHosts.has(url.hostname)) {
-      return url.toString();
-    }
-  } catch {
-    return fallbackContent.latestYoutube.embedUrl;
-  }
-
-  return fallbackContent.latestYoutube.embedUrl;
 }
 
 function formatSyncDate(value) {
@@ -149,21 +206,10 @@ function setupPointerMotion() {
 }
 
 function renderContent(content) {
-  const latestYoutube = content.latestYoutube || fallbackContent.latestYoutube;
   const youtubeChannel = content.youtubeChannel || fallbackContent.youtubeChannel;
   const spotify = content.spotify || fallbackContent.spotify;
+  const featuredWorks = content.featuredWorks || fallbackContent.featuredWorks;
   const testimonials = content.testimonials || fallbackContent.testimonials;
-
-  setText("latest-video-title", latestYoutube.title || fallbackContent.latestYoutube.title);
-  setText(
-    "latest-video-description",
-    latestYoutube.description || fallbackContent.latestYoutube.description
-  );
-  setHref("latest-video-link", latestYoutube.videoUrl || fallbackContent.latestYoutube.videoUrl);
-  setIframeSrc(
-    "latest-video-embed",
-    latestYoutube.embedUrl || fallbackContent.latestYoutube.embedUrl
-  );
 
   setText("youtube-channel-name", youtubeChannel.name || fallbackContent.youtubeChannel.name);
   setHref(
@@ -184,6 +230,7 @@ function renderContent(content) {
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 
+  renderFeaturedWorks(featuredWorks);
   renderTestimonials(testimonials);
 }
 

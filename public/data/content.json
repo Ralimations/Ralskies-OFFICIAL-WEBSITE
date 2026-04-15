@@ -19,6 +19,38 @@
     "artistUrl": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b",
     "status": "Listen to official releases and artist updates on Spotify."
   },
+  "featuredWorks": [
+    {
+      "label": "Current Showcase",
+      "title": "Featured Release",
+      "description": "The clearest snapshot of Ralskies' current vocal standard, arrangement taste, and overall artistic direction.",
+      "tags": ["Cover", "Current Era", "Theatrical"],
+      "href": "https://www.youtube.com/watch?v=TteKHjCsF-0",
+      "ctaLabel": "Watch Showcase",
+      "thumbnailUrl": "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
+      "thumbnailAlt": "Thumbnail for the current featured release"
+    },
+    {
+      "label": "Collaboration",
+      "title": "NS2D | Gwendy",
+      "description": "Featured collaboration that shows crossover appeal, chemistry with other creators, and the ability to deliver inside creator-led projects.",
+      "tags": ["Collab", "Featured Vocal", "Creator Project"],
+      "href": "https://www.youtube.com/watch?v=GFXfFaD-pSg",
+      "ctaLabel": "Watch Collaboration",
+      "thumbnailUrl": "https://i.ytimg.com/vi/GFXfFaD-pSg/hqdefault.jpg",
+      "thumbnailAlt": "Thumbnail for NS2D | Gwendy collaboration"
+    },
+    {
+      "label": "Voice Acting",
+      "title": "Gabriel in Wolfywhite's Archangels",
+      "description": "A character-driven performance role that highlights voice acting range, dramatic delivery, and expressive storytelling beyond standard covers.",
+      "tags": ["Voice Acting", "Character Role", "Story-Driven"],
+      "href": "https://youtu.be/ueKqiJ15mP8?si=gqc2DY_zhvb_GrnY",
+      "ctaLabel": "Watch Role",
+      "thumbnailUrl": "https://i.ytimg.com/vi/ueKqiJ15mP8/hqdefault.jpg",
+      "thumbnailAlt": "Thumbnail for Gabriel role in Wolfywhite's Archangels"
+    }
+  ],
   "testimonials": [
     {
       "quote": "Curated testimonials and collaborator references can be added here over time.",
