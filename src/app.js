@@ -160,10 +160,6 @@ function renderContent(content) {
     latestYoutube.description || fallbackContent.latestYoutube.description
   );
   setHref("latest-video-link", latestYoutube.videoUrl || fallbackContent.latestYoutube.videoUrl);
-  setHref(
-    "latest-video-embed-link",
-    sanitizeEmbedUrl(latestYoutube.embedUrl || fallbackContent.latestYoutube.embedUrl)
-  );
   setIframeSrc(
     "latest-video-embed",
     latestYoutube.embedUrl || fallbackContent.latestYoutube.embedUrl
@@ -172,10 +168,6 @@ function renderContent(content) {
   setText("youtube-channel-name", youtubeChannel.name || fallbackContent.youtubeChannel.name);
   setHref(
     "youtube-channel-link",
-    youtubeChannel.channelUrl || fallbackContent.youtubeChannel.channelUrl
-  );
-  setHref(
-    "youtube-channel-link-alt",
     youtubeChannel.channelUrl || fallbackContent.youtubeChannel.channelUrl
   );
   setHref(
@@ -190,7 +182,6 @@ function renderContent(content) {
   setText("spotify-artist-name", spotify.artistName || fallbackContent.spotify.artistName);
   setText("spotify-status", spotify.status || fallbackContent.spotify.status);
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
-  setHref("spotify-link-alt", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 
   renderTestimonials(testimonials);
