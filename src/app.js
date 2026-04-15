@@ -1341,16 +1341,31 @@ function setupReleasePlaylists() {
               });
             }
 
-            window.setTimeout(() => {
+            const trySyncPlaylist = (attempt = 0) => {
               const playlist = typeof player.getPlaylist === "function" ? player.getPlaylist() : null;
               const items = Array.isArray(playlist) ? playlist : [];
-              const currentIndex = items.length
-                ? Math.min(Math.max(startIndex, 0), items.length - 1)
-                : 0;
 
-              playlistState.set(cardId, { items, currentIndex, startVideoId });
+              if (items.length) {
+                const currentIndex = Math.min(Math.max(startIndex, 0), items.length - 1);
+                playlistState.set(cardId, { items, currentIndex, startVideoId });
+                syncPlaylistCard(cardId);
+                return;
+              }
+
+              if (attempt < 10) {
+                window.setTimeout(() => trySyncPlaylist(attempt + 1), 250);
+                return;
+              }
+
+              playlistState.set(cardId, {
+                items: startVideoId ? [startVideoId] : [],
+                currentIndex: 0,
+                startVideoId
+              });
               syncPlaylistCard(cardId);
-            }, 200);
+            };
+
+            trySyncPlaylist();
           }
         }
       });
@@ -1374,17 +1389,35 @@ function setupReleasePlaylists() {
       const cardId = document.getElementById(targetId)?.getAttribute("data-card-id");
       const state = cardId ? playlistState.get(cardId) : null;
 
-      if (!player || !cardId || !state?.items?.length) {
+      if (!cardId) {
+        return;
+      }
+
+      if (!state?.items?.length) {
+        const fallbackVideoId = document.getElementById(`${cardId}-thumb`)?.dataset.videoId;
+        if (!fallbackVideoId) {
+          return;
+        }
+
+        playlistState.set(cardId, {
+          items: [fallbackVideoId],
+          currentIndex: 0,
+          startVideoId: fallbackVideoId
+        });
+      }
+
+      const safeState = playlistState.get(cardId);
+      if (!safeState?.items?.length) {
         return;
       }
 
       if (action === "prev-video") {
-        state.currentIndex = (state.currentIndex - 1 + state.items.length) % state.items.length;
+        safeState.currentIndex = (safeState.currentIndex - 1 + safeState.items.length) % safeState.items.length;
         syncPlaylistCard(cardId);
       }
 
       if (action === "next-video") {
-        state.currentIndex = (state.currentIndex + 1) % state.items.length;
+        safeState.currentIndex = (safeState.currentIndex + 1) % safeState.items.length;
         syncPlaylistCard(cardId);
       }
     });
