@@ -23,9 +23,10 @@ const fallbackContent = {
   ],
   testimonials: [
     {
-      quote: "Curated testimonials and collaborator references can be added here over time.",
-      name: "Future Reference",
-      role: "Approved manually"
+      quote: "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",
+      name: "Featured Collaborator",
+      role: "Producer and Creative Partner",
+      highlight: true
     }
   ]
 };
@@ -41,7 +42,8 @@ function escapeHtml(value) {
 
 function renderTestimonials(testimonials) {
   const list = document.getElementById("testimonial-list");
-  if (!list) {
+  const spotlight = document.getElementById("testimonial-spotlight");
+  if (!list || !spotlight) {
     return;
   }
 
@@ -49,7 +51,18 @@ function renderTestimonials(testimonials) {
     ? testimonials
     : fallbackContent.testimonials;
 
-  list.innerHTML = safeTestimonials.map((item) => {
+  const highlighted = safeTestimonials.find((item) => item.highlight) || safeTestimonials[0];
+  const supporting = safeTestimonials.filter((item) => item !== highlighted);
+
+  spotlight.innerHTML = `
+    <p class="card-label">Featured Testimonial</p>
+    <blockquote class="spotlight-quote">"${escapeHtml(highlighted.quote || "")}"</blockquote>
+    <p class="testimonial-meta">${escapeHtml(highlighted.name || "Anonymous")}${highlighted.role ? ` • ${escapeHtml(highlighted.role)}` : ""}</p>
+  `;
+
+  const listItems = supporting.length ? supporting : [highlighted];
+
+  list.innerHTML = listItems.map((item) => {
     const quote = escapeHtml(item.quote || "");
     const name = escapeHtml(item.name || "Anonymous");
     const role = escapeHtml(item.role || "");
@@ -205,6 +218,114 @@ function setupPointerMotion() {
   }, { passive: true });
 }
 
+function setupScrollReveal() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) {
+    return;
+  }
+
+  const revealTargets = document.querySelectorAll([
+    ".section-heading",
+    ".bio-card",
+    ".offer-card",
+    ".catalog-card",
+    ".featured-work-card",
+    ".testimonial-spotlight",
+    ".hero-panel",
+    ".section-accent"
+  ].join(", "));
+
+  revealTargets.forEach((node) => node.classList.add("reveal-on-scroll"));
+
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add("is-visible");
+      currentObserver.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: "0px 0px -10% 0px",
+    threshold: 0.18
+  });
+
+  revealTargets.forEach((node) => observer.observe(node));
+}
+
+function setupActiveNav() {
+  const navLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+  if (!navLinks.length) {
+    return;
+  }
+
+  const sections = navLinks
+    .map((link) => {
+      const href = link.getAttribute("href");
+      if (!href) {
+        return null;
+      }
+
+      const section = document.querySelector(href);
+      if (!section) {
+        return null;
+      }
+
+      return { link, section, href };
+    })
+    .filter(Boolean);
+
+  if (!sections.length) {
+    return;
+  }
+
+  const header = document.querySelector(".site-nav");
+
+  const setActiveHref = (href) => {
+    sections.forEach(({ link, href: currentHref }) => {
+      link.classList.toggle("is-active", currentHref === href);
+      if (currentHref === href) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  let ticking = false;
+
+  const updateActiveNav = () => {
+    const headerOffset = (header?.offsetHeight || 0) + 120;
+    const currentPosition = window.scrollY + headerOffset;
+
+    let currentSection = sections[0];
+    for (const item of sections) {
+      if (item.section.offsetTop <= currentPosition) {
+        currentSection = item;
+      } else {
+        break;
+      }
+    }
+
+    setActiveHref(currentSection.href);
+    ticking = false;
+  };
+
+  const requestUpdate = () => {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    window.requestAnimationFrame(updateActiveNav);
+  };
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  updateActiveNav();
+}
+
 function renderContent(content) {
   const youtubeChannel = content.youtubeChannel || fallbackContent.youtubeChannel;
   const spotify = content.spotify || fallbackContent.spotify;
@@ -245,3 +366,5 @@ fetch("/data/content.json")
   .catch(() => renderContent(fallbackContent));
 
 setupPointerMotion();
+setupScrollReveal();
+setupActiveNav();

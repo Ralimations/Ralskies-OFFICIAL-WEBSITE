@@ -53,9 +53,20 @@
   ],
   "testimonials": [
     {
-      "quote": "Curated testimonials and collaborator references can be added here over time.",
-      "name": "Future Reference",
-      "role": "Approved manually"
+      "quote": "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",
+      "name": "Featured Collaborator",
+      "role": "Producer and Creative Partner",
+      "highlight": true
+    },
+    {
+      "quote": "There is a clear performance instinct behind the voice. Even in collaborative material, the delivery still feels specific instead of generic.",
+      "name": "Creative Peer",
+      "role": "Music Creator"
+    },
+    {
+      "quote": "The strongest thing about the work is that it sounds considered. The arrangement choices and tone always feel like they are serving an idea.",
+      "name": "Project Reviewer",
+      "role": "Curated Reference"
     }
   ]
 }
