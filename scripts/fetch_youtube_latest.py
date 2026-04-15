@@ -8,7 +8,7 @@ from urllib.request import urlopen
 
 
 ROOT = Path(__file__).resolve().parent.parent
-CONTENT_FILE = ROOT / "data" / "content.json"
+CONTENT_FILE = ROOT / "public" / "data" / "content.json"
 YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3/search"
 
 

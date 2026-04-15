@@ -41,7 +41,7 @@ if (-not $pythonCommand) {
 $env:YOUTUBE_API_KEY = $ApiKey
 $env:YOUTUBE_CHANNEL_ID = $ChannelId
 
-Write-Host "Updating data/content.json from YouTube..."
+Write-Host "Updating public/data/content.json from YouTube..."
 if ($pythonCommand.Length -gt 1) {
   & $pythonCommand[0] @($pythonCommand[1..($pythonCommand.Length - 1)]) "scripts/fetch_youtube_latest.py"
 } else {

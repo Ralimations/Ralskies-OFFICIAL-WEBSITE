@@ -196,7 +196,7 @@ function renderContent(content) {
   renderTestimonials(testimonials);
 }
 
-fetch("./data/content.json")
+fetch("/data/content.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Failed to load content.json: ${response.status}`);

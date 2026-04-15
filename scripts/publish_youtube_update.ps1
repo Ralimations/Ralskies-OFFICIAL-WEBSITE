@@ -11,7 +11,7 @@ Set-Location $repoRoot
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\update_youtube.ps1" -ApiKey $ApiKey -ChannelId $ChannelId
 
-git add data/content.json
+git add public/data/content.json
 
 $hasChanges = git diff --cached --name-only
 if (-not $hasChanges) {

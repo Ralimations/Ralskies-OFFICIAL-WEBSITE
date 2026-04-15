@@ -29,7 +29,7 @@ Register-ScheduledTask `
   -Action $taskAction `
   -Trigger $taskTrigger `
   -Settings $taskSettings `
-  -Description "Updates data/content.json from YouTube and pushes changes to GitHub." `
+  -Description "Updates public/data/content.json from YouTube and pushes changes to GitHub." `
   -Force | Out-Null
 
 Write-Host "Registered scheduled task '$TaskName' for daily execution at $Time."
