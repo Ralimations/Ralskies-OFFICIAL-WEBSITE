@@ -1,7 +1,7 @@
 {
   "latestYoutube": {
     "title": "Featured Release",
-    "description": "This is the current featured showcase on the site and the piece chosen to represent Ralskies' strongest work right now.",
+    "description": "This is the featured release currently representing Ralskies' strongest work on the site.",
     "videoId": "TteKHjCsF-0",
     "videoUrl": "https://www.youtube.com/watch?v=TteKHjCsF-0",
     "embedUrl": "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
@@ -22,7 +22,7 @@
         "href": "#collab"
       },
       {
-        "label": "Request A Song",
+        "label": "Request a Song",
         "href": "#support"
       }
     ],
@@ -66,7 +66,7 @@
   "featuredSection": {
     "eyebrow": "Featured Works",
     "title": "Curated highlights that show range, collaborators, and the strongest entry points.",
-    "description": "This section is curated as a portfolio layer, not a feed. Each piece is here because it shows a different angle of the work: current standard, collaboration value, and character-led range."
+    "description": "This section is curated as a portfolio layer, not a feed. Each piece is here to show a different angle of the work: current standard, collaboration value, and character-led range."
   },
   "proofSection": {
     "eyebrow": "Proof & Testimonials",
@@ -235,12 +235,12 @@
     "description": "If you want to hear a specific song from Ralskies or support future music, use the options below. Requests with a clear idea or emotional angle are easier to prioritize.",
     "items": [
       {
-        "label": "Request A Song",
+        "label": "Request a Song",
         "title": "Send a song idea, theme, or concept worth reimagining.",
         "description": "Best for covers, male-key versions, theatrical reworks, Disney-style reinterpretations, or songs that would fit the voice and style well.",
         "links": [
           {
-            "label": "Request On Ko-fi",
+            "label": "Request on Ko-fi",
             "href": "https://ko-fi.com/ralskies"
           },
           {
@@ -255,7 +255,7 @@
         "description": "Support helps fund future releases, covers, and better production. If you want to back the music directly, Ko-fi is the easiest way to do it.",
         "links": [
           {
-            "label": "Support On Ko-fi",
+            "label": "Support on Ko-fi",
             "href": "https://ko-fi.com/ralskies"
           },
           {
@@ -272,17 +272,17 @@
     "description": "If you create art inspired by Ralskies, there is a place for it here too. Whether it is stylized fan art, thumbnails, edits, or other visual work, the support and creativity are genuinely valued.",
     "items": [
       {
-        "label": "What To Send",
+        "label": "What to Send",
         "title": "Fan art, edits, concepts, posters, or tribute visuals.",
         "description": "Finished pieces, work-in-progress previews, and stylized concepts are all welcome as long as they are respectful and clearly inspired by the music, persona, or content."
       },
       {
-        "label": "Where To Share",
+        "label": "Where to Share",
         "title": "Use Discord or the contact form to send your work.",
         "description": "If you want the best chance of the art being seen, share it through the Discord community or send it directly through the form with links to the artwork.",
         "links": [
           {
-            "label": "Share On Discord",
+            "label": "Share on Discord",
             "href": "https://discord.gg/5yyhHJxfS2"
           },
           {
@@ -330,11 +330,11 @@
         "label": "Support",
         "links": [
           {
-            "label": "Request A Song",
+            "label": "Request a Song",
             "href": "https://ko-fi.com/ralskies"
           },
           {
-            "label": "Support On Ko-fi",
+            "label": "Support on Ko-fi",
             "href": "https://ko-fi.com/ralskies"
           },
           {
