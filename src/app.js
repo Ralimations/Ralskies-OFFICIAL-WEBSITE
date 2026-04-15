@@ -89,6 +89,11 @@ const fallbackContent = {
       }
     ]
   },
+  collabSection: {
+    eyebrow: "Contact & Inquiries",
+    title: "Send a clear pitch, request, or project inquiry.",
+    description: "Use this for singing collaborations, voice acting, promotions, product inquiries, thumbnail art, fan projects, or any proposal with a clear idea and direction."
+  },
   supportSection: {
     eyebrow: "Support",
     title: "Request a song or support future covers.",
@@ -542,6 +547,16 @@ function renderPlatformsSection(platformsSection, youtubeChannel, spotify) {
   setAnchor("platform-card-3-link-1", tiktokItem.links?.[0]);
 }
 
+function renderCollabSection(collabSection) {
+  const safeSection = collabSection
+    ? collabSection
+    : fallbackContent.collabSection;
+
+  setText("collab-eyebrow", safeSection.eyebrow || fallbackContent.collabSection.eyebrow);
+  setText("collab-title", safeSection.title || fallbackContent.collabSection.title);
+  setText("collab-description", safeSection.description || fallbackContent.collabSection.description);
+}
+
 function sanitizeExternalUrl(value, fallback) {
   if (typeof value !== "string") {
     return fallback;
@@ -708,6 +723,7 @@ function setupActiveNav() {
 }
 
 function renderContent(content) {
+  const collabSection = content.collabSection || fallbackContent.collabSection;
   const platformsSection = content.platformsSection || fallbackContent.platformsSection;
   const youtubeChannel = content.youtubeChannel || fallbackContent.youtubeChannel;
   const genreSection = content.genreSection || fallbackContent.genreSection;
@@ -738,6 +754,7 @@ function renderContent(content) {
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 
+  renderCollabSection(collabSection);
   renderPlatformsSection(platformsSection, youtubeChannel, spotify);
   renderGenreSection(genreSection);
   renderFitSection(fitSection);

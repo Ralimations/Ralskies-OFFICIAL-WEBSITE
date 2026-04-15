@@ -221,6 +221,11 @@
       }
     ]
   },
+  "collabSection": {
+    "eyebrow": "Contact & Inquiries",
+    "title": "Send a clear pitch, request, or project inquiry.",
+    "description": "Use this for singing collaborations, voice acting, promotions, product inquiries, thumbnail art, fan projects, or any proposal with a clear idea and direction."
+  },
   "testimonials": [
     {
       "quote": "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",
