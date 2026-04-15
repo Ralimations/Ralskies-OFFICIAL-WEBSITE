@@ -47,7 +47,10 @@ npm run preview
 
 ## Content editing
 
-- Update visible site copy, links, featured works, platforms, support options, and other section content in `public/data/content.json`
+- Open `/content-studio.html` in local dev or production to manage featured videos, testimonials, and fan art through a form-based editor
+- Use `Open Local content.json` plus `Save Back To File` in Chromium-based browsers if you want to update `public/data/content.json` directly without hand-editing JSON
+- Use `Download JSON` if direct file saving is unavailable, then replace `public/data/content.json` with the exported file
+- Update other visible site copy, links, platforms, support options, and section content in `public/data/content.json`
 - Rebuild locally with `npm run build` after content edits
 - Push changes to the branch that your host uses for deployment
 

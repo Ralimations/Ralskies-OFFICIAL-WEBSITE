@@ -1,371 +1,458 @@
-{
-  "latestYoutube": {
-    "title": "Featured Release",
-    "description": "This is the featured release currently representing Ralskies' strongest work on the site.",
-    "videoId": "TteKHjCsF-0",
-    "videoUrl": "https://www.youtube.com/watch?v=TteKHjCsF-0",
-    "embedUrl": "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
-    "thumbnailUrl": "",
-    "publishedAt": null
-  },
-  "heroSection": {
-    "eyebrow": "Online Musician • Vocalist • Digital Creator",
-    "title": "Ralskies turns covers and collaborations into character-driven vocal performances.",
-    "description": "Known for transformative covers, theatrical delivery, and emotionally charged arrangements, Ralskies blends online music culture with performance-first vocals. This page is for collaborators, mixers, producers, and fellow creators looking for a singer who brings personality to the track instead of just repeating the original.",
-    "links": [
-      {
-        "label": "Hear Latest Work",
-        "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
-      },
-      {
-        "label": "Collaborate",
-        "href": "#collab"
-      },
-      {
-        "label": "Request a Song",
-        "href": "#support"
-      }
-    ],
-    "panel": {
-      "label": "Known For",
-      "title": "Theatrical covers, genderbent arrangements, Disney-style reinventions, and collaborative duets.",
-      "points": [
-        "Modern internet-native musicals and animation soundtracks",
-        "Male-key reworks and story-driven reinterpretations",
-        "Direct audience connection through YouTube and Discord"
-      ]
-    }
-  },
-  "aboutSection": {
-    "items": [
-      {
-        "eyebrow": "About",
-        "title": "A rising online musician with a voice built for emotion, story, and character.",
-        "description": "Ralskies is a vocalist and digital content creator who has built a dedicated online community through YouTube, Discord, and highly interactive music content. Recording from a home studio with accessible tools and reliable XLR gear, he focuses on the performance itself: phrasing, feeling, and a strong point of view on every song."
-      },
-      {
-        "eyebrow": "Why It Works",
-        "description": "The strongest collaborations come from creators who want more than a clean take. If the song needs theatrical expression, harmonies, emotional lift, or a reimagined angle, that is where the fit is strongest. Include the genre, references, timeline, budget, and the kind of vocal role you need.",
-        "links": [
-          {
-            "label": "YouTube",
-            "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
-          },
-          {
-            "label": "Spotify",
-            "href": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b"
-          },
-          {
-            "label": "Collaboration Form",
-            "href": "#collab"
-          }
-        ]
-      }
-    ]
-  },
-  "featuredSection": {
-    "eyebrow": "Featured Works",
-    "title": "Curated highlights that show range, collaborators, and the strongest entry points.",
-    "description": "This section is curated as a portfolio layer, not a feed. Each piece is here to show a different angle of the work: current standard, collaboration value, and character-led range."
-  },
-  "proofSection": {
-    "eyebrow": "Proof & Testimonials",
-    "title": "References, reputation signals, and the clearest reasons collaborators take the work seriously.",
-    "description": "Testimonials shown here are manually reviewed before being added. Nothing submitted through the site is published automatically.",
-    "note": "Submitted testimonials are reviewed before being published.",
-    "links": [
-      {
-        "label": "Add A Testimonial",
-        "href": "https://forms.gle/ri7N54YHTj716EUN9"
-      }
-    ]
-  },
-  "youtubeChannel": {
-    "name": "Ralskies on YouTube",
-    "channelId": "UCIt8eA8uvrDVbpta0pgIc5Q",
-    "channelUrl": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q",
-    "lastSyncedAt": null
-  },
-  "spotify": {
-    "artistName": "Ralskies on Spotify",
-    "artistUrl": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b",
-    "status": "Listen to official releases and artist updates on Spotify."
-  },
-  "platformsSection": {
-    "eyebrow": "Platforms",
-    "title": "Where to listen, watch, and keep up.",
-    "items": [
-      {
-        "label": "YouTube",
-        "title": "Ralskies on YouTube",
-        "description": "Watch featured covers, showcases, and current uploads on the channel.",
-        "links": [
-          {
-            "label": "Visit Channel",
-            "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
-          },
-          {
-            "label": "Best Of Playlist",
-            "href": "https://www.youtube.com/playlist?list=PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw"
-          }
-        ]
-      },
-      {
-        "label": "Spotify",
-        "title": "Ralskies on Spotify",
-        "description": "Listen to official releases and artist updates on Spotify.",
-        "links": [
-          {
-            "label": "Open Spotify",
-            "href": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b"
-          },
-          {
-            "label": "Join Discord",
-            "href": "https://discord.gg/5yyhHJxfS2"
-          }
-        ]
-      },
-      {
-        "label": "TikTok",
-        "title": "Ralskies on TikTok",
-        "description": "Short-form content, clips, and updates from the Ralskies side of the internet.",
-        "links": [
-          {
-            "label": "Open TikTok",
-            "href": "https://www.tiktok.com/@ralskies"
-          }
-        ]
-      }
-    ]
-  },
-  "genreSection": {
-    "eyebrow": "Genres & Niches",
-    "title": "The styles and specialties that define the sound.",
-    "items": [
-      {
-        "label": "Theatrical",
-        "title": "Musical theatre, show tunes, Broadway-inspired writing, and character-led songs.",
-        "description": "Best for material that needs acting-through-song, dramatic pacing, and vocals that feel like they belong to a character or a scene instead of a neutral take."
-      },
-      {
-        "label": "Reimagined Covers",
-        "title": "Genderbent arrangements, Disney-fied renditions, and story-driven reinterpretations.",
-        "description": "Strong for songs that deserve a new perspective, especially female-led tracks adapted into male-key arrangements or contemporary songs transformed into bigger, cinematic performances."
-      },
-      {
-        "label": "Pop, Indie, K-pop & J-pop",
-        "title": "Polished melodic vocals for internet-native, emotionally bright, or collaboration-heavy tracks.",
-        "description": "A good fit for hooks, duet parts, harmony-heavy covers, and songs influenced by idol-pop, indie-pop, acoustic rearrangements, or animation-adjacent music culture."
-      }
-    ]
-  },
-  "fitSection": {
-    "eyebrow": "Those Who Wish To Collaborate",
-    "title": "Bring a real concept and a part worth performing.",
-    "items": [
-      {
-        "label": "Open To",
-        "title": "Duets, featured vocals, covers, originals, themed projects, and selective promotions.",
-        "description": "Ralskies is open to projects from producers, mixers, animators, vocalists, VTubers, and online creators who want a vocal performance with identity. The strongest projects usually have a demo, references, deadline, and a clear idea of the role."
-      },
-      {
-        "label": "Vocal Profile",
-        "title": "Warm, expressive, studio-ready vocals for both contemporary and theatrical styles.",
-        "description": "Best suited for theatrical expression, harmonization, emotional leads, and collaborative arrangements. If you know the exact voice type or target range you need, include it in your pitch so the part can be evaluated properly."
-      }
-    ]
-  },
-  "featuredWorks": [
-    {
-      "label": "Current Showcase",
-      "title": "Featured Release",
-      "description": "The clearest snapshot of Ralskies' current vocal standard, arrangement taste, and overall artistic direction.",
-      "tags": ["Cover", "Current Era", "Theatrical"],
-      "href": "https://www.youtube.com/watch?v=TteKHjCsF-0",
-      "ctaLabel": "Watch Showcase",
-      "thumbnailUrl": "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
-      "thumbnailAlt": "Thumbnail for the current featured release"
-    },
-    {
-      "label": "Collaboration",
-      "title": "NS2D | Gwendy",
-      "description": "Featured collaboration that shows crossover appeal, chemistry with other creators, and the ability to deliver inside creator-led projects.",
-      "tags": ["Collab", "Featured Vocal", "Creator Project"],
-      "href": "https://www.youtube.com/watch?v=GFXfFaD-pSg",
-      "ctaLabel": "Watch Collaboration",
-      "thumbnailUrl": "https://i.ytimg.com/vi/GFXfFaD-pSg/hqdefault.jpg",
-      "thumbnailAlt": "Thumbnail for NS2D | Gwendy collaboration"
-    },
-    {
-      "label": "Voice Acting",
-      "title": "Gabriel in Wolfywhite's Archangels",
-      "description": "A character-driven performance role that highlights voice acting range, dramatic delivery, and expressive storytelling beyond standard covers.",
-      "tags": ["Voice Acting", "Character Role", "Story-Driven"],
-      "href": "https://youtu.be/ueKqiJ15mP8?si=gqc2DY_zhvb_GrnY",
-      "ctaLabel": "Watch Role",
-      "thumbnailUrl": "https://i.ytimg.com/vi/ueKqiJ15mP8/hqdefault.jpg",
-      "thumbnailAlt": "Thumbnail for Gabriel role in Wolfywhite's Archangels"
-    }
-  ],
-  "gearSection": {
-    "eyebrow": "Gear",
-    "title": "Budget setup, real results.",
-    "description": "The work is recorded from a home setup built around accessible gear and a performance-first approach.",
-    "items": [
-      {
-        "label": "Microphone",
-        "title": "Sennheiser XS-1",
-        "description": "A simple, budget-friendly mic setup used to capture the vocal takes behind the channel."
-      },
-      {
-        "label": "Microphone",
-        "title": "Maono AU-A04",
-        "description": "Another accessible mic in the recording setup, used as part of the channel's budget-friendly home studio workflow."
-      },
-      {
-        "label": "Interface",
-        "title": "M-Track DUO",
-        "description": "Clean home-recording workflow built around accessible gear instead of expensive studio-only hardware."
-      }
-    ]
-  },
-  "supportSection": {
-    "eyebrow": "Support",
-    "title": "Request a song or support future covers.",
-    "description": "If you want to hear a specific song from Ralskies or support future music, use the options below. Requests with a clear idea or emotional angle are easier to prioritize.",
-    "items": [
-      {
-        "label": "Request a Song",
-        "title": "Send a song idea, theme, or concept worth reimagining.",
-        "description": "Best for covers, male-key versions, theatrical reworks, Disney-style reinterpretations, or songs that would fit the voice and style well.",
-        "links": [
-          {
-            "label": "Request on Ko-fi",
-            "href": "https://ko-fi.com/ralskies"
-          },
-          {
-            "label": "Use Contact Form",
-            "href": "#collab"
-          }
-        ]
-      },
-      {
-        "label": "Support / Donate",
-        "title": "Help fund future covers, collaborations, and recording work.",
-        "description": "Support helps fund future releases, covers, and better production. If you want to back the music directly, Ko-fi is the easiest way to do it.",
-        "links": [
-          {
-            "label": "Support on Ko-fi",
-            "href": "https://ko-fi.com/ralskies"
-          },
-          {
-            "label": "Join Discord",
-            "href": "https://discord.gg/5yyhHJxfS2"
-          }
-        ]
-      }
-    ]
-  },
-  "fanArtSection": {
-    "eyebrow": "Want To Make Art For Ralskies?",
-    "title": "Fan art, illustrations, edits, and visual tributes are always appreciated.",
-    "description": "If you create art inspired by Ralskies, there is a place for it here too. Whether it is stylized fan art, thumbnails, edits, or other visual work, the support and creativity are genuinely valued.",
-    "items": [
-      {
-        "label": "What to Send",
-        "title": "Fan art, edits, concepts, posters, or tribute visuals.",
-        "description": "Finished pieces, work-in-progress previews, and stylized concepts are all welcome as long as they are respectful and clearly inspired by the music, persona, or content."
-      },
-      {
-        "label": "Where to Share",
-        "title": "Use Discord or the contact form to send your work.",
-        "description": "If you want the best chance of the art being seen, share it through the Discord community or send it directly through the form with links to the artwork.",
-        "links": [
-          {
-            "label": "Share on Discord",
-            "href": "https://discord.gg/5yyhHJxfS2"
-          },
-          {
-            "label": "Use Contact Form",
-            "href": "#collab"
-          }
-        ]
-      }
-    ]
-  },
-  "collabSection": {
-    "eyebrow": "Contact & Inquiries",
-    "title": "Send a clear pitch, request, or project inquiry.",
-    "description": "Use this for singing collaborations, voice acting, promotions, product inquiries, thumbnail art, fan projects, or any proposal with a clear idea and direction."
-  },
-  "footerSection": {
-    "brand": {
-      "eyebrow": "Ralskies",
-      "title": "Music, covers, collaborations, and community.",
-      "description": "Built as a direct home for listeners, collaborators, artists, and supporters who want to keep up with the work or reach out with something real."
-    },
-    "columns": [
-      {
-        "label": "Platforms",
-        "links": [
-          {
-            "label": "YouTube",
-            "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
-          },
-          {
-            "label": "Spotify",
-            "href": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b"
-          },
-          {
-            "label": "TikTok",
-            "href": "https://www.tiktok.com/@ralskies"
-          },
-          {
-            "label": "Discord",
-            "href": "https://discord.gg/5yyhHJxfS2"
-          }
-        ]
-      },
-      {
-        "label": "Support",
-        "links": [
-          {
-            "label": "Request a Song",
-            "href": "https://ko-fi.com/ralskies"
-          },
-          {
-            "label": "Support on Ko-fi",
-            "href": "https://ko-fi.com/ralskies"
-          },
-          {
-            "label": "Fan Art",
-            "href": "#art"
-          },
-          {
-            "label": "Contact Form",
-            "href": "#collab"
-          }
-        ]
-      }
-    ],
-    "note": "Ralskies official website."
-  },
-  "testimonials": [
-    {
-      "quote": "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",
-      "name": "Featured Collaborator",
-      "role": "Producer and Creative Partner",
-      "highlight": true
-    },
-    {
-      "quote": "There is a clear performance instinct behind the voice. Even in collaborative material, the delivery still feels specific instead of generic.",
-      "name": "Creative Peer",
-      "role": "Music Creator"
-    },
-    {
-      "quote": "The strongest thing about the work is that it sounds considered. The arrangement choices and tone always feel like they are serving an idea.",
-      "name": "Project Reviewer",
-      "role": "Curated Reference"
-    }
-  ]
+﻿{
+    "latestYoutube":  {
+                          "eyebrow":  "Latest Release",
+                          "sectionTitle":  "The current release carrying the strongest snapshot of the sound.",
+                          "sectionDescription":  "A direct entry point for visitors who want the most current featured performance first.",
+                          "title":  "Latest Release",
+                          "description":  "This is the featured release currently representing Ralskies\u0027 strongest work on the site.",
+                          "videoId":  "TteKHjCsF-0",
+                          "videoUrl":  "https://www.youtube.com/watch?v=TteKHjCsF-0\u0026list=PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
+                          "embedUrl":  "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
+                          "thumbnailUrl":  "",
+                          "publishedAt":  null,
+                          "ctaLabel":  "Watch Release"
+                      },
+    "heroSection":  {
+                        "eyebrow":  "Online Musician â€¢ Vocalist â€¢ Digital Creator",
+                        "title":  "Ralskies turns covers and collaborations into character-driven vocal performances.",
+                        "description":  "Known for transformative covers, theatrical delivery, and emotionally charged arrangements, Ralskies blends online music culture with performance-first vocals. This page is for collaborators, mixers, producers, and fellow creators looking for a singer who brings personality to the track instead of just repeating the original.",
+                        "links":  [
+                                      {
+                                          "label":  "Hear Latest Work",
+                                          "href":  "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+                                      },
+                                      {
+                                          "label":  "Collaborate",
+                                          "href":  "#collab"
+                                      },
+                                      {
+                                          "label":  "Request a Song",
+                                          "href":  "#support"
+                                      }
+                                  ],
+                        "panel":  {
+                                      "label":  "Known For",
+                                      "title":  "Theatrical covers, genderbent arrangements, Disney-style reinventions, and collaborative duets.",
+                                      "points":  [
+                                                     "Modern internet-native musicals and animation soundtracks",
+                                                     "Male-key reworks and story-driven reinterpretations",
+                                                     "Direct audience connection through YouTube and Discord"
+                                                 ]
+                                  }
+                    },
+    "aboutSection":  {
+                         "items":  [
+                                       {
+                                           "eyebrow":  "About",
+                                           "title":  "A rising online musician with a voice built for emotion, story, and character.",
+                                           "description":  "Ralskies is a vocalist and digital content creator who has built a dedicated online community through YouTube, Discord, and highly interactive music content. Recording from a home studio with accessible tools and reliable XLR gear, he focuses on the performance itself: phrasing, feeling, and a strong point of view on every song."
+                                       },
+                                       {
+                                           "eyebrow":  "Why It Works",
+                                           "description":  "The strongest collaborations come from creators who want more than a clean take. If the song needs theatrical expression, harmonies, emotional lift, or a reimagined angle, that is where the fit is strongest. Include the genre, references, timeline, budget, and the kind of vocal role you need.",
+                                           "links":  [
+                                                         {
+                                                             "label":  "YouTube",
+                                                             "href":  "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+                                                         },
+                                                         {
+                                                             "label":  "Spotify",
+                                                             "href":  "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1\u0026dlsi=41715c668e97408b"
+                                                         },
+                                                         {
+                                                             "label":  "Collaboration Form",
+                                                             "href":  "#collab"
+                                                         }
+                                                     ]
+                                       }
+                                   ]
+                     },
+    "featuredSection":  {
+                            "eyebrow":  "Featured Works",
+                            "title":  "Curated highlights that show range, collaborators, and the strongest entry points.",
+                            "description":  "This section is curated as a portfolio layer, not a feed. Each piece is here to show a different angle of the work: current standard, collaboration value, and character-led range."
+                        },
+    "releasesSection":  {
+                            "eyebrow":  "Releases \u0026 Timeline",
+                            "title":  "Browse featured playlists by category.",
+                            "description":  "Switch through releases, collaborations, and voice acting highlights without leaving the page."
+                        },
+    "proofSection":  {
+                         "eyebrow":  "Proof \u0026 Testimonials",
+                         "title":  "References, reputation signals, and the clearest reasons collaborators take the work seriously.",
+                         "description":  "Testimonials shown here are manually reviewed before being added. Nothing submitted through the site is published automatically.",
+                         "note":  "Submitted testimonials are reviewed before being published.",
+                         "links":  [
+                                       {
+                                           "label":  "Add A Testimonial",
+                                           "href":  "https://forms.gle/ri7N54YHTj716EUN9"
+                                       }
+                                   ]
+                     },
+    "youtubeChannel":  {
+                           "name":  "Ralskies on YouTube",
+                           "channelId":  "UCIt8eA8uvrDVbpta0pgIc5Q",
+                           "channelUrl":  "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q",
+                           "lastSyncedAt":  null
+                       },
+    "spotify":  {
+                    "artistName":  "Ralskies on Spotify",
+                    "artistUrl":  "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1\u0026dlsi=41715c668e97408b",
+                    "status":  "Listen to official releases and artist updates on Spotify."
+                },
+    "platformsSection":  {
+                             "eyebrow":  "Platforms",
+                             "title":  "Where to listen, watch, and keep up.",
+                             "items":  [
+                                           {
+                                               "label":  "YouTube",
+                                               "title":  "Ralskies on YouTube",
+                                               "description":  "Watch featured covers, showcases, and current uploads on the channel.",
+                                               "links":  [
+                                                             {
+                                                                 "label":  "Visit Channel",
+                                                                 "href":  "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+                                                             },
+                                                             {
+                                                                 "label":  "Best Of Playlist",
+                                                                 "href":  "https://www.youtube.com/playlist?list=PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw"
+                                                             }
+                                                         ]
+                                           },
+                                           {
+                                               "label":  "Spotify",
+                                               "title":  "Ralskies on Spotify",
+                                               "description":  "Listen to official releases and artist updates on Spotify.",
+                                               "links":  [
+                                                             {
+                                                                 "label":  "Open Spotify",
+                                                                 "href":  "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1\u0026dlsi=41715c668e97408b"
+                                                             },
+                                                             {
+                                                                 "label":  "Join Discord",
+                                                                 "href":  "https://discord.gg/5yyhHJxfS2"
+                                                             }
+                                                         ]
+                                           },
+                                           {
+                                               "label":  "TikTok",
+                                               "title":  "Ralskies on TikTok",
+                                               "description":  "Short-form content, clips, and updates from the Ralskies side of the internet.",
+                                               "links":  [
+                                                             {
+                                                                 "label":  "Open TikTok",
+                                                                 "href":  "https://www.tiktok.com/@ralskies"
+                                                             }
+                                                         ]
+                                           }
+                                       ]
+                         },
+    "genreSection":  {
+                         "eyebrow":  "Genres \u0026 Niches",
+                         "title":  "The styles and specialties that define the sound.",
+                         "items":  [
+                                       {
+                                           "label":  "Theatrical",
+                                           "title":  "Musical theatre, show tunes, Broadway-inspired writing, and character-led songs.",
+                                           "description":  "Best for material that needs acting-through-song, dramatic pacing, and vocals that feel like they belong to a character or a scene instead of a neutral take."
+                                       },
+                                       {
+                                           "label":  "Reimagined Covers",
+                                           "title":  "Genderbent arrangements, Disney-fied renditions, and story-driven reinterpretations.",
+                                           "description":  "Strong for songs that deserve a new perspective, especially female-led tracks adapted into male-key arrangements or contemporary songs transformed into bigger, cinematic performances."
+                                       },
+                                       {
+                                           "label":  "Pop, Indie, K-pop \u0026 J-pop",
+                                           "title":  "Polished melodic vocals for internet-native, emotionally bright, or collaboration-heavy tracks.",
+                                           "description":  "A good fit for hooks, duet parts, harmony-heavy covers, and songs influenced by idol-pop, indie-pop, acoustic rearrangements, or animation-adjacent music culture."
+                                       }
+                                   ]
+                     },
+    "fitSection":  {
+                       "eyebrow":  "Those Who Wish To Collaborate",
+                       "title":  "Bring a real concept and a part worth performing.",
+                       "items":  [
+                                     {
+                                         "label":  "Open To",
+                                         "title":  "Duets, featured vocals, covers, originals, themed projects, and selective promotions.",
+                                         "description":  "Ralskies is open to projects from producers, mixers, animators, vocalists, VTubers, and online creators who want a vocal performance with identity. The strongest projects usually have a demo, references, deadline, and a clear idea of the role."
+                                     },
+                                     {
+                                         "label":  "Vocal Profile",
+                                         "title":  "Warm, expressive, studio-ready vocals for both contemporary and theatrical styles.",
+                                         "description":  "Best suited for theatrical expression, harmonization, emotional leads, and collaborative arrangements. If you know the exact voice type or target range you need, include it in your pitch so the part can be evaluated properly."
+                                     }
+                                 ]
+                   },
+    "featuredWorks":  [
+                          {
+                              "label":  "Current Showcase",
+                              "title":  "Featured Release",
+                              "description":  "The clearest snapshot of Ralskies\u0027 current vocal standard, arrangement taste, and overall artistic direction.",
+                              "tags":  [
+                                           "Cover",
+                                           "Current Era",
+                                           "Theatrical"
+                                       ],
+                              "href":  "https://www.youtube.com/watch?v=TteKHjCsF-0",
+                              "ctaLabel":  "Watch Showcase",
+                              "thumbnailUrl":  "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
+                              "thumbnailAlt":  "Thumbnail for the current featured release"
+                          },
+                          {
+                              "label":  "Collaboration",
+                              "title":  "NS2D | Gwendy",
+                              "description":  "Featured collaboration that shows crossover appeal, chemistry with other creators, and the ability to deliver inside creator-led projects.",
+                              "tags":  [
+                                           "Collab",
+                                           "Featured Vocal",
+                                           "Creator Project"
+                                       ],
+                              "href":  "https://www.youtube.com/watch?v=GFXfFaD-pSg",
+                              "ctaLabel":  "Watch Collaboration",
+                              "thumbnailUrl":  "https://i.ytimg.com/vi/GFXfFaD-pSg/hqdefault.jpg",
+                              "thumbnailAlt":  "Thumbnail for NS2D | Gwendy collaboration"
+                          },
+                          {
+                              "label":  "Voice Acting",
+                              "title":  "Gabriel in Wolfywhite\u0027s Archangels",
+                              "description":  "A character-driven performance role that highlights voice acting range, dramatic delivery, and expressive storytelling beyond standard covers.",
+                              "tags":  [
+                                           "Voice Acting",
+                                           "Character Role",
+                                           "Story-Driven"
+                                       ],
+                              "href":  "https://youtu.be/ueKqiJ15mP8?si=gqc2DY_zhvb_GrnY",
+                              "ctaLabel":  "Watch Role",
+                              "thumbnailUrl":  "https://i.ytimg.com/vi/ueKqiJ15mP8/hqdefault.jpg",
+                              "thumbnailAlt":  "Thumbnail for Gabriel role in Wolfywhite\u0027s Archangels"
+                          }
+                      ],
+    "releases":  [
+                     {
+                         "label":  "Release",
+                         "title":  "Proud Covers",
+                         "description":  "Cycle through the core covers and featured release playlist directly inside the card.",
+                         "meta":  "Current era",
+                         "href":  "https://www.youtube.com/playlist?list=PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw",
+                         "ctaLabel":  "Open Playlist",
+                         "playlistId":  "PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw",
+                         "startVideoId":  "TteKHjCsF-0",
+                         "startIndex":  0
+                     },
+                     {
+                         "label":  "Collaboration",
+                         "title":  "Collaborations \u0026 Features",
+                         "description":  "Move through collaboration uploads, duets, and creator projects from one playlist.",
+                         "meta":  "Featured vocal",
+                         "href":  "https://www.youtube.com/playlist?list=PLsjrSGMbKS6e4HAV7pizKUeirpHA5yIEe",
+                         "ctaLabel":  "Open Playlist",
+                         "playlistId":  "PLsjrSGMbKS6e4HAV7pizKUeirpHA5yIEe",
+                         "startVideoId":  "CtJegGMrZX0",
+                         "startIndex":  2
+                     },
+                     {
+                         "label":  "Voice Acting",
+                         "title":  "Voice Acting \u0026 Character Roles",
+                         "description":  "Flip through voice acting appearances and character-driven performances from the playlist.",
+                         "meta":  "Character performance",
+                         "href":  "https://www.youtube.com/playlist?list=PLsjrSGMbKS6eQ0TO_aONiNAhxq6dUOXwg",
+                         "ctaLabel":  "Open Playlist",
+                         "playlistId":  "PLsjrSGMbKS6eQ0TO_aONiNAhxq6dUOXwg",
+                         "startVideoId":  "ueKqiJ15mP8",
+                         "startIndex":  0
+                     }
+                 ],
+    "gearSection":  {
+                        "eyebrow":  "Gear",
+                        "title":  "Budget setup, real results.",
+                        "description":  "The work is recorded from a home setup built around accessible gear and a performance-first approach.",
+                        "items":  [
+                                      {
+                                          "label":  "Microphone",
+                                          "title":  "Sennheiser XS-1",
+                                          "description":  "A simple, budget-friendly mic setup used to capture the vocal takes behind the channel."
+                                      },
+                                      {
+                                          "label":  "Microphone",
+                                          "title":  "Maono AU-A04",
+                                          "description":  "Another accessible mic in the recording setup, used as part of the channel\u0027s budget-friendly home studio workflow."
+                                      },
+                                      {
+                                          "label":  "Interface",
+                                          "title":  "M-Track DUO",
+                                          "description":  "Clean home-recording workflow built around accessible gear instead of expensive studio-only hardware."
+                                      }
+                                  ]
+                    },
+    "supportSection":  {
+                           "eyebrow":  "Support",
+                           "title":  "Request a song or support future covers.",
+                           "description":  "If you want to hear a specific song from Ralskies or support future music, use the options below. Requests with a clear idea or emotional angle are easier to prioritize.",
+                           "items":  [
+                                         {
+                                             "label":  "Request a Song",
+                                             "title":  "Send a song idea, theme, or concept worth reimagining.",
+                                             "description":  "Best for covers, male-key versions, theatrical reworks, Disney-style reinterpretations, or songs that would fit the voice and style well.",
+                                             "links":  [
+                                                           {
+                                                               "label":  "Request on Ko-fi",
+                                                               "href":  "https://ko-fi.com/ralskies"
+                                                           },
+                                                           {
+                                                               "label":  "Use Contact Form",
+                                                               "href":  "#collab"
+                                                           }
+                                                       ]
+                                         },
+                                         {
+                                             "label":  "Support / Donate",
+                                             "title":  "Help fund future covers, collaborations, and recording work.",
+                                             "description":  "Support helps fund future releases, covers, and better production. If you want to back the music directly, Ko-fi is the easiest way to do it.",
+                                             "links":  [
+                                                           {
+                                                               "label":  "Support on Ko-fi",
+                                                               "href":  "https://ko-fi.com/ralskies"
+                                                           },
+                                                           {
+                                                               "label":  "Join Discord",
+                                                               "href":  "https://discord.gg/5yyhHJxfS2"
+                                                           }
+                                                       ]
+                                         }
+                                     ]
+                       },
+    "fanArtSection":  {
+                          "eyebrow":  "Want To Make Art For Ralskies?",
+                          "title":  "Fan art, illustrations, edits, and visual tributes are always appreciated.",
+                          "description":  "If you create art inspired by Ralskies, there is a place for it here too. Whether it is stylized fan art, thumbnails, edits, or other visual work, the support and creativity are genuinely valued.",
+                          "items":  [
+                                        {
+                                            "label":  "What to Send",
+                                            "title":  "Fan art, edits, concepts, posters, or tribute visuals.",
+                                            "description":  "Finished pieces, work-in-progress previews, and stylized concepts are all welcome as long as they are respectful and clearly inspired by the music, persona, or content."
+                                        },
+                                        {
+                                            "label":  "Where to Share",
+                                            "title":  "Use Discord or the contact form to send your work.",
+                                            "description":  "If you want the best chance of the art being seen, share it through the Discord community or send it directly through the form with links to the artwork.",
+                                            "links":  [
+                                                          {
+                                                              "label":  "Share on Discord",
+                                                              "href":  "https://discord.gg/5yyhHJxfS2"
+                                                          },
+                                                          {
+                                                              "label":  "Use Contact Form",
+                                                              "href":  "#collab"
+                                                          }
+                                                      ]
+                                        }
+                                    ]
+                      },
+    "fanArtGallery":  [
+                          {
+                              "title":  "Chlo And Ral 26 Valentines",
+                              "artistName":  "Community Artist",
+                              "description":  "Update this description when you want a more specific caption on the site.",
+                              "imageUrl":  "/fanart/Chlo_and_ral_26_valentines_20260213205253.png",
+                              "href":  "/fanart/Chlo_and_ral_26_valentines_20260213205253.png",
+                              "ctaLabel":  "Open Art",
+                              "thumbnailAlt":  "Fan art for Chlo And Ral 26 Valentines"
+                          },
+                          {
+                              "title":  "Happy Birthday Ral",
+                              "artistName":  "Community Artist",
+                              "description":  "Update this description when you want a more specific caption on the site.",
+                              "imageUrl":  "/fanart/Happy_Birthday_Ral_20251126204703.png",
+                              "href":  "/fanart/Happy_Birthday_Ral_20251126204703.png",
+                              "ctaLabel":  "Open Art",
+                              "thumbnailAlt":  "Fan art for Happy Birthday Ral"
+                          },
+                          {
+                              "title":  "Sans Titre 127",
+                              "artistName":  "Community Artist",
+                              "description":  "Update this description when you want a more specific caption on the site.",
+                              "imageUrl":  "/fanart/Sans_titre_127_20260204145616.png",
+                              "href":  "/fanart/Sans_titre_127_20260204145616.png",
+                              "ctaLabel":  "Open Art",
+                              "thumbnailAlt":  "Fan art for Sans Titre 127"
+                          }
+                      ],
+    "collabSection":  {
+                          "eyebrow":  "Contact \u0026 Inquiries",
+                          "title":  "Send a clear pitch, request, or project inquiry.",
+                          "description":  "Use this for singing collaborations, voice acting, promotions, product inquiries, thumbnail art, fan projects, or any proposal with a clear idea and direction."
+                      },
+    "footerSection":  {
+                          "brand":  {
+                                        "eyebrow":  "Ralskies",
+                                        "title":  "Music, covers, collaborations, and community.",
+                                        "description":  "Built as a direct home for listeners, collaborators, artists, and supporters who want to keep up with the work or reach out with something real."
+                                    },
+                          "columns":  [
+                                          {
+                                              "label":  "Platforms",
+                                              "links":  [
+                                                            {
+                                                                "label":  "YouTube",
+                                                                "href":  "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+                                                            },
+                                                            {
+                                                                "label":  "Spotify",
+                                                                "href":  "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1\u0026dlsi=41715c668e97408b"
+                                                            },
+                                                            {
+                                                                "label":  "TikTok",
+                                                                "href":  "https://www.tiktok.com/@ralskies"
+                                                            },
+                                                            {
+                                                                "label":  "Discord",
+                                                                "href":  "https://discord.gg/5yyhHJxfS2"
+                                                            }
+                                                        ]
+                                          },
+                                          {
+                                              "label":  "Support",
+                                              "links":  [
+                                                            {
+                                                                "label":  "Request a Song",
+                                                                "href":  "https://ko-fi.com/ralskies"
+                                                            },
+                                                            {
+                                                                "label":  "Support on Ko-fi",
+                                                                "href":  "https://ko-fi.com/ralskies"
+                                                            },
+                                                            {
+                                                                "label":  "Fan Art",
+                                                                "href":  "#art"
+                                                            },
+                                                            {
+                                                                "label":  "Contact Form",
+                                                                "href":  "#collab"
+                                                            }
+                                                        ]
+                                          }
+                                      ],
+                          "note":  "Ralskies official website."
+                      },
+    "testimonials":  [
+                         {
+                             "quote":  "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",
+                             "name":  "Featured Collaborator",
+                             "role":  "Producer and Creative Partner",
+                             "highlight":  true
+                         },
+                         {
+                             "quote":  "There is a clear performance instinct behind the voice. Even in collaborative material, the delivery still feels specific instead of generic.",
+                             "name":  "Creative Peer",
+                             "role":  "Music Creator",
+                             "highlight":  false
+                         },
+                         {
+                             "quote":  "The strongest thing about the work is that it sounds considered. The arrangement choices and tone always feel like they are serving an idea.",
+                             "name":  "Project Reviewer",
+                             "role":  "Curated Reference",
+                             "highlight":  false
+                         }
+                     ]
 }

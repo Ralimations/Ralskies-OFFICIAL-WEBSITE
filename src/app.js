@@ -4,6 +4,11 @@ const fallbackContent = {
     title: "Curated highlights that show range, collaborators, and the strongest entry points.",
     description: "This section is curated as a portfolio layer, not a feed. Each piece is here because it shows a different angle of the work: current standard, collaboration value, and character-led range."
   },
+  releasesSection: {
+    eyebrow: "Releases & Timeline",
+    title: "Browse featured playlists by category.",
+    description: "Switch through releases, collaborations, and voice acting highlights without leaving the page."
+  },
   proofSection: {
     eyebrow: "Proof & Testimonials",
     title: "References, reputation signals, and the clearest reasons collaborators take the work seriously.",
@@ -59,6 +64,19 @@ const fallbackContent = {
         "Direct audience connection through YouTube and Discord"
       ]
     }
+  },
+  latestYoutube: {
+    eyebrow: "Latest Release",
+    sectionTitle: "The current release carrying the strongest snapshot of the sound.",
+    sectionDescription: "A direct entry point for visitors who want the most current featured performance first.",
+    title: "Latest Release",
+    description: "This is the featured release currently representing Ralskies' strongest work on the site.",
+    videoId: "TteKHjCsF-0",
+    videoUrl: "https://www.youtube.com/watch?v=TteKHjCsF-0&list=PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
+    embedUrl: "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
+    thumbnailUrl: "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
+    publishedAt: null,
+    ctaLabel: "Watch Release"
   },
   aboutSection: {
     items: [
@@ -168,6 +186,17 @@ const fallbackContent = {
       }
     ]
   },
+  fanArtGallery: [
+    {
+      title: "Discord Tribute Spotlight",
+      artistName: "Community Artist",
+      description: "Curated fan art can be spotlighted here with artist credit and a direct source link.",
+      imageUrl: "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
+      href: "https://discord.gg/5yyhHJxfS2",
+      ctaLabel: "View Source",
+      thumbnailAlt: "Placeholder artwork spotlight for the fan art gallery"
+    }
+  ],
   collabSection: {
     eyebrow: "Contact & Inquiries",
     title: "Send a clear pitch, request, or project inquiry.",
@@ -218,6 +247,41 @@ const fallbackContent = {
       ctaLabel: "Watch Showcase",
       thumbnailUrl: "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
       thumbnailAlt: "Thumbnail for the current featured release"
+    }
+  ],
+  releases: [
+    {
+      label: "Release",
+      title: "Proud Covers",
+      description: "Cycle through the core covers and featured release playlist directly inside the card.",
+      meta: "Current era",
+      href: "https://www.youtube.com/playlist?list=PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw",
+      ctaLabel: "Open Playlist",
+      playlistId: "PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw",
+      startVideoId: "TteKHjCsF-0",
+      startIndex: 0
+    },
+    {
+      label: "Collaboration",
+      title: "Collaborations & Features",
+      description: "Move through collaboration uploads, duets, and creator projects from one playlist.",
+      meta: "Featured vocal",
+      href: "https://www.youtube.com/playlist?list=PLsjrSGMbKS6e4HAV7pizKUeirpHA5yIEe",
+      ctaLabel: "Open Playlist",
+      playlistId: "PLsjrSGMbKS6e4HAV7pizKUeirpHA5yIEe",
+      startVideoId: "CtJegGMrZX0",
+      startIndex: 2
+    },
+    {
+      label: "Voice Acting",
+      title: "Voice Acting & Character Roles",
+      description: "Flip through voice acting appearances and character-driven performances from the playlist.",
+      meta: "Character performance",
+      href: "https://www.youtube.com/playlist?list=PLsjrSGMbKS6eQ0TO_aONiNAhxq6dUOXwg",
+      ctaLabel: "Open Playlist",
+      playlistId: "PLsjrSGMbKS6eQ0TO_aONiNAhxq6dUOXwg",
+      startVideoId: "ueKqiJ15mP8",
+      startIndex: 0
     }
   ],
   gearSection: {
@@ -342,6 +406,15 @@ function sanitizeImageUrl(value, fallback) {
   return fallback;
 }
 
+function buildYoutubeThumbnail(videoId, fallback) {
+  if (typeof videoId !== "string" || !videoId.trim()) {
+    return fallback;
+  }
+
+  const safeVideoId = encodeURIComponent(videoId.trim());
+  return `https://i.ytimg.com/vi/${safeVideoId}/hqdefault.jpg`;
+}
+
 function renderFeaturedWorks(featuredWorks) {
   const list = document.getElementById("featured-works-list");
   if (!list) {
@@ -399,6 +472,92 @@ function renderFeaturedWorks(featuredWorks) {
   }).join("");
 }
 
+function renderReleases(releases) {
+  const list = document.getElementById("releases-list");
+  if (!list) {
+    return;
+  }
+
+  const safeReleases = Array.isArray(releases) && releases.length
+    ? releases
+    : fallbackContent.releases;
+
+  list.innerHTML = safeReleases.map((item, index) => {
+    const label = escapeHtml(item.label || "Release");
+    const title = escapeHtml(item.title || "Untitled Release");
+    const description = escapeHtml(item.description || "");
+    const meta = escapeHtml(item.meta || "");
+    const href = sanitizeExternalUrl(item.href, "https://www.youtube.com/");
+    const ctaLabel = escapeHtml(item.ctaLabel || "Open Release");
+    const playlistId = escapeHtml(item.playlistId || "");
+    const startVideoId = escapeHtml(item.startVideoId || "");
+    const startIndex = Number.isFinite(item.startIndex) ? item.startIndex : 0;
+    const playerId = `release-player-${index + 1}`;
+    const cardId = `release-card-${index + 1}`;
+    const initialVideoId = startVideoId || "TteKHjCsF-0";
+    const initialThumb = `https://i.ytimg.com/vi/${initialVideoId}/hqdefault.jpg`;
+
+    return `
+      <article class="release-card" id="${cardId}">
+        <p class="card-label">${label}</p>
+        <h3>${title}</h3>
+        ${meta ? `<p class="latest-release-meta">${meta}</p>` : ""}
+        <button
+          type="button"
+          class="playlist-thumb"
+          id="${cardId}-thumb"
+          data-video-id="${initialVideoId}"
+          aria-label="Play ${title}"
+        >
+          <img
+            id="${cardId}-image"
+            src="${initialThumb}"
+            alt="${title} playlist thumbnail"
+            loading="lazy"
+          >
+          <span class="playlist-thumb-index" id="${cardId}-counter">${String(startIndex + 1).padStart(2, "0")}</span>
+        </button>
+        <div
+          class="playlist-player playlist-player-hidden"
+          id="${playerId}"
+          data-playlist-id="${playlistId}"
+          data-start-video-id="${initialVideoId}"
+          data-start-index="${startIndex}"
+          data-card-id="${cardId}"
+          aria-hidden="true"
+        ></div>
+        <p class="muted">${description}</p>
+        <div class="link-row compact-links playlist-controls">
+          <button
+            type="button"
+            class="button button-tertiary playlist-control"
+            data-action="prev-video"
+            data-target="${playerId}"
+          >
+            Prev
+          </button>
+          <button
+            type="button"
+            class="button button-secondary playlist-control"
+            data-action="next-video"
+            data-target="${playerId}"
+          >
+            Next
+          </button>
+          <a
+            class="button button-primary"
+            href="${href}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${ctaLabel}
+          </a>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
 function renderFeaturedSection(featuredSection) {
   const safeSection = featuredSection
     ? featuredSection
@@ -407,6 +566,69 @@ function renderFeaturedSection(featuredSection) {
   setText("featured-eyebrow", safeSection.eyebrow || fallbackContent.featuredSection.eyebrow);
   setText("featured-title", safeSection.title || fallbackContent.featuredSection.title);
   setText("featured-description", safeSection.description || fallbackContent.featuredSection.description);
+}
+
+function renderReleasesSection(releasesSection) {
+  const safeSection = releasesSection
+    ? releasesSection
+    : fallbackContent.releasesSection;
+
+  setText("releases-eyebrow", safeSection.eyebrow || fallbackContent.releasesSection.eyebrow);
+  setText("releases-title", safeSection.title || fallbackContent.releasesSection.title);
+  setText("releases-description", safeSection.description || fallbackContent.releasesSection.description);
+}
+
+function renderLatestRelease(latestYoutube) {
+  const safeRelease = latestYoutube
+    ? latestYoutube
+    : fallbackContent.latestYoutube;
+
+  setText("latest-release-eyebrow", safeRelease.eyebrow || fallbackContent.latestYoutube.eyebrow);
+  setText("latest-release-title", safeRelease.sectionTitle || fallbackContent.latestYoutube.sectionTitle);
+  setText(
+    "latest-release-description",
+    safeRelease.sectionDescription || fallbackContent.latestYoutube.sectionDescription
+  );
+  setText("latest-release-name", safeRelease.title || fallbackContent.latestYoutube.title);
+  setText("latest-release-copy", safeRelease.description || fallbackContent.latestYoutube.description);
+
+  const releaseUrl = sanitizeExternalUrl(
+    safeRelease.videoUrl,
+    fallbackContent.latestYoutube.videoUrl
+  );
+  const thumbnailFallback = buildYoutubeThumbnail(
+    safeRelease.videoId,
+    fallbackContent.latestYoutube.thumbnailUrl
+  );
+  const thumbnailUrl = sanitizeImageUrl(
+    safeRelease.thumbnailUrl || thumbnailFallback,
+    fallbackContent.latestYoutube.thumbnailUrl
+  );
+
+  const image = document.getElementById("latest-release-image");
+  if (image) {
+    image.src = thumbnailUrl;
+    image.alt = safeRelease.title
+      ? `Thumbnail for ${safeRelease.title}`
+      : "Thumbnail for the latest featured release";
+  }
+
+  const releaseLink = document.getElementById("latest-release-link");
+  if (releaseLink) {
+    releaseLink.href = releaseUrl;
+  }
+
+  const releaseCta = document.getElementById("latest-release-cta");
+  if (releaseCta) {
+    releaseCta.href = releaseUrl;
+    releaseCta.textContent = safeRelease.ctaLabel || fallbackContent.latestYoutube.ctaLabel;
+  }
+
+  const publishedAt = formatSyncDate(safeRelease.publishedAt);
+  setText(
+    "latest-release-meta",
+    publishedAt || "Most recent featured highlight"
+  );
 }
 
 function renderProofSection(proofSection) {
@@ -560,6 +782,62 @@ function renderFanArtSection(fanArtSection) {
       }
     });
   });
+}
+
+function renderFanArtGallery(fanArtGallery) {
+  const gallery = document.getElementById("fan-art-gallery");
+  if (!gallery) {
+    return;
+  }
+
+  const safeItems = Array.isArray(fanArtGallery) && fanArtGallery.length
+    ? fanArtGallery
+    : fallbackContent.fanArtGallery;
+
+  gallery.innerHTML = safeItems.map((item, index) => {
+    const title = escapeHtml(item.title || "Fan Art Spotlight");
+    const artistName = escapeHtml(item.artistName || "Community Artist");
+    const description = escapeHtml(item.description || "");
+    const href = sanitizeExternalUrl(item.href, "https://discord.gg/5yyhHJxfS2");
+    const ctaLabel = escapeHtml(item.ctaLabel || "View Source");
+    const imageUrl = sanitizeImageUrl(
+      item.imageUrl,
+      fallbackContent.fanArtGallery[0]?.imageUrl || ""
+    );
+    const thumbnailAlt = escapeHtml(item.thumbnailAlt || item.title || "Fan art spotlight");
+    const rank = String(index + 1).padStart(2, "0");
+
+    return `
+      <article class="catalog-card fan-art-piece">
+        <a
+          class="fan-art-thumb"
+          href="${href}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="${ctaLabel}: ${title}"
+        >
+          <img src="${imageUrl}" alt="${thumbnailAlt}" loading="lazy">
+          <span class="fan-art-index">${rank}</span>
+        </a>
+        <div class="fan-art-body">
+          <p class="card-label">Fan Art Spotlight</p>
+          <h3>${title}</h3>
+          <p class="fan-art-credit">By ${artistName}</p>
+          <p class="muted">${description}</p>
+          <div class="link-row compact-links">
+            <a
+              class="button button-primary"
+              href="${href}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ${ctaLabel}
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
 function renderGenreSection(genreSection) {
@@ -998,10 +1276,208 @@ function setupMobileNav() {
   });
 }
 
+const playlistPlayers = new Map();
+const playlistState = new Map();
+let youtubeIframeApiPromise;
+
+function loadYoutubeIframeApi() {
+  if (window.YT?.Player) {
+    return Promise.resolve(window.YT);
+  }
+
+  if (youtubeIframeApiPromise) {
+    return youtubeIframeApiPromise;
+  }
+
+  youtubeIframeApiPromise = new Promise((resolve) => {
+    const existingScript = document.querySelector('script[data-youtube-iframe-api="true"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      script.async = true;
+      script.setAttribute("data-youtube-iframe-api", "true");
+      document.head.appendChild(script);
+    }
+
+    window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+  });
+
+  return youtubeIframeApiPromise;
+}
+
+function setupReleasePlaylists() {
+  const playerNodes = Array.from(document.querySelectorAll(".playlist-player[data-playlist-id]"));
+  if (!playerNodes.length) {
+    return;
+  }
+
+  loadYoutubeIframeApi().then((YT) => {
+    playerNodes.forEach((node) => {
+      const playlistId = node.getAttribute("data-playlist-id");
+      const startIndex = Number(node.getAttribute("data-start-index")) || 0;
+      const startVideoId = node.getAttribute("data-start-video-id");
+      const playerKey = node.id;
+      const cardId = node.getAttribute("data-card-id");
+
+      if (!playlistId || playlistPlayers.has(playerKey)) {
+        return;
+      }
+
+      const player = new YT.Player(playerKey, {
+        width: 1,
+        height: 1,
+        host: "https://www.youtube-nocookie.com",
+        events: {
+          onReady: () => {
+            if (typeof player.mute === "function") {
+              player.mute();
+            }
+
+            if (typeof player.cuePlaylist === "function") {
+              player.cuePlaylist({
+                listType: "playlist",
+                list: playlistId,
+                index: startIndex
+              });
+            }
+
+            window.setTimeout(() => {
+              const playlist = typeof player.getPlaylist === "function" ? player.getPlaylist() : null;
+              const items = Array.isArray(playlist) ? playlist : [];
+              const currentIndex = items.length
+                ? Math.min(Math.max(startIndex, 0), items.length - 1)
+                : 0;
+
+              playlistState.set(cardId, { items, currentIndex, startVideoId });
+              syncPlaylistCard(cardId);
+            }, 200);
+          }
+        }
+      });
+
+      playlistPlayers.set(playerKey, player);
+    });
+  }).catch(() => {
+    // Leave the playlist links available if the iframe API cannot load.
+  });
+
+  document.querySelectorAll(".playlist-control").forEach((button) => {
+    if (button.dataset.bound === "true") {
+      return;
+    }
+
+    button.dataset.bound = "true";
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      const action = button.getAttribute("data-action");
+      const player = targetId ? playlistPlayers.get(targetId) : null;
+      const cardId = document.getElementById(targetId)?.getAttribute("data-card-id");
+      const state = cardId ? playlistState.get(cardId) : null;
+
+      if (!player || !cardId || !state?.items?.length) {
+        return;
+      }
+
+      if (action === "prev-video") {
+        state.currentIndex = (state.currentIndex - 1 + state.items.length) % state.items.length;
+        syncPlaylistCard(cardId);
+      }
+
+      if (action === "next-video") {
+        state.currentIndex = (state.currentIndex + 1) % state.items.length;
+        syncPlaylistCard(cardId);
+      }
+    });
+  });
+}
+
+function syncPlaylistCard(cardId) {
+  const state = cardId ? playlistState.get(cardId) : null;
+  if (!cardId) {
+    return;
+  }
+
+  const videoId = state?.items?.length
+    ? state.items[state.currentIndex]
+    : state?.startVideoId;
+
+  if (!videoId) {
+    return;
+  }
+
+  const thumbLink = document.getElementById(`${cardId}-thumb`);
+  const thumbImage = document.getElementById(`${cardId}-image`);
+  const counter = document.getElementById(`${cardId}-counter`);
+
+  if (thumbLink) {
+    thumbLink.dataset.videoId = videoId;
+  }
+
+  if (thumbImage) {
+    thumbImage.src = `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
+  }
+
+  if (counter && state?.items?.length) {
+    counter.textContent = String(state.currentIndex + 1).padStart(2, "0");
+  }
+}
+
+function setupVideoModal() {
+  const modal = document.getElementById("video-modal");
+  const iframe = document.getElementById("video-modal-iframe");
+  if (!modal || !iframe) {
+    return;
+  }
+
+  const closeModal = () => {
+    iframe.src = "";
+    modal.hidden = true;
+    document.body.classList.remove("is-video-modal-open");
+  };
+
+  document.querySelectorAll("[data-close-video-modal]").forEach((node) => {
+    if (node.dataset.bound === "true") {
+      return;
+    }
+
+    node.dataset.bound = "true";
+    node.addEventListener("click", closeModal);
+  });
+
+  document.querySelectorAll(".playlist-thumb").forEach((button) => {
+    if (button.dataset.modalBound === "true") {
+      return;
+    }
+
+    button.dataset.modalBound = "true";
+    button.addEventListener("click", () => {
+      const videoId = button.dataset.videoId;
+      if (!videoId) {
+        return;
+      }
+
+      iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0`;
+      modal.hidden = false;
+      document.body.classList.add("is-video-modal-open");
+    });
+  });
+
+  if (modal.dataset.escapeBound !== "true") {
+    modal.dataset.escapeBound = "true";
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) {
+        closeModal();
+      }
+    });
+  }
+}
+
 function renderContent(content) {
+  const latestYoutube = content.latestYoutube || fallbackContent.latestYoutube;
   const heroSection = content.heroSection || fallbackContent.heroSection;
   const aboutSection = content.aboutSection || fallbackContent.aboutSection;
   const featuredSection = content.featuredSection || fallbackContent.featuredSection;
+  const releasesSection = content.releasesSection || fallbackContent.releasesSection;
   const proofSection = content.proofSection || fallbackContent.proofSection;
   const collabSection = content.collabSection || fallbackContent.collabSection;
   const footerSection = content.footerSection || fallbackContent.footerSection;
@@ -1011,9 +1487,11 @@ function renderContent(content) {
   const fitSection = content.fitSection || fallbackContent.fitSection;
   const spotify = content.spotify || fallbackContent.spotify;
   const featuredWorks = content.featuredWorks || fallbackContent.featuredWorks;
+  const releases = content.releases || fallbackContent.releases;
   const supportSection = content.supportSection || fallbackContent.supportSection;
   const gearSection = content.gearSection || fallbackContent.gearSection;
   const fanArtSection = content.fanArtSection || fallbackContent.fanArtSection;
+  const fanArtGallery = content.fanArtGallery || fallbackContent.fanArtGallery;
   const testimonials = content.testimonials || fallbackContent.testimonials;
 
   setText("youtube-channel-name", youtubeChannel.name || fallbackContent.youtubeChannel.name);
@@ -1035,18 +1513,24 @@ function renderContent(content) {
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 
+  renderLatestRelease(latestYoutube);
   renderHeroSection(heroSection, youtubeChannel);
   renderAboutSection(aboutSection);
   renderFeaturedSection(featuredSection);
+  renderReleasesSection(releasesSection);
   renderProofSection(proofSection);
   renderCollabSection(collabSection);
   renderPlatformsSection(platformsSection, youtubeChannel, spotify);
   renderGenreSection(genreSection);
   renderFitSection(fitSection);
   renderFeaturedWorks(featuredWorks);
+  renderReleases(releases);
+  setupReleasePlaylists();
+  setupVideoModal();
   renderSupportSection(supportSection);
   renderGearSection(gearSection);
   renderFanArtSection(fanArtSection);
+  renderFanArtGallery(fanArtGallery);
   renderTestimonials(testimonials);
   renderFooterSection(footerSection);
 }
