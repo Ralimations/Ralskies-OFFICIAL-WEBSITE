@@ -19,6 +19,53 @@
     "artistUrl": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b",
     "status": "Listen to official releases and artist updates on Spotify."
   },
+  "platformsSection": {
+    "eyebrow": "Platforms",
+    "title": "Where to listen, watch, and keep up.",
+    "items": [
+      {
+        "label": "YouTube",
+        "title": "Ralskies on YouTube",
+        "description": "Watch featured covers, showcases, and current uploads on the channel.",
+        "links": [
+          {
+            "label": "Visit Channel",
+            "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+          },
+          {
+            "label": "Best Of Playlist",
+            "href": "https://www.youtube.com/playlist?list=PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw"
+          }
+        ]
+      },
+      {
+        "label": "Spotify",
+        "title": "Ralskies on Spotify",
+        "description": "Listen to official releases and artist updates on Spotify.",
+        "links": [
+          {
+            "label": "Open Spotify",
+            "href": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b"
+          },
+          {
+            "label": "Join Discord",
+            "href": "https://discord.gg/5yyhHJxfS2"
+          }
+        ]
+      },
+      {
+        "label": "TikTok",
+        "title": "Ralskies on TikTok",
+        "description": "Short-form content, clips, and updates from the Ralskies side of the internet.",
+        "links": [
+          {
+            "label": "Open TikTok",
+            "href": "https://www.tiktok.com/@ralskies"
+          }
+        ]
+      }
+    ]
+  },
   "genreSection": {
     "eyebrow": "Genres & Niches",
     "title": "The styles and specialties that define the sound.",

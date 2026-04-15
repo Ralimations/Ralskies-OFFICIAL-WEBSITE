@@ -1,4 +1,36 @@
 const fallbackContent = {
+  platformsSection: {
+    eyebrow: "Platforms",
+    title: "Where to listen, watch, and keep up.",
+    items: [
+      {
+        label: "YouTube",
+        title: "Ralskies on YouTube",
+        description: "Watch featured covers, showcases, and current uploads on the channel.",
+        links: [
+          { label: "Visit Channel", href: "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q" },
+          { label: "Best Of Playlist", href: "https://www.youtube.com/playlist?list=PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw" }
+        ]
+      },
+      {
+        label: "Spotify",
+        title: "Ralskies on Spotify",
+        description: "Listen to official releases and artist updates on Spotify.",
+        links: [
+          { label: "Open Spotify", href: "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b" },
+          { label: "Join Discord", href: "https://discord.gg/5yyhHJxfS2" }
+        ]
+      },
+      {
+        label: "TikTok",
+        title: "Ralskies on TikTok",
+        description: "Short-form content, clips, and updates from the Ralskies side of the internet.",
+        links: [
+          { label: "Open TikTok", href: "https://www.tiktok.com/@ralskies" }
+        ]
+      }
+    ]
+  },
   genreSection: {
     eyebrow: "Genres & Niches",
     title: "The styles and specialties that define the sound.",
@@ -459,6 +491,57 @@ function renderFitSection(fitSection) {
   });
 }
 
+function renderPlatformsSection(platformsSection, youtubeChannel, spotify) {
+  const safeSection = platformsSection && Array.isArray(platformsSection.items) && platformsSection.items.length
+    ? platformsSection
+    : fallbackContent.platformsSection;
+
+  setText("platforms-eyebrow", safeSection.eyebrow || fallbackContent.platformsSection.eyebrow);
+  setText("platforms-title", safeSection.title || fallbackContent.platformsSection.title);
+
+  const youtubeItem = safeSection.items[0] || fallbackContent.platformsSection.items[0];
+  const spotifyItem = safeSection.items[1] || fallbackContent.platformsSection.items[1];
+  const tiktokItem = safeSection.items[2] || fallbackContent.platformsSection.items[2];
+
+  const setCardLabel = (cardId, labelText) => {
+    const card = document.getElementById(cardId);
+    const label = card?.querySelector(".card-label");
+    if (label) {
+      label.textContent = labelText || "";
+    }
+  };
+
+  const setAnchor = (id, link) => {
+    const anchor = document.getElementById(id);
+    if (!anchor || !link) {
+      return;
+    }
+
+    anchor.textContent = link.label || anchor.textContent;
+    const href = sanitizeExternalUrl(link.href, anchor.getAttribute("href") || "#");
+    anchor.href = href;
+    anchor.setAttribute("target", "_blank");
+    anchor.setAttribute("rel", "noopener noreferrer");
+  };
+
+  setCardLabel("platform-card-1", youtubeItem.label);
+  setText("youtube-channel-name", youtubeChannel.name || youtubeItem.title || fallbackContent.youtubeChannel.name);
+  setText("youtube-sync-status", youtubeItem.description || "Watch featured covers, showcases, and current uploads on the channel.");
+  setHref("youtube-channel-link", youtubeChannel.channelUrl || youtubeItem.links?.[0]?.href || fallbackContent.youtubeChannel.channelUrl);
+  setAnchor("platform-card-1-link-2", youtubeItem.links?.[1]);
+
+  setCardLabel("platform-card-2", spotifyItem.label);
+  setText("spotify-artist-name", spotify.artistName || spotifyItem.title || fallbackContent.spotify.artistName);
+  setText("spotify-status", spotifyItem.description || spotify.status || fallbackContent.spotify.status);
+  setHref("spotify-link", spotify.artistUrl || spotifyItem.links?.[0]?.href || fallbackContent.spotify.artistUrl);
+  setAnchor("platform-card-2-link-2", spotifyItem.links?.[1]);
+
+  setCardLabel("platform-card-3", tiktokItem.label);
+  setText("platform-card-3-title", tiktokItem.title || fallbackContent.platformsSection.items[2].title);
+  setText("platform-card-3-description", tiktokItem.description || fallbackContent.platformsSection.items[2].description);
+  setAnchor("platform-card-3-link-1", tiktokItem.links?.[0]);
+}
+
 function sanitizeExternalUrl(value, fallback) {
   if (typeof value !== "string") {
     return fallback;
@@ -625,6 +708,7 @@ function setupActiveNav() {
 }
 
 function renderContent(content) {
+  const platformsSection = content.platformsSection || fallbackContent.platformsSection;
   const youtubeChannel = content.youtubeChannel || fallbackContent.youtubeChannel;
   const genreSection = content.genreSection || fallbackContent.genreSection;
   const fitSection = content.fitSection || fallbackContent.fitSection;
@@ -654,6 +738,7 @@ function renderContent(content) {
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 
+  renderPlatformsSection(platformsSection, youtubeChannel, spotify);
   renderGenreSection(genreSection);
   renderFitSection(fitSection);
   renderFeaturedWorks(featuredWorks);
