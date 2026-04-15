@@ -935,16 +935,17 @@ body.is-video-modal-open {
   display: flex;
   flex: 1;
   flex-direction: column;
+  gap: 4px;
 }
 
 .fan-art-piece h3 {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   font-size: clamp(1.05rem, 1.4vw, 1.28rem);
   line-height: 1.14;
 }
 
 .fan-art-credit {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: rgba(246, 207, 135, 0.88);
   font-size: 0.78rem;
   letter-spacing: 0.05em;

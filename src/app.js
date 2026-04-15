@@ -834,7 +834,6 @@ function renderFanArtGallery(fanArtGallery) {
   gallery.innerHTML = safeItems.map((item, index) => {
     const title = escapeHtml(item.title || "Fan Art Spotlight");
     const artistName = escapeHtml(item.artistName || "Community Artist");
-    const description = escapeHtml(item.description || "");
     const href = sanitizeExternalUrl(item.href, "https://discord.gg/5yyhHJxfS2");
     const ctaLabel = escapeHtml(item.ctaLabel || "View Source");
     const imageUrl = sanitizeImageUrl(
@@ -860,7 +859,6 @@ function renderFanArtGallery(fanArtGallery) {
           <p class="card-label">Fan Art Spotlight</p>
           <h3>${title}</h3>
           <p class="fan-art-credit">By ${artistName}</p>
-          <p class="muted">${description}</p>
           <div class="link-row compact-links">
             <a
               class="button button-primary"
