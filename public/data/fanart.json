@@ -1,0 +1,20 @@
+﻿[
+    {
+        "title":  "Happy Birthday!",
+        "artistName":  "Community Artist",
+        "description":  "Update this description when you want a more specific caption on the site.",
+        "imageUrl":  "/fanart/Happy Birthday!.png",
+        "href":  "/fanart/Happy Birthday!.png",
+        "ctaLabel":  "Open Art",
+        "thumbnailAlt":  "Fan art for Happy Birthday!"
+    },
+    {
+        "title":  "Ralskies",
+        "artistName":  "Community Artist",
+        "description":  "Update this description when you want a more specific caption on the site.",
+        "imageUrl":  "/fanart/Ralskies.png",
+        "href":  "/fanart/Ralskies.png",
+        "ctaLabel":  "Open Art",
+        "thumbnailAlt":  "Fan art for Ralskies"
+    }
+]
