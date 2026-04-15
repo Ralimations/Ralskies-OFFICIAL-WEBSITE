@@ -968,6 +968,36 @@ function setupActiveNav() {
   updateActiveNav();
 }
 
+function setupMobileNav() {
+  const nav = document.querySelector(".site-nav");
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.getElementById("site-nav-links");
+
+  if (!nav || !toggle || !navLinks) {
+    return;
+  }
+
+  const closeMenu = () => {
+    nav.classList.remove("is-menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-menu-open");
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  navLinks.querySelectorAll("a[href^='#']").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 640) {
+      closeMenu();
+    }
+  });
+}
+
 function renderContent(content) {
   const heroSection = content.heroSection || fallbackContent.heroSection;
   const aboutSection = content.aboutSection || fallbackContent.aboutSection;
@@ -1034,3 +1064,4 @@ fetch("/data/content.json")
 setupPointerMotion();
 setupScrollReveal();
 setupActiveNav();
+setupMobileNav();
