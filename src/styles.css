@@ -1011,6 +1011,17 @@ body.is-video-modal-open {
   letter-spacing: 0.01em;
 }
 
+.testimonial-link {
+  color: rgba(255, 247, 233, 0.96);
+  text-decoration: underline;
+  text-decoration-color: rgba(246, 207, 135, 0.46);
+  text-underline-offset: 0.16em;
+}
+
+.testimonial-link:hover {
+  text-decoration-color: rgba(246, 207, 135, 0.88);
+}
+
 .catalog-card .link-row,
 .release-card .link-row,
 .credit-card .link-row {

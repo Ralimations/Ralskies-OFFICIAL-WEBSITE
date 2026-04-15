@@ -46,26 +46,73 @@ $contentPath = Resolve-Path (Get-ProjectPath "public\data\content.json")
 $fanartPath = Resolve-Path (Get-ProjectPath "public\data\fanart.json")
 $testimonialsPath = Resolve-Path (Get-ProjectPath "public\data\testimonials.json")
 $fanartDir = Resolve-Path (Get-ProjectPath "public\fanart")
+$testimonialCsv = Get-ChildItem -LiteralPath (Resolve-Path (Get-ProjectPath ".")) -File |
+  Where-Object { $_.Extension -eq ".csv" -and $_.Name -like "Ralskies Testimonial*" } |
+  Sort-Object LastWriteTime -Descending |
+  Select-Object -First 1
 
 $content = Read-JsonFile $contentPath
 $fanartEntries = ConvertTo-NormalizedArray (Read-JsonFile $fanartPath)
-$testimonials = ConvertTo-NormalizedArray (Read-JsonFile $testimonialsPath)
+$testimonials = if ($testimonialCsv) {
+  @(Import-Csv -LiteralPath $testimonialCsv.FullName)
+} else {
+  ConvertTo-NormalizedArray (Read-JsonFile $testimonialsPath)
+}
 $fanartFiles = @(Get-ChildItem -LiteralPath $fanartDir -File | Where-Object {
   $_.Extension -in @(".png", ".jpg", ".jpeg", ".webp")
 } | Sort-Object Name)
 
 $validTestimonials = @()
 foreach ($entry in $testimonials) {
-  if (-not $entry.quote -or -not $entry.name) {
+  $quote = if ($entry.PSObject.Properties["quote"]) {
+    [string]$entry.quote
+  } elseif ($entry.PSObject.Properties["This is a message regarding my experience collaborating with Ralskies. "]) {
+    [string]$entry."This is a message regarding my experience collaborating with Ralskies. "
+  } else {
+    ""
+  }
+
+  $name = if ($entry.PSObject.Properties["name"]) {
+    [string]$entry.name
+  } elseif ($entry.PSObject.Properties["Artist Name "]) {
+    [string]$entry."Artist Name "
+  } else {
+    ""
+  }
+
+  $role = if ($entry.PSObject.Properties["role"]) {
+    [string]$entry.role
+  } elseif ($entry.PSObject.Properties["Channel Link"] -and $entry."Channel Link") {
+    "Creator"
+  } else {
+    ""
+  }
+
+  $link = if ($entry.PSObject.Properties["href"]) {
+    [string]$entry.href
+  } elseif ($entry.PSObject.Properties["Channel Link"]) {
+    [string]$entry."Channel Link"
+  } else {
+    ""
+  }
+
+  $highlight = if ($entry.PSObject.Properties["highlight"]) {
+    [bool]$entry.highlight
+  } else {
+    $false
+  }
+
+  if (-not $quote -or -not $name) {
     Write-Warning "Skipping testimonial missing quote or name."
     continue
   }
 
   $validTestimonials += [pscustomobject]@{
-    quote = [string]$entry.quote
-    name = [string]$entry.name
-    role = if ($entry.role) { [string]$entry.role } else { "" }
-    highlight = [bool]$entry.highlight
+    quote = $quote.Trim()
+    name = $name.Trim()
+    role = $role.Trim()
+    href = $link.Trim()
+    highlight = $highlight
   }
 }
 

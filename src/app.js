@@ -15,7 +15,7 @@ const fallbackContent = {
     description: "Testimonials shown here are manually reviewed before being added. Nothing submitted through the site is published automatically.",
     note: "Submitted testimonials are reviewed before being published.",
     links: [
-      { label: "Add A Testimonial", href: "https://forms.gle/ri7N54YHTj716EUN9" }
+      { label: "Add A Testimonial", href: "https://docs.google.com/forms/d/e/1FAIpQLSeYqKy912wcNfoccSGsmuORwy-bLLYnzdqq1A21U0yqab1LuQ/viewform?usp=dialog" }
     ]
   },
   footerSection: {
@@ -343,25 +343,33 @@ function renderTestimonials(testimonials) {
 
   const highlighted = safeTestimonials.find((item) => item.highlight) || safeTestimonials[0];
   const supporting = safeTestimonials.filter((item) => item !== highlighted);
+  const buildMeta = (item) => {
+    const name = escapeHtml(item.name || "Anonymous");
+    const role = escapeHtml(item.role || "");
+    const href = sanitizeExternalUrl(item.href, "");
+    const linkedName = href
+      ? `<a class="testimonial-link" href="${href}" target="_blank" rel="noopener noreferrer">${name}</a>`
+      : name;
+
+    return `${linkedName}${role ? ` • ${role}` : ""}`;
+  };
 
   spotlight.innerHTML = `
     <p class="card-label">Featured Testimonial</p>
     <blockquote class="spotlight-quote">"${escapeHtml(highlighted.quote || "")}"</blockquote>
-    <p class="testimonial-meta">${escapeHtml(highlighted.name || "Anonymous")}${highlighted.role ? ` • ${escapeHtml(highlighted.role)}` : ""}</p>
+    <p class="testimonial-meta">${buildMeta(highlighted)}</p>
   `;
 
   const listItems = supporting.length ? supporting : [highlighted];
 
   list.innerHTML = listItems.map((item) => {
     const quote = escapeHtml(item.quote || "");
-    const name = escapeHtml(item.name || "Anonymous");
-    const role = escapeHtml(item.role || "");
 
     return `
       <article class="catalog-card testimonial-card">
         <p class="card-label">Reference</p>
         <p class="testimonial-quote">"${quote}"</p>
-        <p class="testimonial-meta">${name}${role ? ` • ${role}` : ""}</p>
+        <p class="testimonial-meta">${buildMeta(item)}</p>
       </article>
     `;
   }).join("");

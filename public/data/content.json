@@ -9,8 +9,8 @@
                           "videoUrl":  "https://www.youtube.com/watch?v=TteKHjCsF-0\u0026list=PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
                           "playlistId":  "PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
                           "fallbackVideoIds":  [
-                                                    "TteKHjCsF-0"
-                                                ],
+                                                   "TteKHjCsF-0"
+                                               ],
                           "embedUrl":  "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
                           "thumbnailUrl":  "",
                           "publishedAt":  null,
@@ -89,7 +89,7 @@
                          "links":  [
                                        {
                                            "label":  "Add A Testimonial",
-                                           "href":  "https://forms.gle/ri7N54YHTj716EUN9"
+                                           "href":  "https://docs.google.com/forms/d/e/1FAIpQLSeYqKy912wcNfoccSGsmuORwy-bLLYnzdqq1A21U0yqab1LuQ/viewform?usp=dialog"
                                        }
                                    ]
                      },
@@ -243,8 +243,8 @@
                          "playlistId":  "PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw",
                          "startVideoId":  "TteKHjCsF-0",
                          "fallbackVideoIds":  [
-                                                   "TteKHjCsF-0"
-                                               ],
+                                                  "TteKHjCsF-0"
+                                              ],
                          "startIndex":  0
                      },
                      {
@@ -257,8 +257,8 @@
                          "playlistId":  "PLsjrSGMbKS6e4HAV7pizKUeirpHA5yIEe",
                          "startVideoId":  "CtJegGMrZX0",
                          "fallbackVideoIds":  [
-                                                   "CtJegGMrZX0"
-                                               ],
+                                                  "CtJegGMrZX0"
+                                              ],
                          "startIndex":  2
                      },
                      {
@@ -271,8 +271,8 @@
                          "playlistId":  "PLsjrSGMbKS6eQ0TO_aONiNAhxq6dUOXwg",
                          "startVideoId":  "ueKqiJ15mP8",
                          "fallbackVideoIds":  [
-                                                   "ueKqiJ15mP8"
-                                               ],
+                                                  "ueKqiJ15mP8"
+                                              ],
                          "startIndex":  0
                      }
                  ],
@@ -364,31 +364,22 @@
                       },
     "fanArtGallery":  [
                           {
-                              "title":  "Chlo And Ral 26 Valentines",
+                              "title":  "Happy Birthday!",
                               "artistName":  "Community Artist",
                               "description":  "Update this description when you want a more specific caption on the site.",
-                              "imageUrl":  "/fanart/Chlo_and_ral_26_valentines_20260213205253.png",
-                              "href":  "/fanart/Chlo_and_ral_26_valentines_20260213205253.png",
+                              "imageUrl":  "/fanart/Happy Birthday!.png",
+                              "href":  "/fanart/Happy Birthday!.png",
                               "ctaLabel":  "Open Art",
-                              "thumbnailAlt":  "Fan art for Chlo And Ral 26 Valentines"
+                              "thumbnailAlt":  "Fan art for Happy Birthday!"
                           },
                           {
-                              "title":  "Happy Birthday Ral",
+                              "title":  "Ralskies",
                               "artistName":  "Community Artist",
                               "description":  "Update this description when you want a more specific caption on the site.",
-                              "imageUrl":  "/fanart/Happy_Birthday_Ral_20251126204703.png",
-                              "href":  "/fanart/Happy_Birthday_Ral_20251126204703.png",
+                              "imageUrl":  "/fanart/Ralskies.png",
+                              "href":  "/fanart/Ralskies.png",
                               "ctaLabel":  "Open Art",
-                              "thumbnailAlt":  "Fan art for Happy Birthday Ral"
-                          },
-                          {
-                              "title":  "Sans Titre 127",
-                              "artistName":  "Community Artist",
-                              "description":  "Update this description when you want a more specific caption on the site.",
-                              "imageUrl":  "/fanart/Sans_titre_127_20260204145616.png",
-                              "href":  "/fanart/Sans_titre_127_20260204145616.png",
-                              "ctaLabel":  "Open Art",
-                              "thumbnailAlt":  "Fan art for Sans Titre 127"
+                              "thumbnailAlt":  "Fan art for Ralskies"
                           }
                       ],
     "collabSection":  {
@@ -450,21 +441,17 @@
                       },
     "testimonials":  [
                          {
-                             "quote":  "Working with Ralskies means getting more than a clean take. He brings character, phrasing, and intent that immediately makes the part feel more alive.",
-                             "name":  "Featured Collaborator",
-                             "role":  "Producer and Creative Partner",
+                             "quote":  "Having collaborated with Ral since early 2025, I\u0027ve seen him grow immensely as a singer, voice actor, and performer, as well overall personality. He\u0027s clear on delivery, has a professional work ethic, and open to growth. His Broadway musicality and editing skills make him a versatile collaborator. All in all, I\u0027m proud of how far he\u0027s come and excited to see where he goes next.",
+                             "name":  "ChlosettiaVA (KHLO)",
+                             "role":  "Creator",
+                             "href":  "https://www.youtube.com/channel/UCLp3NDinLdVolN1qwQXM__A",
                              "highlight":  true
                          },
                          {
-                             "quote":  "There is a clear performance instinct behind the voice. Even in collaborative material, the delivery still feels specific instead of generic.",
-                             "name":  "Creative Peer",
-                             "role":  "Music Creator",
-                             "highlight":  false
-                         },
-                         {
-                             "quote":  "The strongest thing about the work is that it sounds considered. The arrangement choices and tone always feel like they are serving an idea.",
-                             "name":  "Project Reviewer",
-                             "role":  "Curated Reference",
+                             "quote":  "Wolfy White Here!! I Gotta say it was a real magic! To work and collaborate with Ralskies!! 100000000/10 Would collaborate and work again with Ralskies for Future Projects!!!",
+                             "name":  "Wolfy White",
+                             "role":  "Creator",
+                             "href":  "https://youtube.com/@wolfywhite?si=Hy26eHWmYuSxbTg4",
                              "highlight":  false
                          }
                      ]
