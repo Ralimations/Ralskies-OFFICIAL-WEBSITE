@@ -8,6 +8,78 @@
     "thumbnailUrl": "",
     "publishedAt": null
   },
+  "heroSection": {
+    "eyebrow": "Online Musician • Vocalist • Digital Creator",
+    "title": "Ralskies turns covers and collaborations into character-driven vocal performances.",
+    "description": "Known for transformative covers, theatrical delivery, and emotionally charged arrangements, Ralskies blends online music culture with performance-first vocals. This page is for collaborators, mixers, producers, and fellow creators looking for a singer who brings personality to the track instead of just repeating the original.",
+    "links": [
+      {
+        "label": "Hear Latest Work",
+        "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+      },
+      {
+        "label": "Collaborate",
+        "href": "#collab"
+      },
+      {
+        "label": "Request A Song",
+        "href": "#support"
+      }
+    ],
+    "panel": {
+      "label": "Known For",
+      "title": "Theatrical covers, genderbent arrangements, Disney-style reinventions, and collaborative duets.",
+      "points": [
+        "Modern internet-native musicals and animation soundtracks",
+        "Male-key reworks and story-driven reinterpretations",
+        "Direct audience connection through YouTube and Discord"
+      ]
+    }
+  },
+  "aboutSection": {
+    "items": [
+      {
+        "eyebrow": "About",
+        "title": "A rising online musician with a voice built for emotion, story, and character.",
+        "description": "Ralskies is a vocalist and digital content creator who has built a dedicated online community through YouTube, Discord, and highly interactive music content. Recording from a home studio with accessible tools and reliable XLR gear, he focuses on the performance itself: phrasing, feeling, and a strong point of view on every song."
+      },
+      {
+        "eyebrow": "Why It Works",
+        "description": "The strongest collaborations come from creators who want more than a clean take. If the song needs theatrical expression, harmonies, emotional lift, or a reimagined angle, that is where the fit is strongest. Include the genre, references, timeline, budget, and the kind of vocal role you need.",
+        "links": [
+          {
+            "label": "YouTube",
+            "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+          },
+          {
+            "label": "Spotify",
+            "href": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b"
+          },
+          {
+            "label": "Collaboration Form",
+            "href": "#collab"
+          }
+        ]
+      }
+    ]
+  },
+  "featuredSection": {
+    "eyebrow": "Featured Works",
+    "title": "Curated highlights that show range, collaborators, and the strongest entry points.",
+    "description": "This section is curated as a portfolio layer, not a feed. Each piece is here because it shows a different angle of the work: current standard, collaboration value, and character-led range."
+  },
+  "proofSection": {
+    "eyebrow": "Proof & Testimonials",
+    "title": "References, reputation signals, and the clearest reasons collaborators take the work seriously.",
+    "description": "Testimonials shown here are manually reviewed before being added. Nothing submitted through the site is published automatically.",
+    "note": "Submitted testimonials are reviewed before being published.",
+    "links": [
+      {
+        "label": "Add A Testimonial",
+        "href": "https://forms.gle/ri7N54YHTj716EUN9"
+      }
+    ]
+  },
   "youtubeChannel": {
     "name": "Ralskies on YouTube",
     "channelId": "UCIt8eA8uvrDVbpta0pgIc5Q",
@@ -225,6 +297,58 @@
     "eyebrow": "Contact & Inquiries",
     "title": "Send a clear pitch, request, or project inquiry.",
     "description": "Use this for singing collaborations, voice acting, promotions, product inquiries, thumbnail art, fan projects, or any proposal with a clear idea and direction."
+  },
+  "footerSection": {
+    "brand": {
+      "eyebrow": "Ralskies",
+      "title": "Music, covers, collaborations, and community.",
+      "description": "Built as a direct home for listeners, collaborators, artists, and supporters who want to keep up with the work or reach out with something real."
+    },
+    "columns": [
+      {
+        "label": "Platforms",
+        "links": [
+          {
+            "label": "YouTube",
+            "href": "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q"
+          },
+          {
+            "label": "Spotify",
+            "href": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b"
+          },
+          {
+            "label": "TikTok",
+            "href": "https://www.tiktok.com/@ralskies"
+          },
+          {
+            "label": "Discord",
+            "href": "https://discord.gg/5yyhHJxfS2"
+          }
+        ]
+      },
+      {
+        "label": "Support",
+        "links": [
+          {
+            "label": "Request A Song",
+            "href": "https://ko-fi.com/ralskies"
+          },
+          {
+            "label": "Support On Ko-fi",
+            "href": "https://ko-fi.com/ralskies"
+          },
+          {
+            "label": "Fan Art",
+            "href": "#art"
+          },
+          {
+            "label": "Contact Form",
+            "href": "#collab"
+          }
+        ]
+      }
+    ],
+    "note": "Ralskies official website."
   },
   "testimonials": [
     {

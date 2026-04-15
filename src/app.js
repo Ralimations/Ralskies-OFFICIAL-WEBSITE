@@ -1,4 +1,83 @@
 const fallbackContent = {
+  featuredSection: {
+    eyebrow: "Featured Works",
+    title: "Curated highlights that show range, collaborators, and the strongest entry points.",
+    description: "This section is curated as a portfolio layer, not a feed. Each piece is here because it shows a different angle of the work: current standard, collaboration value, and character-led range."
+  },
+  proofSection: {
+    eyebrow: "Proof & Testimonials",
+    title: "References, reputation signals, and the clearest reasons collaborators take the work seriously.",
+    description: "Testimonials shown here are manually reviewed before being added. Nothing submitted through the site is published automatically.",
+    note: "Submitted testimonials are reviewed before being published.",
+    links: [
+      { label: "Add A Testimonial", href: "https://forms.gle/ri7N54YHTj716EUN9" }
+    ]
+  },
+  footerSection: {
+    brand: {
+      eyebrow: "Ralskies",
+      title: "Music, covers, collaborations, and community.",
+      description: "Built as a direct home for listeners, collaborators, artists, and supporters who want to keep up with the work or reach out with something real."
+    },
+    columns: [
+      {
+        label: "Platforms",
+        links: [
+          { label: "YouTube", href: "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q" },
+          { label: "Spotify", href: "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b" },
+          { label: "TikTok", href: "https://www.tiktok.com/@ralskies" },
+          { label: "Discord", href: "https://discord.gg/5yyhHJxfS2" }
+        ]
+      },
+      {
+        label: "Support",
+        links: [
+          { label: "Request A Song", href: "https://ko-fi.com/ralskies" },
+          { label: "Support On Ko-fi", href: "https://ko-fi.com/ralskies" },
+          { label: "Fan Art", href: "#art" },
+          { label: "Contact Form", href: "#collab" }
+        ]
+      }
+    ],
+    note: "Ralskies official website."
+  },
+  heroSection: {
+    eyebrow: "Online Musician • Vocalist • Digital Creator",
+    title: "Ralskies turns covers and collaborations into character-driven vocal performances.",
+    description: "Known for transformative covers, theatrical delivery, and emotionally charged arrangements, Ralskies blends online music culture with performance-first vocals. This page is for collaborators, mixers, producers, and fellow creators looking for a singer who brings personality to the track instead of just repeating the original.",
+    links: [
+      { label: "Hear Latest Work", href: "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q" },
+      { label: "Collaborate", href: "#collab" },
+      { label: "Request A Song", href: "#support" }
+    ],
+    panel: {
+      label: "Known For",
+      title: "Theatrical covers, genderbent arrangements, Disney-style reinventions, and collaborative duets.",
+      points: [
+        "Modern internet-native musicals and animation soundtracks",
+        "Male-key reworks and story-driven reinterpretations",
+        "Direct audience connection through YouTube and Discord"
+      ]
+    }
+  },
+  aboutSection: {
+    items: [
+      {
+        eyebrow: "About",
+        title: "A rising online musician with a voice built for emotion, story, and character.",
+        description: "Ralskies is a vocalist and digital content creator who has built a dedicated online community through YouTube, Discord, and highly interactive music content. Recording from a home studio with accessible tools and reliable XLR gear, he focuses on the performance itself: phrasing, feeling, and a strong point of view on every song."
+      },
+      {
+        eyebrow: "Why It Works",
+        description: "The strongest collaborations come from creators who want more than a clean take. If the song needs theatrical expression, harmonies, emotional lift, or a reimagined angle, that is where the fit is strongest. Include the genre, references, timeline, budget, and the kind of vocal role you need.",
+        links: [
+          { label: "YouTube", href: "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q" },
+          { label: "Spotify", href: "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b" },
+          { label: "Collaboration Form", href: "#collab" }
+        ]
+      }
+    ]
+  },
   platformsSection: {
     eyebrow: "Platforms",
     title: "Where to listen, watch, and keep up.",
@@ -226,6 +305,23 @@ function setText(id, value) {
   }
 }
 
+function resolveHref(value, fallback) {
+  if (typeof value !== "string") {
+    return fallback;
+  }
+
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return fallback;
+  }
+
+  if (trimmed.startsWith("#")) {
+    return trimmed;
+  }
+
+  return sanitizeExternalUrl(trimmed, fallback);
+}
+
 function sanitizeImageUrl(value, fallback) {
   if (typeof value !== "string") {
     return fallback;
@@ -303,6 +399,36 @@ function renderFeaturedWorks(featuredWorks) {
   }).join("");
 }
 
+function renderFeaturedSection(featuredSection) {
+  const safeSection = featuredSection
+    ? featuredSection
+    : fallbackContent.featuredSection;
+
+  setText("featured-eyebrow", safeSection.eyebrow || fallbackContent.featuredSection.eyebrow);
+  setText("featured-title", safeSection.title || fallbackContent.featuredSection.title);
+  setText("featured-description", safeSection.description || fallbackContent.featuredSection.description);
+}
+
+function renderProofSection(proofSection) {
+  const safeSection = proofSection
+    ? proofSection
+    : fallbackContent.proofSection;
+
+  setText("proof-eyebrow", safeSection.eyebrow || fallbackContent.proofSection.eyebrow);
+  setText("proof-title", safeSection.title || fallbackContent.proofSection.title);
+  setText("proof-description", safeSection.description || fallbackContent.proofSection.description);
+  setText("proof-note", safeSection.note || fallbackContent.proofSection.note);
+
+  const link = document.getElementById("proof-link-1");
+  const linkConfig = safeSection.links?.[0] || fallbackContent.proofSection.links[0];
+  if (link && linkConfig) {
+    link.textContent = linkConfig.label || link.textContent;
+    link.href = resolveHref(linkConfig.href, link.getAttribute("href") || "#");
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener noreferrer");
+  }
+}
+
 function renderGearSection(gearSection) {
   const safeSection = gearSection && Array.isArray(gearSection.items) && gearSection.items.length
     ? gearSection
@@ -371,7 +497,7 @@ function renderSupportSection(supportSection) {
       }
 
       anchor.textContent = link.label || anchor.textContent;
-      const href = sanitizeExternalUrl(link.href, anchor.getAttribute("href") || "#");
+      const href = resolveHref(link.href, anchor.getAttribute("href") || "#");
       anchor.href = href;
 
       if (href.startsWith("#")) {
@@ -422,7 +548,7 @@ function renderFanArtSection(fanArtSection) {
       }
 
       anchor.textContent = link.label || anchor.textContent;
-      const href = sanitizeExternalUrl(link.href, anchor.getAttribute("href") || "#");
+      const href = resolveHref(link.href, anchor.getAttribute("href") || "#");
       anchor.href = href;
 
       if (href.startsWith("#")) {
@@ -523,10 +649,16 @@ function renderPlatformsSection(platformsSection, youtubeChannel, spotify) {
     }
 
     anchor.textContent = link.label || anchor.textContent;
-    const href = sanitizeExternalUrl(link.href, anchor.getAttribute("href") || "#");
+    const href = resolveHref(link.href, anchor.getAttribute("href") || "#");
     anchor.href = href;
-    anchor.setAttribute("target", "_blank");
-    anchor.setAttribute("rel", "noopener noreferrer");
+
+    if (href.startsWith("#")) {
+      anchor.removeAttribute("target");
+      anchor.removeAttribute("rel");
+    } else {
+      anchor.setAttribute("target", "_blank");
+      anchor.setAttribute("rel", "noopener noreferrer");
+    }
   };
 
   setCardLabel("platform-card-1", youtubeItem.label);
@@ -545,6 +677,111 @@ function renderPlatformsSection(platformsSection, youtubeChannel, spotify) {
   setText("platform-card-3-title", tiktokItem.title || fallbackContent.platformsSection.items[2].title);
   setText("platform-card-3-description", tiktokItem.description || fallbackContent.platformsSection.items[2].description);
   setAnchor("platform-card-3-link-1", tiktokItem.links?.[0]);
+}
+
+function renderHeroSection(heroSection, youtubeChannel) {
+  const safeSection = heroSection
+    ? heroSection
+    : fallbackContent.heroSection;
+
+  setText("hero-eyebrow", safeSection.eyebrow || fallbackContent.heroSection.eyebrow);
+  setText("hero-title", safeSection.title || fallbackContent.heroSection.title);
+  setText("hero-description", safeSection.description || fallbackContent.heroSection.description);
+  setText("hero-panel-label", safeSection.panel?.label || fallbackContent.heroSection.panel.label);
+  setText("hero-panel-title", safeSection.panel?.title || fallbackContent.heroSection.panel.title);
+
+  const points = Array.isArray(safeSection.panel?.points) ? safeSection.panel.points : fallbackContent.heroSection.panel.points;
+  points.slice(0, 3).forEach((point, index) => {
+    setText(`hero-point-${index + 1}`, point || "");
+  });
+
+  const setAction = (id, link) => {
+    const anchor = document.getElementById(id);
+    if (!anchor || !link) {
+      return;
+    }
+
+    anchor.textContent = link.label || anchor.textContent;
+    const href = id === "hero-cta-1"
+      ? resolveHref(youtubeChannel.channelUrl || link.href, anchor.getAttribute("href") || "#")
+      : resolveHref(link.href, anchor.getAttribute("href") || "#");
+    anchor.href = href;
+
+    if (href.startsWith("#")) {
+      anchor.removeAttribute("target");
+      anchor.removeAttribute("rel");
+    } else {
+      anchor.setAttribute("target", "_blank");
+      anchor.setAttribute("rel", "noopener noreferrer");
+    }
+  };
+
+  setAction("hero-cta-1", safeSection.links?.[0] || fallbackContent.heroSection.links[0]);
+  setAction("hero-cta-2", safeSection.links?.[1] || fallbackContent.heroSection.links[1]);
+  setAction("hero-cta-3", safeSection.links?.[2] || fallbackContent.heroSection.links[2]);
+}
+
+function renderAboutSection(aboutSection) {
+  const safeSection = aboutSection && Array.isArray(aboutSection.items) && aboutSection.items.length
+    ? aboutSection
+    : fallbackContent.aboutSection;
+
+  const firstCard = safeSection.items[0] || fallbackContent.aboutSection.items[0];
+  const secondCard = safeSection.items[1] || fallbackContent.aboutSection.items[1];
+
+  setText("about-card-1-eyebrow", firstCard.eyebrow || fallbackContent.aboutSection.items[0].eyebrow);
+  setText("about-card-1-title", firstCard.title || fallbackContent.aboutSection.items[0].title);
+  setText("about-card-1-description", firstCard.description || fallbackContent.aboutSection.items[0].description);
+
+  setText("about-card-2-eyebrow", secondCard.eyebrow || fallbackContent.aboutSection.items[1].eyebrow);
+  setText("about-card-2-description", secondCard.description || fallbackContent.aboutSection.items[1].description);
+
+  const collabLink = document.getElementById("about-card-2-link-3");
+  const collabConfig = secondCard.links?.[2];
+  if (collabLink && collabConfig) {
+    collabLink.textContent = collabConfig.label || collabLink.textContent;
+    collabLink.href = resolveHref(collabConfig.href, collabLink.getAttribute("href") || "#");
+    if (collabLink.href.startsWith("#")) {
+      collabLink.removeAttribute("target");
+      collabLink.removeAttribute("rel");
+    }
+  }
+}
+
+function renderFooterSection(footerSection) {
+  const safeSection = footerSection
+    ? footerSection
+    : fallbackContent.footerSection;
+
+  setText("footer-brand-eyebrow", safeSection.brand?.eyebrow || fallbackContent.footerSection.brand.eyebrow);
+  setText("footer-brand-title", safeSection.brand?.title || fallbackContent.footerSection.brand.title);
+  setText("footer-brand-description", safeSection.brand?.description || fallbackContent.footerSection.brand.description);
+  setText("footer-note", safeSection.note || fallbackContent.footerSection.note);
+
+  const columns = Array.isArray(safeSection.columns) ? safeSection.columns : fallbackContent.footerSection.columns;
+  columns.slice(0, 2).forEach((column, columnIndex) => {
+    setText(`footer-column-${columnIndex + 1}-label`, column.label || "");
+
+    const links = Array.isArray(column.links) ? column.links : [];
+    links.slice(0, 4).forEach((link, linkIndex) => {
+      const anchor = document.getElementById(`footer-column-${columnIndex + 1}-link-${linkIndex + 1}`);
+      if (!anchor) {
+        return;
+      }
+
+      anchor.textContent = link.label || anchor.textContent;
+      const href = resolveHref(link.href, anchor.getAttribute("href") || "#");
+      anchor.href = href;
+
+      if (href.startsWith("#")) {
+        anchor.removeAttribute("target");
+        anchor.removeAttribute("rel");
+      } else {
+        anchor.setAttribute("target", "_blank");
+        anchor.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
 }
 
 function renderCollabSection(collabSection) {
@@ -581,7 +818,16 @@ function setHref(id, value) {
   const node = document.getElementById(id);
   if (node) {
     const fallback = node.getAttribute("data-fallback-href") || "https://www.youtube.com/";
-    node.href = sanitizeExternalUrl(value, fallback);
+    const href = resolveHref(value, fallback);
+    node.href = href;
+
+    if (href.startsWith("#")) {
+      node.removeAttribute("target");
+      node.removeAttribute("rel");
+    } else if (node.tagName === "A") {
+      node.setAttribute("target", "_blank");
+      node.setAttribute("rel", "noopener noreferrer");
+    }
   }
 }
 
@@ -723,7 +969,12 @@ function setupActiveNav() {
 }
 
 function renderContent(content) {
+  const heroSection = content.heroSection || fallbackContent.heroSection;
+  const aboutSection = content.aboutSection || fallbackContent.aboutSection;
+  const featuredSection = content.featuredSection || fallbackContent.featuredSection;
+  const proofSection = content.proofSection || fallbackContent.proofSection;
   const collabSection = content.collabSection || fallbackContent.collabSection;
+  const footerSection = content.footerSection || fallbackContent.footerSection;
   const platformsSection = content.platformsSection || fallbackContent.platformsSection;
   const youtubeChannel = content.youtubeChannel || fallbackContent.youtubeChannel;
   const genreSection = content.genreSection || fallbackContent.genreSection;
@@ -754,6 +1005,10 @@ function renderContent(content) {
   setHref("spotify-link", spotify.artistUrl || fallbackContent.spotify.artistUrl);
   setHref("spotify-link-hero", spotify.artistUrl || fallbackContent.spotify.artistUrl);
 
+  renderHeroSection(heroSection, youtubeChannel);
+  renderAboutSection(aboutSection);
+  renderFeaturedSection(featuredSection);
+  renderProofSection(proofSection);
   renderCollabSection(collabSection);
   renderPlatformsSection(platformsSection, youtubeChannel, spotify);
   renderGenreSection(genreSection);
@@ -763,6 +1018,7 @@ function renderContent(content) {
   renderGearSection(gearSection);
   renderFanArtSection(fanArtSection);
   renderTestimonials(testimonials);
+  renderFooterSection(footerSection);
 }
 
 fetch("/data/content.json")
