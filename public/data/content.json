@@ -7,6 +7,10 @@
                           "description":  "This is the featured release currently representing Ralskies\u0027 strongest work on the site.",
                           "videoId":  "TteKHjCsF-0",
                           "videoUrl":  "https://www.youtube.com/watch?v=TteKHjCsF-0\u0026list=PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
+                          "playlistId":  "PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
+                          "fallbackVideoIds":  [
+                                                    "TteKHjCsF-0"
+                                                ],
                           "embedUrl":  "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
                           "thumbnailUrl":  "",
                           "publishedAt":  null,
@@ -238,6 +242,9 @@
                          "ctaLabel":  "Open Playlist",
                          "playlistId":  "PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw",
                          "startVideoId":  "TteKHjCsF-0",
+                         "fallbackVideoIds":  [
+                                                   "TteKHjCsF-0"
+                                               ],
                          "startIndex":  0
                      },
                      {
@@ -249,6 +256,9 @@
                          "ctaLabel":  "Open Playlist",
                          "playlistId":  "PLsjrSGMbKS6e4HAV7pizKUeirpHA5yIEe",
                          "startVideoId":  "CtJegGMrZX0",
+                         "fallbackVideoIds":  [
+                                                   "CtJegGMrZX0"
+                                               ],
                          "startIndex":  2
                      },
                      {
@@ -260,6 +270,9 @@
                          "ctaLabel":  "Open Playlist",
                          "playlistId":  "PLsjrSGMbKS6eQ0TO_aONiNAhxq6dUOXwg",
                          "startVideoId":  "ueKqiJ15mP8",
+                         "fallbackVideoIds":  [
+                                                   "ueKqiJ15mP8"
+                                               ],
                          "startIndex":  0
                      }
                  ],

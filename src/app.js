@@ -73,6 +73,8 @@ const fallbackContent = {
     description: "This is the featured release currently representing Ralskies' strongest work on the site.",
     videoId: "TteKHjCsF-0",
     videoUrl: "https://www.youtube.com/watch?v=TteKHjCsF-0&list=PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
+    playlistId: "PLsjrSGMbKS6cFI7RYZA8RMmSR47TUOpIz",
+    fallbackVideoIds: ["TteKHjCsF-0"],
     embedUrl: "https://www.youtube-nocookie.com/embed/TteKHjCsF-0",
     thumbnailUrl: "https://i.ytimg.com/vi/TteKHjCsF-0/hqdefault.jpg",
     publishedAt: null,
@@ -259,6 +261,7 @@ const fallbackContent = {
       ctaLabel: "Open Playlist",
       playlistId: "PLsjrSGMbKS6fVfxLAC6X4iT58GuSmzNAw",
       startVideoId: "TteKHjCsF-0",
+      fallbackVideoIds: ["TteKHjCsF-0"],
       startIndex: 0
     },
     {
@@ -270,6 +273,7 @@ const fallbackContent = {
       ctaLabel: "Open Playlist",
       playlistId: "PLsjrSGMbKS6e4HAV7pizKUeirpHA5yIEe",
       startVideoId: "CtJegGMrZX0",
+      fallbackVideoIds: ["CtJegGMrZX0"],
       startIndex: 2
     },
     {
@@ -281,6 +285,7 @@ const fallbackContent = {
       ctaLabel: "Open Playlist",
       playlistId: "PLsjrSGMbKS6eQ0TO_aONiNAhxq6dUOXwg",
       startVideoId: "ueKqiJ15mP8",
+      fallbackVideoIds: ["ueKqiJ15mP8"],
       startIndex: 0
     }
   ],
@@ -415,6 +420,19 @@ function buildYoutubeThumbnail(videoId, fallback) {
   return `https://i.ytimg.com/vi/${safeVideoId}/hqdefault.jpg`;
 }
 
+function normalizeVideoIds(values, fallbackVideoId = "") {
+  const list = Array.isArray(values) ? values : [];
+  const normalized = list
+    .map((value) => typeof value === "string" ? value.trim() : "")
+    .filter(Boolean);
+
+  if (!normalized.length && fallbackVideoId) {
+    return [fallbackVideoId];
+  }
+
+  return normalized;
+}
+
 function renderFeaturedWorks(featuredWorks) {
   const list = document.getElementById("featured-works-list");
   if (!list) {
@@ -491,6 +509,8 @@ function renderReleases(releases) {
     const ctaLabel = escapeHtml(item.ctaLabel || "Open Release");
     const playlistId = escapeHtml(item.playlistId || "");
     const startVideoId = escapeHtml(item.startVideoId || "");
+    const fallbackVideoIds = normalizeVideoIds(item.fallbackVideoIds, startVideoId);
+    const fallbackVideoIdsAttr = escapeHtml(fallbackVideoIds.join(","));
     const startIndex = Number.isFinite(item.startIndex) ? item.startIndex : 0;
     const playerId = `release-player-${index + 1}`;
     const cardId = `release-card-${index + 1}`;
@@ -522,6 +542,7 @@ function renderReleases(releases) {
           id="${playerId}"
           data-playlist-id="${playlistId}"
           data-start-video-id="${initialVideoId}"
+          data-fallback-video-ids="${fallbackVideoIdsAttr}"
           data-start-index="${startIndex}"
           data-card-id="${cardId}"
           aria-hidden="true"
@@ -596,8 +617,13 @@ function renderLatestRelease(latestYoutube) {
     safeRelease.videoUrl,
     fallbackContent.latestYoutube.videoUrl
   );
+  const latestFallbackIds = normalizeVideoIds(
+    safeRelease.fallbackVideoIds,
+    safeRelease.videoId || fallbackContent.latestYoutube.videoId
+  );
+  const latestVideoId = latestFallbackIds[0] || fallbackContent.latestYoutube.videoId;
   const thumbnailFallback = buildYoutubeThumbnail(
-    safeRelease.videoId,
+    latestVideoId,
     fallbackContent.latestYoutube.thumbnailUrl
   );
   const thumbnailUrl = sanitizeImageUrl(
@@ -611,11 +637,14 @@ function renderLatestRelease(latestYoutube) {
     image.alt = safeRelease.title
       ? `Thumbnail for ${safeRelease.title}`
       : "Thumbnail for the latest featured release";
+    image.dataset.videoId = latestVideoId;
   }
 
   const releaseLink = document.getElementById("latest-release-link");
   if (releaseLink) {
-    releaseLink.href = releaseUrl;
+    releaseLink.href = `https://www.youtube.com/watch?v=${encodeURIComponent(latestVideoId)}`;
+    releaseLink.dataset.playlistId = safeRelease.playlistId || "";
+    releaseLink.dataset.videoIds = latestFallbackIds.join(",");
   }
 
   const releaseCta = document.getElementById("latest-release-cta");
@@ -1316,6 +1345,10 @@ function setupReleasePlaylists() {
       const playlistId = node.getAttribute("data-playlist-id");
       const startIndex = Number(node.getAttribute("data-start-index")) || 0;
       const startVideoId = node.getAttribute("data-start-video-id");
+      const fallbackVideoIds = normalizeVideoIds(
+        (node.getAttribute("data-fallback-video-ids") || "").split(","),
+        startVideoId || ""
+      );
       const playerKey = node.id;
       const cardId = node.getAttribute("data-card-id");
 
@@ -1346,8 +1379,8 @@ function setupReleasePlaylists() {
               const items = Array.isArray(playlist) ? playlist : [];
 
               if (items.length) {
-                const currentIndex = Math.min(Math.max(startIndex, 0), items.length - 1);
-                playlistState.set(cardId, { items, currentIndex, startVideoId });
+              const currentIndex = Math.min(Math.max(startIndex, 0), items.length - 1);
+                playlistState.set(cardId, { items, currentIndex, startVideoId, fallbackVideoIds });
                 syncPlaylistCard(cardId);
                 return;
               }
@@ -1358,9 +1391,10 @@ function setupReleasePlaylists() {
               }
 
               playlistState.set(cardId, {
-                items: startVideoId ? [startVideoId] : [],
+                items: fallbackVideoIds,
                 currentIndex: 0,
-                startVideoId
+                startVideoId,
+                fallbackVideoIds
               });
               syncPlaylistCard(cardId);
             };
@@ -1402,7 +1436,8 @@ function setupReleasePlaylists() {
         playlistState.set(cardId, {
           items: [fallbackVideoId],
           currentIndex: 0,
-          startVideoId: fallbackVideoId
+          startVideoId: fallbackVideoId,
+          fallbackVideoIds: [fallbackVideoId]
         });
       }
 
@@ -1505,6 +1540,84 @@ function setupVideoModal() {
   }
 }
 
+function setupLatestReleasePlaylist() {
+  const releaseLink = document.getElementById("latest-release-link");
+  const releaseImage = document.getElementById("latest-release-image");
+  if (!releaseLink || !releaseImage) {
+    return;
+  }
+
+  const playlistId = releaseLink.dataset.playlistId;
+  const fallbackVideoIds = normalizeVideoIds(
+    (releaseLink.dataset.videoIds || "").split(","),
+    releaseImage.dataset.videoId || ""
+  );
+
+  if (!playlistId || !fallbackVideoIds.length) {
+    return;
+  }
+
+  loadYoutubeIframeApi().then((YT) => {
+    const hiddenHostId = "latest-release-hidden-player";
+    let host = document.getElementById(hiddenHostId);
+    if (!host) {
+      host = document.createElement("div");
+      host.id = hiddenHostId;
+      host.className = "playlist-player playlist-player-hidden";
+      host.setAttribute("aria-hidden", "true");
+      document.body.appendChild(host);
+    }
+
+    if (playlistPlayers.has(hiddenHostId)) {
+      return;
+    }
+
+    const player = new YT.Player(hiddenHostId, {
+      width: 1,
+      height: 1,
+      host: "https://www.youtube-nocookie.com",
+      events: {
+        onReady: () => {
+          if (typeof player.mute === "function") {
+            player.mute();
+          }
+
+          if (typeof player.cuePlaylist === "function") {
+            player.cuePlaylist({
+              listType: "playlist",
+              list: playlistId,
+              index: 0
+            });
+          }
+
+          const trySync = (attempt = 0) => {
+            const playlist = typeof player.getPlaylist === "function" ? player.getPlaylist() : null;
+            const items = Array.isArray(playlist) ? playlist : [];
+            const videoId = items[0] || fallbackVideoIds[0];
+
+            if (videoId) {
+              releaseLink.href = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+              releaseImage.src = buildYoutubeThumbnail(videoId, releaseImage.src);
+              releaseImage.dataset.videoId = videoId;
+              return;
+            }
+
+            if (attempt < 10) {
+              window.setTimeout(() => trySync(attempt + 1), 250);
+            }
+          };
+
+          trySync();
+        }
+      }
+    });
+
+    playlistPlayers.set(hiddenHostId, player);
+  }).catch(() => {
+    // Keep fallback thumbnail and link if the live playlist cannot be read.
+  });
+}
+
 function renderContent(content) {
   const latestYoutube = content.latestYoutube || fallbackContent.latestYoutube;
   const heroSection = content.heroSection || fallbackContent.heroSection;
@@ -1559,6 +1672,7 @@ function renderContent(content) {
   renderFeaturedWorks(featuredWorks);
   renderReleases(releases);
   setupReleasePlaylists();
+  setupLatestReleasePlaylist();
   setupVideoModal();
   renderSupportSection(supportSection);
   renderGearSection(gearSection);
