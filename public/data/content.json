@@ -373,6 +373,15 @@
                               "thumbnailAlt":  "Fan art for Happy Birthday!"
                           },
                           {
+                              "title":  "Ralskies! From Ericka",
+                              "artistName":  "Community Artist",
+                              "description":  "Update this description when you want a more specific caption on the site.",
+                              "imageUrl":  "/fanart/Ralskies! From Ericka.png",
+                              "href":  "/fanart/Ralskies! From Ericka.png",
+                              "ctaLabel":  "Open Art",
+                              "thumbnailAlt":  "Fan art for Ralskies! From Ericka"
+                          },
+                          {
                               "title":  "Ralskies",
                               "artistName":  "Community Artist",
                               "description":  "Update this description when you want a more specific caption on the site.",

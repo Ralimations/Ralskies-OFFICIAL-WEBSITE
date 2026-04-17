@@ -52,6 +52,9 @@ npm run preview
 - Edit fan art metadata in `public/data/fanart.json`
 - Update testimonials from either `public/data/testimonials.json` or a local spreadsheet export placed in the repo root
 - Run `powershell -ExecutionPolicy Bypass -File .\scripts\update_fanarts_and_testimonials.ps1` to sync fan art and testimonials into `public/data/content.json`
+- Use `npm run sync-content` as a shorter version of that sync command
+- Use `npm run push-content` to sync content, build, stage fan art/testimonial files, commit, and push from the terminal
+- To set a custom commit message, run `powershell -ExecutionPolicy Bypass -File .\scripts\update_and_push_content.ps1 -CommitMessage "Update fanart"`
 - Rebuild locally with `npm run build` after content edits
 - Push changes to the branch that your host uses for deployment
 
