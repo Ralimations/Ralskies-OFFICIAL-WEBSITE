@@ -31,7 +31,8 @@ const fallbackContent = {
           { label: "YouTube", href: "https://www.youtube.com/channel/UCIt8eA8uvrDVbpta0pgIc5Q" },
           { label: "Spotify", href: "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8?nd=1&dlsi=41715c668e97408b" },
           { label: "TikTok", href: "https://www.tiktok.com/@ralskies" },
-          { label: "Discord", href: "https://discord.gg/5yyhHJxfS2" }
+          { label: "Discord", href: "https://discord.gg/5yyhHJxfS2" },
+          { label: "Instagram", href: "https://www.instagram.com/ralskies.artist/" }
         ]
       },
       {
@@ -126,6 +127,14 @@ const fallbackContent = {
         description: "Short-form content, clips, and updates from the Ralskies side of the internet.",
         links: [
           { label: "Open TikTok", href: "https://www.tiktok.com/@ralskies" }
+        ]
+      },
+      {
+        label: "Instagram",
+        title: "Ralskies on Instagram",
+        description: "Art, visual updates, and behind-the-scenes posts from Ralskies.",
+        links: [
+          { label: "Open Instagram", href: "https://www.instagram.com/ralskies.artist/" }
         ]
       }
     ]
@@ -946,6 +955,7 @@ function renderPlatformsSection(platformsSection, youtubeChannel, spotify) {
   const youtubeItem = safeSection.items[0] || fallbackContent.platformsSection.items[0];
   const spotifyItem = safeSection.items[1] || fallbackContent.platformsSection.items[1];
   const tiktokItem = safeSection.items[2] || fallbackContent.platformsSection.items[2];
+  const instagramItem = safeSection.items[3] || fallbackContent.platformsSection.items[3];
 
   const setCardLabel = (cardId, labelText) => {
     const card = document.getElementById(cardId);
@@ -990,6 +1000,11 @@ function renderPlatformsSection(platformsSection, youtubeChannel, spotify) {
   setText("platform-card-3-title", tiktokItem.title || fallbackContent.platformsSection.items[2].title);
   setText("platform-card-3-description", tiktokItem.description || fallbackContent.platformsSection.items[2].description);
   setAnchor("platform-card-3-link-1", tiktokItem.links?.[0]);
+
+  setCardLabel("platform-card-4", instagramItem.label);
+  setText("platform-card-4-title", instagramItem.title || fallbackContent.platformsSection.items[3].title);
+  setText("platform-card-4-description", instagramItem.description || fallbackContent.platformsSection.items[3].description);
+  setAnchor("platform-card-4-link-1", instagramItem.links?.[0]);
 }
 
 function renderHeroSection(heroSection, youtubeChannel) {
@@ -1076,7 +1091,7 @@ function renderFooterSection(footerSection) {
     setText(`footer-column-${columnIndex + 1}-label`, column.label || "");
 
     const links = Array.isArray(column.links) ? column.links : [];
-    links.slice(0, 4).forEach((link, linkIndex) => {
+    links.slice(0, 5).forEach((link, linkIndex) => {
       const anchor = document.getElementById(`footer-column-${columnIndex + 1}-link-${linkIndex + 1}`);
       if (!anchor) {
         return;

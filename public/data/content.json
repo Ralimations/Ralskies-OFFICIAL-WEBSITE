@@ -148,6 +148,17 @@
                                                                  "href":  "https://www.tiktok.com/@ralskies"
                                                              }
                                                          ]
+                                           },
+                                           {
+                                               "label":  "Instagram",
+                                               "title":  "Ralskies on Instagram",
+                                               "description":  "Art, visual updates, and behind-the-scenes posts from Ralskies.",
+                                               "links":  [
+                                                             {
+                                                                 "label":  "Open Instagram",
+                                                                 "href":  "https://www.instagram.com/ralskies.artist/"
+                                                             }
+                                                         ]
                                            }
                                        ]
                          },
@@ -421,6 +432,10 @@
                                                             {
                                                                 "label":  "Discord",
                                                                 "href":  "https://discord.gg/5yyhHJxfS2"
+                                                            },
+                                                            {
+                                                                "label":  "Instagram",
+                                                                "href":  "https://www.instagram.com/ralskies.artist/"
                                                             }
                                                         ]
                                           },
