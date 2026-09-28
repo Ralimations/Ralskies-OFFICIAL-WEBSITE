@@ -1,29 +1,82 @@
 ﻿[
     {
         "title":  "Happy Birthday!",
-        "artistName":  "Community Artist",
-        "description":  "Update this description when you want a more specific caption on the site.",
+        "artistName":  "",
+        "description":  "",
         "imageUrl":  "/fanart/Happy Birthday!.png",
+        "thumbnailUrl":  "/fanart/thumbnails/happy-birthday.jpg",
         "href":  "/fanart/Happy Birthday!.png",
-        "ctaLabel":  "Open Art",
-        "thumbnailAlt":  "Fan art for Happy Birthday!"
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Happy Birthday!"
     },
     {
         "title":  "Ralskies! From Ericka",
-        "artistName":  "Community Artist",
-        "description":  "Update this description when you want a more specific caption on the site.",
+        "artistName":  "Ericka",
+        "description":  "",
         "imageUrl":  "/fanart/Ralskies! From Ericka.png",
+        "thumbnailUrl":  "/fanart/thumbnails/ralskies-from-ericka.jpg",
         "href":  "/fanart/Ralskies! From Ericka.png",
-        "ctaLabel":  "Open Art",
-        "thumbnailAlt":  "Fan art for Ralskies! From Ericka"
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Ralskies! From Ericka"
     },
     {
         "title":  "Ralskies",
-        "artistName":  "Community Artist",
-        "description":  "Update this description when you want a more specific caption on the site.",
+        "artistName":  "",
+        "description":  "",
         "imageUrl":  "/fanart/Ralskies.png",
+        "thumbnailUrl":  "/fanart/thumbnails/ralskies.jpg",
         "href":  "/fanart/Ralskies.png",
-        "ctaLabel":  "Open Art",
-        "thumbnailAlt":  "Fan art for Ralskies"
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Ralskies"
+    },
+    {
+        "title":  "Celebration Red",
+        "artistName":  "",
+        "description":  "",
+        "imageUrl":  "/fanart/fanart-celebration-red.png",
+        "thumbnailUrl":  "/fanart/thumbnails/fanart-celebration-red.jpg",
+        "href":  "/fanart/fanart-celebration-red.png",
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Celebration Red"
+    },
+    {
+        "title":  "Community Illustration",
+        "artistName":  "",
+        "description":  "",
+        "imageUrl":  "/fanart/fanart-community-illustration.png",
+        "thumbnailUrl":  "/fanart/thumbnails/fanart-community-illustration.jpg",
+        "href":  "/fanart/fanart-community-illustration.png",
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Community Illustration"
+    },
+    {
+        "title":  "Dark Microphone",
+        "artistName":  "",
+        "description":  "",
+        "imageUrl":  "/fanart/fanart-dark-microphone.png",
+        "thumbnailUrl":  "/fanart/thumbnails/fanart-dark-microphone.jpg",
+        "href":  "/fanart/fanart-dark-microphone.png",
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Dark Microphone"
+    },
+    {
+        "title":  "Feature Illustration",
+        "artistName":  "",
+        "description":  "",
+        "imageUrl":  "/fanart/fanart-feature-illustration.png",
+        "thumbnailUrl":  "/fanart/thumbnails/fanart-feature-illustration.jpg",
+        "href":  "/fanart/fanart-feature-illustration.png",
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Feature Illustration"
+    },
+    {
+        "title":  "Warm Portrait",
+        "artistName":  "",
+        "description":  "",
+        "imageUrl":  "/fanart/fanart-warm-portrait.png",
+        "thumbnailUrl":  "/fanart/thumbnails/fanart-warm-portrait.jpg",
+        "href":  "/fanart/fanart-warm-portrait.png",
+        "ctaLabel":  "View artwork",
+        "thumbnailAlt":  "Fan art: Warm Portrait"
     }
 ]

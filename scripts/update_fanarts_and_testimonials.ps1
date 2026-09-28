@@ -27,7 +27,7 @@ function Read-JsonFile([string]$Path) {
     throw "Missing file: $Path"
   }
 
-  return Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
+  return Get-Content -LiteralPath $Path -Raw -Encoding UTF8 | ConvertFrom-Json
 }
 
 function ConvertTo-NormalizedArray([object]$Value) {
@@ -60,7 +60,7 @@ $testimonials = if ($testimonialCsv) {
 }
 $fanartFiles = @(Get-ChildItem -LiteralPath $fanartDir -File | Where-Object {
   $_.Extension -in @(".png", ".jpg", ".jpeg", ".webp")
-} | Sort-Object Name)
+} | Sort-Object @{ Expression = { $_.Name -like "fanart-*" } }, Name)
 
 $validTestimonials = @()
 foreach ($entry in $testimonials) {
@@ -143,12 +143,26 @@ foreach ($entry in $fanartEntries) {
 }
 
 $validFanart = @()
+$seenArtHashes = [System.Collections.Generic.HashSet[string]]::new()
 foreach ($file in $fanartFiles) {
+  # Keep the original named/credited entry when an upload is an exact duplicate.
+  $artStream = [System.IO.File]::OpenRead($file.FullName)
+  $artHasher = [System.Security.Cryptography.SHA256]::Create()
+  try {
+    $artHash = [System.Convert]::ToBase64String($artHasher.ComputeHash($artStream))
+  } finally {
+    $artStream.Dispose()
+    $artHasher.Dispose()
+  }
+  if (-not $seenArtHashes.Add($artHash)) {
+    continue
+  }
   $publicPath = "/fanart/$($file.Name)"
   $existing = $fanartByImage[$publicPath]
   $title = if ($existing -and $existing.title) { [string]$existing.title } else { Convert-FileNameToTitle $file.Name }
-  $artistName = if ($existing -and $existing.artistName) { [string]$existing.artistName } else { "Community Artist" }
-  $description = if ($existing -and $existing.description) { [string]$existing.description } else { "Update this description when you want a more specific caption on the site." }
+  $artistName = if ($existing -and $existing.artistName) { [string]$existing.artistName } else { "" }
+  $description = if ($existing -and $existing.description) { [string]$existing.description } else { "" }
+  $thumbnailUrl = if ($existing -and $existing.thumbnailUrl) { [string]$existing.thumbnailUrl } else { $publicPath }
   $href = if ($existing -and $existing.href) { [string]$existing.href } else { $publicPath }
   $ctaLabel = if ($existing -and $existing.ctaLabel) { [string]$existing.ctaLabel } else { "Open Art" }
   $thumbnailAlt = if ($existing -and $existing.thumbnailAlt) { [string]$existing.thumbnailAlt } else { "Fan art for $title" }
@@ -158,6 +172,7 @@ foreach ($file in $fanartFiles) {
     artistName = $artistName
     description = $description
     imageUrl = $publicPath
+    thumbnailUrl = $thumbnailUrl
     href = $href
     ctaLabel = $ctaLabel
     thumbnailAlt = $thumbnailAlt

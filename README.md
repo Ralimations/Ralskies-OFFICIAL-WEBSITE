@@ -1,80 +1,39 @@
-# Ralskies Official Website
+# Ralskies artist website
 
-This repository contains the vanilla Vite portfolio site for Ralskies. The site is now managed as a static front end with manually curated content stored in `public/data/content.json`.
+A responsive static portfolio for the Iligan City singer and performer. The site keeps its original animated indigo, electric-blue, and gold visual identity while making performance bookings, collaborations, and brand inquiries easier to find.
 
-## What is included
-
-- Vanilla Vite portfolio homepage
-- Formspree-backed collaboration/contact form
-- Centralized site content in `public/data/content.json`
-- Static-host config for Vercel and Netlify
-- Security headers for static deployment
-
-## Project structure
-
-- `index.html`: Vite HTML entry
-- `src/`: front-end source files (`main.js`, `app.js`, `form-validation.js`, `styles.css`)
-- `public/`: static assets copied into the production build
-- `public/data/content.json`: centralized content source for hero, sections, links, and featured work
-- `vercel.json`: Vercel build settings and security headers
-- `netlify.toml`: Netlify build settings and security headers
-
-## Setup
-
-1. Install dependencies:
+## Run locally
 
 ```powershell
-npm install
-```
-
-2. Start the Vite dev server:
-
-```powershell
+npm ci
 npm run dev
-```
-
-3. Build the site for production:
-
-```powershell
+npm test
 npm run build
-```
-
-4. Preview the production build locally:
-
-```powershell
 npm run preview
 ```
 
-## Content editing
+## Content and artwork
 
-- Update visible site copy, links, platforms, support options, and section content in `public/data/content.json`
-- Put fan art images in `public/fanart/`
-- Edit fan art metadata in `public/data/fanart.json`
-- Update testimonials from either `public/data/testimonials.json` or a local spreadsheet export placed in the repo root
-- Run `powershell -ExecutionPolicy Bypass -File .\scripts\update_fanarts_and_testimonials.ps1` to sync fan art and testimonials into `public/data/content.json`
-- Use `npm run sync-content` as a shorter version of that sync command
-- Use `npm run push-content` to sync content, build, stage fan art/testimonial files, commit, and push from the terminal
-- To set a custom commit message, run `powershell -ExecutionPolicy Bypass -File .\scripts\update_and_push_content.ps1 -CommitMessage "Update fanart"`
-- Rebuild locally with `npm run build` after content edits
-- Push changes to the branch that your host uses for deployment
+- `index.html` contains site copy, service descriptions, artist biography, and inquiry form.
+- `public/data/content.json` supplies the five playlists, social links, testimonials, and fan-art gallery.
+- `src/render-content.js` safely renders data into static HTML during development and production builds.
+- `public/photos/` stores supplied performer photos; `public/fanart/` stores original community artwork and smaller gallery previews; `public/designs/` stores the original design artwork and optimized playlist thumbnails.
+- The remaining archive in `All Ralskies Fanart and Photos/` is the source ZIP. Its individual photos, fan art, and designs have been moved into their public asset folders.
+
+Keep the thumbnail entries in `public/data/fanart.json` linked to the full original in `public/fanart/`. Artist credits remain blank unless the provided material gives a clear name. Edit copy directly in `index.html`; edit playlists and links in `public/data/content.json`.
+
+`npm run sync-content` refreshes fan art and testimonials from their JSON files. `npm run push-content` is a publishing helper that stages content, builds, commits, and pushes. Review its Git changes before using it.
+
+## Media and inquiries
+
+The selector lazy-loads one YouTube playlist at a time and keeps direct playlist links available. Playlist artwork uses the supplied blue-and-gold designs. The Spotify player also loads only when requested.
+
+The page follows the navigation order: About, Music, Community, and Work with me. About combines the artist introduction and Kimusikero/Kuya Kim mentorship details. Playlist covers retain their square proportions; loaded videos use a widescreen player. Community art uses a native scrolling carousel with buttons and keyboard controls. Content syncing omits exact duplicate artwork while keeping the original files.
+
+The supplied contour image is a design reference only and is not rendered on the page. The backdrop uses animated SVG contours and CSS gradients, respects reduced motion, and pauses animation in hidden tabs. The original portrait is displayed with soft CSS edges; it has not been replaced by a generated face or a transparent cutout.
+
+The form uses the existing Formspree endpoint, `https://formspree.io/f/xbdqlryk`. The receiving account has not been verified here. Confirm it routes to the intended inbox before relying on it. The visible email fallback is `ralskiesartist@gmail.com`. Rates, availability, travel, and equipment requirements are discussed individually.
 
 ## Deployment
 
-1. Import the repository into Vercel or Netlify.
-2. Use `npm run build` as the build command.
-3. Use `dist` as the output/publish directory.
-4. Confirm the first deployment succeeds.
-5. Push future content or code changes to your production branch to trigger redeploys.
-
-## Notes
-
-- The site is a static build. There is no active YouTube API sync or scheduled content automation in this repository.
-- The contact form posts to Formspree. Keep the configured endpoint current in `index.html`.
-- YouTube embeds use `youtube-nocookie.com` to reduce third-party tracking.
-
-## Security checklist
-
-- Do not hardcode secrets or API keys in the repo.
-- Keep Formspree spam protection enabled.
-- Review external links in `public/data/content.json` before deploying.
-- Keep the repository private if you no longer need public source visibility.
+Build with `npm run build` and publish `dist` with Vercel or Netlify. Their security policies allow the YouTube and Spotify embeds and Formspree submission. Search indexing is enabled. Set the build environment variable `SITE_URL` to the live site origin to add its canonical URL, social-preview URL, and absolute social image URL.

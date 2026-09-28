@@ -1,9 +1,9 @@
-$ErrorActionPreference = "Stop"
-
 param(
   [string]$CommitMessage = "",
   [switch]$SkipBuild
 )
+
+$ErrorActionPreference = "Stop"
 
 function Get-ProjectRoot {
   return (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
@@ -19,6 +19,9 @@ Set-Location -LiteralPath $projectRoot
 
 Run-Step "Syncing fan art and testimonials" {
   & powershell -ExecutionPolicy Bypass -File ".\scripts\update_fanarts_and_testimonials.ps1"
+  if ($LASTEXITCODE -ne 0) {
+    throw "Content sync failed."
+  }
 }
 
 if (-not $SkipBuild) {
@@ -31,7 +34,7 @@ if (-not $SkipBuild) {
 }
 
 Run-Step "Staging content updates" {
-  & git add -- "public/data/content.json" "public/data/fanart.json" "public/data/testimonials.json" "public/fanart"
+  & git add -- "public/data/content.json" "public/data/fanart.json" "public/data/testimonials.json" "public/fanart" "public/designs/thumbnails"
   if ($LASTEXITCODE -ne 0) {
     throw "git add failed."
   }
