@@ -134,7 +134,7 @@ body::after { will-change: transform; }
 #inquiry-form legend { padding: 0 6px; color: var(--text); font-size: .8rem; }
 #inquiry-form legend span,.optional { color: var(--muted); font-size: .75rem; }
 #inquiry-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-#inquiry-form .button.primary { justify-self: start; min-height: 46px; padding: 9px 20px; background: linear-gradient(135deg,var(--accent),#f6cf87); color: #100f25; }
+#inquiry-form .button.primary { justify-self: start; align-self: start; min-width: 160px; max-width: 100%; min-height: 48px; padding: 12px 24px; border-radius: 12px; font: inherit; font-size: .9rem; font-weight: 600; line-height: 1.4; background: linear-gradient(135deg,var(--accent),#f6cf87); color: #100f25; }
 #inquiry-form .form-note { margin: 0; color: var(--muted); font-size: .73rem; line-height: 1.65; }
 #form-status:empty { display: none; }
 #form-status.is-error { color: #ffb3b3; }
