@@ -28,7 +28,7 @@ Keep the thumbnail entries in `public/data/fanart.json` linked to the full origi
 
 The selector lazy-loads one YouTube playlist at a time and keeps direct playlist links available. Playlist artwork uses the supplied blue-and-gold designs. The Spotify player also loads only when requested.
 
-The page follows the navigation order: About, Music, Community, and Work with me. About combines the artist introduction and Kimusikero/Kuya Kim mentorship details. Playlist covers retain their square proportions; loaded videos use a widescreen player. Community art uses a native scrolling carousel with buttons and keyboard controls. Content syncing omits exact duplicate artwork while keeping the original files.
+The page follows the navigation order: About, Music, Community, Donate, and Work with me. The donation section links directly to https://ko-fi.com/ralskies. About combines the artist introduction and Kimusikero/Kuya Kim mentorship details. Playlist covers retain their square proportions; loaded videos use a widescreen player. Community art uses a native scrolling carousel with buttons and keyboard controls. Content syncing omits exact duplicate artwork while keeping the original files.
 
 The supplied contour image is a design reference only and is not rendered on the page. The backdrop uses animated SVG contours and CSS gradients, respects reduced motion, and pauses animation in hidden tabs. The original portrait is displayed with soft CSS edges; it has not been replaced by a generated face or a transparent cutout.
 

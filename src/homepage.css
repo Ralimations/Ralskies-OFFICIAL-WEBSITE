@@ -10,6 +10,14 @@
 .site-nav .nav-links { align-items: center; gap: clamp(12px, 2vw, 24px); }
 .site-nav .nav-contact { border: 1px solid rgba(246, 207, 135, .24); padding: 10px 16px; border-radius: 999px; white-space: nowrap; }
 .menu-toggle { font: inherit; }
+@media(min-width:641px) and (max-width:800px) {
+ .site-nav { padding-inline: 16px; gap: 12px; }
+ .site-nav .wordmark { font-size: 1.6rem; gap: 8px; }
+ .site-nav .site-logo { width: 28px; height: 28px; }
+ .site-nav .nav-links { gap: 12px; }
+ .site-nav .nav-links a { font-size: .78rem; }
+ .site-nav .nav-contact { padding-inline: 10px; }
+}
 .page-shell > #main { position: relative; }
 
 .contour-stage { contain: paint; }
@@ -85,6 +93,19 @@ body::after { will-change: transform; }
 .spotify-player .button { min-height: 42px; padding: 8px 14px; font-size: .8rem; }
 
 #services { padding-top: 35px; }
+.donation-card { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); align-items: center; gap: clamp(24px,5vw,64px); padding: clamp(24px,5vw,52px); border: 1px solid rgba(246,207,135,.3); border-radius: 26px; background: radial-gradient(ellipse at top right,rgba(233,176,79,.12),transparent 65%),linear-gradient(135deg,rgba(24,30,73,.8),rgba(10,12,34,.85)); }
+.donation-copy h2 { margin: 0; font-size: clamp(2.2rem,4.2vw,3.4rem); line-height: 1.08; }
+.donation-copy > p:last-child { max-width: 49ch; margin: 20px 0 0; color: var(--muted); font-size: .94rem; line-height: 1.8; }
+.donation-action { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.donation-icon { width: 64px; height: 64px; color: var(--accent-strong); }
+.donation-button { min-height: 48px; max-width: 100%; gap: 10px; background: linear-gradient(135deg,var(--accent),#f6cf87); color: #100f25; border: 1px solid transparent; }
+.donation-button:hover { color: #100f25; box-shadow: 0 0 23px rgba(244,184,75,.32); }
+.donation-action p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.7; }
+@media(max-width:640px) {
+ .donation-card { grid-template-columns: 1fr; }
+ .donation-action { padding-top: 24px; border-top: 1px solid var(--line); }
+ .donation-button { width: 100%; }
+}
 .service-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 19px; }
 .service-card { position: relative; display: flex; flex-direction: column; min-width: 0; overflow: hidden; padding: 25px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(180deg,rgba(16,18,50,.68),rgba(10,12,34,.64)); box-shadow: var(--shadow); backdrop-filter: blur(12px); }
 .service-number { color: var(--accent-strong); font: 1.9rem "Instrument Serif",serif; }

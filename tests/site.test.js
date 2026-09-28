@@ -54,7 +54,7 @@ test("built content exposes all supplied playlists, social links, and contact wi
   );
   assert.equal(document.querySelectorAll(".testimonial").length, 2);
   assert.equal(document.querySelectorAll(".fanart-grid figure").length, content.fanArtGallery.length);
-  assert.deepEqual([...document.querySelectorAll("#navigation a")].map(a => a.hash), ["#about", "#music", "#community", "#services"]);
+  assert.deepEqual([...document.querySelectorAll("#navigation a")].map(a => a.hash), ["#about", "#music", "#community", "#donate", "#services"]);
   assert.equal(document.querySelector("main section").id, "about");
   assert.equal(document.querySelector(".brand-artwork"), null);
   assert.match(document.querySelector(".artist-credentials").textContent, /Kimusikero/);
