@@ -1,0 +1,65 @@
+{
+  "artist": "Ralskies",
+  "name": "Ralskies | Remote Male Vocalist",
+  "location": "Iligan City, Philippines",
+  "timezone": "Asia/Manila",
+  "email": "ralskiesartist@gmail.com",
+  "url": "https://ralskies.vercel.app/hire/",
+  "description": "Filipino singer-songwriter and musical theatre performer offering remote lead vocals, Broadway-style character singing, harmonies, and creative collaborations.",
+  "availability": "Inquire for availability; no guaranteed booking or turnaround",
+  "pricing": "Custom quote based on scope and recording requirements; pricing not fixed",
+  "services": [
+    {
+      "id": "lead-vocals",
+      "name": "Remote Lead Vocals",
+      "description": "Expressive lead vocals for original music, ballads, pop, demos and recorded performances",
+      "deliverables": "Scope, revisions, stems and usage rights agreed per project"
+    },
+    {
+      "id": "character-singing",
+      "name": "Character & Musical Theatre Singing",
+      "description": "Theatrical vocals for animation, game songs, original musicals and character-driven pieces",
+      "deliverables": "Character references, range, revisions and rights agreed per project"
+    },
+    {
+      "id": "harmonies",
+      "name": "Backing Vocals and Harmonies",
+      "description": "Doubles, backing vocals, harmony arrangements and layered vocal parts",
+      "deliverables": "Number of parts and stems agreed per project"
+    },
+    {
+      "id": "collaborations",
+      "name": "Duets & Creative Collaborations",
+      "description": "Guest vocals, original-song features and collaborative covers; publishing and usage negotiated beforehand",
+      "deliverables": "Credit, copyright, royalties and distribution agreed per collaboration"
+    }
+  ],
+  "samples": [
+    {
+      "name": "Live theatre performances",
+      "url": "https://www.youtube.com/playlist?list=PLsjrSGMbKS6eGffhN7kSyJrNB1ahne2py"
+    },
+    {
+      "name": "Musicals and fandom vocals",
+      "url": "https://www.youtube.com/playlist?list=PLsjrSGMbKS6f_G4QqAon0twbqxrCpMudu"
+    },
+    {
+      "name": "Collaborations",
+      "url": "https://www.youtube.com/playlist?list=PLsjrSGMbKS6eO9XIlAYYG7VEPKRvL_Wae"
+    },
+    {
+      "name": "Original music",
+      "url": "https://open.spotify.com/artist/6jNlrnxeDiFy1rC8kViie8"
+    }
+  ],
+  "contact": {
+    "method": "website form or email",
+    "email": "ralskiesartist@gmail.com",
+    "form": "https://ralskies.vercel.app/hire/#inquire"
+  },
+  "socials": {
+    "youtube": "https://www.youtube.com/@Ralskies",
+    "instagram": "https://www.instagram.com/ralskies.artist/",
+    "tiktok": "https://www.tiktok.com/@ralskies"
+  }
+}

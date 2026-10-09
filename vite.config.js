@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { renderContent, escapeHtml } from "./src/render-content.js";
 
 export default defineConfig({
@@ -36,6 +37,7 @@ export default defineConfig({
     },
   ],
   build: {
+    rollupOptions: { input: { main: resolve(process.cwd(), "index.html"), hire: resolve(process.cwd(), "hire/index.html") } },
     outDir: "dist",
     emptyOutDir: true,
   },
